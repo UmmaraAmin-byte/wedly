@@ -1,0 +1,24 @@
+{
+  "Islamabad": {
+    "vendorTypes": ["Decoration", "Catering", "Photography", "Venue", "Entertainment", "Transport", "Seating"],
+    "budgetSplits": {
+      "Venue": 25,
+      "Catering": 30,
+      "Decoration": 15,
+      "Photography": 10,
+      "Shopping": 12,
+      "Miscellaneous": 8
+    }
+  },
+  "Rawalpindi": {
+    "vendorTypes": ["Decoration", "Catering", "Photography", "Venue", "Entertainment", "Transport", "Seating"],
+    "budgetSplits": {
+      "Venue": 25,
+      "Catering": 30,
+      "Decoration": 15,
+      "Photography": 10,
+      "Shopping": 12,
+      "Miscellaneous": 8
+    }
+  }
+}

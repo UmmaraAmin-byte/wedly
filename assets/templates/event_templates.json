@@ -1,0 +1,56 @@
+{
+  "mehndi": {
+    "name": "Mehndi",
+    "vendors": ["Decoration", "Catering", "Photography", "Venue", "Entertainment"],
+    "checklist": ["Choose Mehndi outfit", "Book Mehndi venue", "Plan decor and seating", "Select music and entertainment", "Confirm caterer and menu", "Arrange dholki and accessories", "Finalize event schedule", "Confirm photography coverage"],
+    "tasks": ["Confirm Mehndi menu", "Share Mehndi timeline with family"]
+  },
+  "barat": {
+    "name": "Barat",
+    "vendors": ["Decoration", "Catering", "Photography", "Transport", "Seating"],
+    "checklist": ["Choose Barat outfit", "Book Barat venue", "Confirm baraat transport", "Plan stage and floral decor", "Finalize guest seating", "Confirm caterer and menu", "Book photography and video", "Share Barat day schedule"],
+    "tasks": ["Confirm Barat transport route", "Finalize stage setup"]
+  },
+  "walima": {
+    "name": "Walima",
+    "vendors": ["Catering", "Photography", "Venue", "Seating"],
+    "checklist": ["Choose Walima outfit", "Book Walima venue", "Finalize Walima menu", "Confirm guest seating plan", "Arrange welcome signage", "Confirm photography coverage", "Plan family photo list", "Share Walima schedule"],
+    "tasks": ["Confirm Walima headcount", "Review venue setup"]
+  },
+  "nikah": {
+    "name": "Nikah",
+    "vendors": ["Venue", "Catering", "Photography", "Decoration"],
+    "checklist": ["Confirm Nikah date and time", "Arrange officiant", "Prepare required documents", "Choose Nikah outfits", "Confirm witnesses", "Plan ceremony seating", "Arrange simple refreshments", "Confirm photography coverage"],
+    "tasks": ["Confirm Nikah paperwork", "Share ceremony details with witnesses"]
+  },
+  "sangeet": {
+    "name": "Sangeet",
+    "vendors": ["Venue", "Catering", "Photography", "Entertainment", "Decoration"],
+    "checklist": ["Choose Sangeet venue", "Plan performances", "Prepare music playlist", "Arrange sound equipment", "Confirm refreshments", "Plan stage decor", "Set performance order", "Confirm photography coverage"],
+    "tasks": ["Confirm performers", "Test music and sound"]
+  },
+  "haldi": {
+    "name": "Haldi",
+    "vendors": ["Venue", "Catering", "Photography", "Decoration"],
+    "checklist": ["Choose Haldi location", "Prepare Haldi setup", "Choose outfits", "Arrange flowers and decor", "Confirm refreshments", "Set up seating", "Prepare cleanup supplies", "Plan family photos"],
+    "tasks": ["Confirm Haldi supplies", "Prepare event space"]
+  },
+  "rehearsal_dinner": {
+    "name": "Rehearsal Dinner",
+    "vendors": ["Venue", "Catering", "Photography", "Seating"],
+    "checklist": ["Choose dinner venue", "Confirm guest count", "Select dinner menu", "Arrange seating", "Share travel details", "Plan welcome toast", "Confirm dietary needs", "Set dinner schedule"],
+    "tasks": ["Confirm dinner reservations", "Share arrival details"]
+  },
+  "ceremony": {
+    "name": "Ceremony",
+    "vendors": ["Venue", "Photography", "Seating", "Decoration"],
+    "checklist": ["Confirm ceremony venue", "Finalize ceremony order", "Confirm officiant", "Arrange seating", "Prepare required documents", "Plan entry music", "Confirm photography coverage", "Share arrival instructions"],
+    "tasks": ["Confirm ceremony participants", "Print ceremony schedule"]
+  },
+  "reception": {
+    "name": "Reception",
+    "vendors": ["Venue", "Catering", "Photography", "Entertainment", "Seating", "Decoration"],
+    "checklist": ["Book reception venue", "Confirm menu and caterer", "Plan seating chart", "Choose reception music", "Plan decor and lighting", "Confirm photography schedule", "Prepare welcome signage", "Share reception timeline"],
+    "tasks": ["Confirm reception run of show", "Finalize seating assignments"]
+  }
+}
