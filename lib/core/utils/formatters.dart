@@ -16,6 +16,15 @@ int guestTotal(Iterable<int> people) =>
 int remainingVendorPayment(int price, int advance) => price - advance;
 int remainingBudget(int total, int actual) => total - actual;
 bool isCategoryOverspent(int estimated, int actual) => actual > estimated;
+
+bool isTaskOverdue(DateTime? dueDate, String status, {DateTime? today}) {
+  if (dueDate == null || status == 'done') return false;
+  final now = today ?? DateTime.now();
+  final dueDay = DateTime(dueDate.year, dueDate.month, dueDate.day);
+  final todayStart = DateTime(now.year, now.month, now.day);
+  return dueDay.isBefore(todayStart);
+}
+
 double eventProgress(int done, int total) => progressRatio(done, total);
 double shoppingProgress(int purchased, int total) =>
     progressRatio(purchased, total);

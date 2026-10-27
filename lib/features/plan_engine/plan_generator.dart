@@ -95,6 +95,16 @@ class PlanGenerator {
                     sortOrder: Value(index),
                   ),
                 );
+        if (existing?.isArchived == true) {
+          await (db.update(
+            db.events,
+          )..where((t) => t.id.equals(eventId))).write(
+            EventsCompanion(
+              isArchived: const Value(false),
+              updatedAt: Value(DateTime.now()),
+            ),
+          );
+        }
         eventIds[generated.key] = eventId;
         for (var i = 0; i < generated.checklist.length; i++) {
           final key = '${generated.key}_check_${i + 1}';

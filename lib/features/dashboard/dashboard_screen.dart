@@ -179,7 +179,9 @@ class _DashboardContent extends ConsumerWidget {
                               .where((task) => task.status != 'done')
                               .toList()
                             ..sort((a, b) {
-                              if (a.dueDate == null) return 1;
+                              if (a.dueDate == null) {
+                                return b.dueDate == null ? 0 : 1;
+                              }
                               if (b.dueDate == null) return -1;
                               return a.dueDate!.compareTo(b.dueDate!);
                             });
@@ -205,8 +207,7 @@ class _DashboardContent extends ConsumerWidget {
                                     ? const Text('No due date')
                                     : Text('Due ${formatDate(task.dueDate!)}'),
                                 trailing:
-                                    task.dueDate != null &&
-                                        task.dueDate!.isBefore(DateTime.now())
+                                    isTaskOverdue(task.dueDate, task.status)
                                     ? const Chip(label: Text('Overdue'))
                                     : null,
                               ),
@@ -330,23 +331,19 @@ class _OverallProgress extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final repository = ref.read(repositoryProvider);
-    return FutureBuilder<List<List<ChecklistItem>>>(
-      future: Future.wait(
-        events.map((event) => repository.watchChecklist(event.id).first),
-      ),
-      builder: (context, snapshot) {
-        final checklists = snapshot.data ?? const <List<ChecklistItem>>[];
-        final allItems =
-            checklists.fold<int>(0, (sum, list) => sum + list.length) +
-            tasks.length;
-        final completed =
-            checklists.fold<int>(
-              0,
-              (sum, list) => sum + list.where((item) => item.isDone).length,
-            ) +
+    final repository = ref.watch(repositoryProvider);
+
+    Widget progressForEvent(
+      int eventIndex,
+      int completedChecklistItems,
+      int totalChecklistItems,
+    ) {
+      if (eventIndex == events.length) {
+        final totalItems = totalChecklistItems + tasks.length;
+        final completedItems =
+            completedChecklistItems +
             tasks.where((task) => task.status == 'done').length;
-        final ratio = progressRatio(completed, allItems);
+        final ratio = progressRatio(completedItems, totalItems);
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -373,13 +370,28 @@ class _OverallProgress extends ConsumerWidget {
             ProgressMeter(value: ratio, label: 'Overall wedding plan progress'),
             const SizedBox(height: 6),
             Text(
-              '$completed of $allItems planning items complete',
+              '$completedItems of $totalItems planning items complete',
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
         );
-      },
-    );
+      }
+
+      final event = events[eventIndex];
+      return StreamBuilder<List<ChecklistItem>>(
+        stream: repository.watchChecklist(event.id),
+        builder: (context, snapshot) {
+          final items = snapshot.data ?? const <ChecklistItem>[];
+          return progressForEvent(
+            eventIndex + 1,
+            completedChecklistItems + items.where((item) => item.isDone).length,
+            totalChecklistItems + items.length,
+          );
+        },
+      );
+    }
+
+    return progressForEvent(0, 0, 0);
   }
 }
 
@@ -428,3 +440,4 @@ class _SectionHeading extends StatelessWidget {
     ],
   );
 }
+

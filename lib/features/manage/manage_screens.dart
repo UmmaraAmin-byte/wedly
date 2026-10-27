@@ -168,10 +168,18 @@ class _TasksScreenState extends ConsumerState<TasksScreen> {
                             [
                               if (task.dueDate != null)
                                 'Due ${formatDate(task.dueDate!)}',
+                              if (isTaskOverdue(task.dueDate, task.status))
+                                'Overdue',
                               if (task.assignee?.isNotEmpty == true)
                                 'Assigned to ${task.assignee}',
                               task.status == 'in_progress' ? 'In progress' : '',
                             ].where((part) => part.isNotEmpty).join(' · '),
+                            style: isTaskOverdue(task.dueDate, task.status)
+                                ? TextStyle(
+                                    color: Colors.red.shade800,
+                                    fontWeight: FontWeight.w600,
+                                  )
+                                : null,
                           ),
                           trailing: PopupMenuButton<String>(
                             tooltip: 'Task actions',
@@ -721,6 +729,7 @@ class GuestsScreen extends ConsumerStatefulWidget {
 class _GuestsScreenState extends ConsumerState<GuestsScreen> {
   final _search = TextEditingController();
   String _rsvp = 'all';
+  String _group = 'all';
   @override
   void dispose() {
     _search.dispose();
@@ -747,13 +756,24 @@ class _GuestsScreenState extends ConsumerState<GuestsScreen> {
           stream: repository.watchGuests(wedding.id),
           builder: (context, snapshot) {
             final all = snapshot.data ?? const <Guest>[];
+            final groups =
+                all
+                    .map((guest) => guest.groupName?.trim())
+                    .whereType<String>()
+                    .where((group) => group.isNotEmpty)
+                    .toSet()
+                    .toList()
+                  ..sort();
+            final selectedGroup = groups.contains(_group) ? _group : 'all';
             final guests = all
                 .where(
                   (guest) =>
                       guest.name.toLowerCase().contains(
                         _search.text.toLowerCase(),
                       ) &&
-                      (_rsvp == 'all' || guest.rsvp == _rsvp),
+                      (_rsvp == 'all' || guest.rsvp == _rsvp) &&
+                      (selectedGroup == 'all' ||
+                          guest.groupName?.trim() == selectedGroup),
                 )
                 .toList();
             final invited = guestTotal(all.map((guest) => guest.peopleCount));
@@ -801,6 +821,22 @@ class _GuestsScreenState extends ConsumerState<GuestsScreen> {
                   ],
                   onChanged: (value) => setState(() => _rsvp = value ?? 'all'),
                 ),
+                const SizedBox(height: 10),
+                DropdownButtonFormField<String>(
+                  value: selectedGroup,
+                  decoration: const InputDecoration(labelText: 'Guest group'),
+                  items: [
+                    const DropdownMenuItem(
+                      value: 'all',
+                      child: Text('All groups'),
+                    ),
+                    ...groups.map(
+                      (group) =>
+                          DropdownMenuItem(value: group, child: Text(group)),
+                    ),
+                  ],
+                  onChanged: (value) => setState(() => _group = value ?? 'all'),
+                ),
                 const SizedBox(height: 14),
                 if (all.isEmpty)
                   EmptyState(
@@ -817,7 +853,10 @@ class _GuestsScreenState extends ConsumerState<GuestsScreen> {
                     buttonText: 'Clear Filter',
                     onPressed: () {
                       _search.clear();
-                      setState(() => _rsvp = 'all');
+                      setState(() {
+                        _rsvp = 'all';
+                        _group = 'all';
+                      });
                     },
                   )
                 else
@@ -881,11 +920,12 @@ class _GuestsScreenState extends ConsumerState<GuestsScreen> {
   }) async {
     final repository = ref.read(repositoryProvider);
     final events = await repository.watchEvents(wedding.id).first;
-    final selected = ValueNotifier<Set<int>>(
-      guest == null
-          ? <int>{}
-          : (await repository.getGuestEvents(guest.id)).toSet(),
-    );
+    if (!context.mounted) return;
+    final guestEventIds = guest == null
+        ? <int>[]
+        : await repository.getGuestEvents(guest.id);
+    if (!context.mounted) return;
+    final selected = ValueNotifier<Set<int>>(guestEventIds.toSet());
     final name = TextEditingController(text: guest?.name ?? '');
     final group = TextEditingController(text: guest?.groupName ?? '');
     final people = TextEditingController(text: '${guest?.peopleCount ?? 1}');

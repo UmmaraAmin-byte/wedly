@@ -7,6 +7,7 @@ import '../../core/app_providers.dart';
 import '../../core/db/app_database.dart';
 import '../../core/widgets/common.dart';
 import '../onboarding/onboarding_screens.dart';
+import '../plan_engine/plan_engine.dart';
 import '../plan_engine/plan_generator.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -104,7 +105,6 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
   List<Event> _events = [];
   final Set<String> _selectedKeys = {};
   final Map<String, String> _custom = {};
-  final Map<int, bool> _archiveChoice = {};
   bool _loading = true;
 
   @override
@@ -126,8 +126,7 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
       _wedding = wedding;
       _events = events;
       for (final event in events) {
-        if (event.templateKey != null) _selectedKeys.add(event.templateKey!);
-        _archiveChoice[event.id] = false;
+        _selectedKeys.add(_eventSelectionKey(event));
       }
       _loading = false;
     });
@@ -156,14 +155,14 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
       ),
     );
     controller.dispose();
+    if (!mounted) return;
     if (name == null || name.isEmpty) return;
     if (_events.any((e) => e.name.toLowerCase() == name.toLowerCase()) ||
         _custom.values.any((e) => e.toLowerCase() == name.toLowerCase())) {
       showMessage(context, 'Enter an event name that is not already listed.');
       return;
     }
-    final key =
-        'custom_${name.toLowerCase().replaceAll(RegExp(r'[^a-z0-9]+'), '_').replaceAll(RegExp(r'^_|_$'), '')}';
+    final key = customEventTemplateKey(name);
     setState(() {
       _custom[key] = name;
       _selectedKeys.add(key);
@@ -173,21 +172,14 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
   Future<void> _save() async {
     final wedding = _wedding;
     if (wedding == null) return;
-    if (_selectedKeys.isEmpty &&
-        _events.where((e) => !_archiveChoice[e.id]!).isEmpty) {
+    if (_selectedKeys.isEmpty) {
       showMessage(context, 'Select at least one event.');
       return;
     }
-    final activeKeys = _events
-        .map((e) => e.templateKey)
-        .whereType<String>()
-        .toSet();
+    final activeKeys = _events.map(_eventSelectionKey).toSet();
     final added = _selectedKeys.difference(activeKeys).toList();
     final removed = _events
-        .where(
-          (e) =>
-              e.templateKey != null && !_selectedKeys.contains(e.templateKey),
-        )
+        .where((event) => !_selectedKeys.contains(_eventSelectionKey(event)))
         .toList();
     if (added.isNotEmpty || removed.isNotEmpty) {
       final accepted =
@@ -211,6 +203,7 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
             ),
           ) ??
           false;
+      if (!mounted) return;
       if (!accepted) return;
       final repo = ref.read(repositoryProvider);
       for (final event in removed) {
@@ -235,7 +228,9 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
               ),
             ) ??
             false;
+        if (!mounted) return;
         if (archive) await repo.archiveEvent(event.id, true);
+        if (!mounted) return;
       }
       if (added.isNotEmpty) {
         try {
@@ -290,6 +285,21 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
                     : _selectedKeys.remove(entry.key),
               ),
             ),
+          for (final event in _events.where(
+            (event) =>
+                event.templateKey == null ||
+                !eventOptions.containsKey(event.templateKey),
+          ))
+            CheckboxListTile(
+              value: _selectedKeys.contains(_eventSelectionKey(event)),
+              title: Text(event.name),
+              subtitle: const Text('Custom event'),
+              onChanged: (value) => setState(
+                () => value == true
+                    ? _selectedKeys.add(_eventSelectionKey(event))
+                    : _selectedKeys.remove(_eventSelectionKey(event)),
+              ),
+            ),
           for (final entry in _custom.entries)
             CheckboxListTile(
               value: _selectedKeys.contains(entry.key),
@@ -318,3 +328,6 @@ class _EditEventsScreenState extends ConsumerState<EditEventsScreen> {
     );
   }
 }
+
+String _eventSelectionKey(Event event) =>
+    event.templateKey ?? 'existing_event_${event.id}';

@@ -11,86 +11,128 @@ class $WeddingsTable extends Weddings with TableInfo<$WeddingsTable, Wedding> {
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _weddingDateMeta =
-      const VerificationMeta('weddingDate');
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _weddingDateMeta = const VerificationMeta(
+    'weddingDate',
+  );
   @override
   late final GeneratedColumn<DateTime> weddingDate = GeneratedColumn<DateTime>(
-      'wedding_date', aliasedName, false,
-      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+    'wedding_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _cityMeta = const VerificationMeta('city');
   @override
   late final GeneratedColumn<String> city = GeneratedColumn<String>(
-      'city', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _guestCountMeta =
-      const VerificationMeta('guestCount');
+    'city',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _guestCountMeta = const VerificationMeta(
+    'guestCount',
+  );
   @override
   late final GeneratedColumn<int> guestCount = GeneratedColumn<int>(
-      'guest_count', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
-  static const VerificationMeta _totalBudgetMeta =
-      const VerificationMeta('totalBudget');
+    'guest_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _totalBudgetMeta = const VerificationMeta(
+    'totalBudget',
+  );
   @override
   late final GeneratedColumn<int> totalBudget = GeneratedColumn<int>(
-      'total_budget', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
-  static const VerificationMeta _planGeneratedMeta =
-      const VerificationMeta('planGenerated');
+    'total_budget',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _planGeneratedMeta = const VerificationMeta(
+    'planGenerated',
+  );
   @override
   late final GeneratedColumn<bool> planGenerated = GeneratedColumn<bool>(
-      'plan_generated', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("plan_generated" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'plan_generated',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("plan_generated" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        name,
-        weddingDate,
-        city,
-        guestCount,
-        totalBudget,
-        planGenerated,
-        createdAt,
-        updatedAt
-      ];
+    id,
+    name,
+    weddingDate,
+    city,
+    guestCount,
+    totalBudget,
+    planGenerated,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'weddings';
   @override
-  VerificationContext validateIntegrity(Insertable<Wedding> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<Wedding> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -98,53 +140,70 @@ class $WeddingsTable extends Weddings with TableInfo<$WeddingsTable, Wedding> {
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('wedding_date')) {
       context.handle(
+        _weddingDateMeta,
+        weddingDate.isAcceptableOrUnknown(
+          data['wedding_date']!,
           _weddingDateMeta,
-          weddingDate.isAcceptableOrUnknown(
-              data['wedding_date']!, _weddingDateMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_weddingDateMeta);
     }
     if (data.containsKey('city')) {
       context.handle(
-          _cityMeta, city.isAcceptableOrUnknown(data['city']!, _cityMeta));
+        _cityMeta,
+        city.isAcceptableOrUnknown(data['city']!, _cityMeta),
+      );
     } else if (isInserting) {
       context.missing(_cityMeta);
     }
     if (data.containsKey('guest_count')) {
       context.handle(
-          _guestCountMeta,
-          guestCount.isAcceptableOrUnknown(
-              data['guest_count']!, _guestCountMeta));
+        _guestCountMeta,
+        guestCount.isAcceptableOrUnknown(data['guest_count']!, _guestCountMeta),
+      );
     } else if (isInserting) {
       context.missing(_guestCountMeta);
     }
     if (data.containsKey('total_budget')) {
       context.handle(
+        _totalBudgetMeta,
+        totalBudget.isAcceptableOrUnknown(
+          data['total_budget']!,
           _totalBudgetMeta,
-          totalBudget.isAcceptableOrUnknown(
-              data['total_budget']!, _totalBudgetMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_totalBudgetMeta);
     }
     if (data.containsKey('plan_generated')) {
       context.handle(
+        _planGeneratedMeta,
+        planGenerated.isAcceptableOrUnknown(
+          data['plan_generated']!,
           _planGeneratedMeta,
-          planGenerated.isAcceptableOrUnknown(
-              data['plan_generated']!, _planGeneratedMeta));
+        ),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -155,24 +214,42 @@ class $WeddingsTable extends Weddings with TableInfo<$WeddingsTable, Wedding> {
   Wedding map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Wedding(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      weddingDate: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}wedding_date'])!,
-      city: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}city'])!,
-      guestCount: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}guest_count'])!,
-      totalBudget: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}total_budget'])!,
-      planGenerated: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}plan_generated'])!,
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      weddingDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}wedding_date'],
+      )!,
+      city: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}city'],
+      )!,
+      guestCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}guest_count'],
+      )!,
+      totalBudget: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}total_budget'],
+      )!,
+      planGenerated: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}plan_generated'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -192,16 +269,17 @@ class Wedding extends DataClass implements Insertable<Wedding> {
   final bool planGenerated;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const Wedding(
-      {required this.id,
-      required this.name,
-      required this.weddingDate,
-      required this.city,
-      required this.guestCount,
-      required this.totalBudget,
-      required this.planGenerated,
-      required this.createdAt,
-      required this.updatedAt});
+  const Wedding({
+    required this.id,
+    required this.name,
+    required this.weddingDate,
+    required this.city,
+    required this.guestCount,
+    required this.totalBudget,
+    required this.planGenerated,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -231,8 +309,10 @@ class Wedding extends DataClass implements Insertable<Wedding> {
     );
   }
 
-  factory Wedding.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory Wedding.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Wedding(
       id: serializer.fromJson<int>(json['id']),
@@ -262,38 +342,41 @@ class Wedding extends DataClass implements Insertable<Wedding> {
     };
   }
 
-  Wedding copyWith(
-          {int? id,
-          String? name,
-          DateTime? weddingDate,
-          String? city,
-          int? guestCount,
-          int? totalBudget,
-          bool? planGenerated,
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      Wedding(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        weddingDate: weddingDate ?? this.weddingDate,
-        city: city ?? this.city,
-        guestCount: guestCount ?? this.guestCount,
-        totalBudget: totalBudget ?? this.totalBudget,
-        planGenerated: planGenerated ?? this.planGenerated,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  Wedding copyWith({
+    int? id,
+    String? name,
+    DateTime? weddingDate,
+    String? city,
+    int? guestCount,
+    int? totalBudget,
+    bool? planGenerated,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => Wedding(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    weddingDate: weddingDate ?? this.weddingDate,
+    city: city ?? this.city,
+    guestCount: guestCount ?? this.guestCount,
+    totalBudget: totalBudget ?? this.totalBudget,
+    planGenerated: planGenerated ?? this.planGenerated,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   Wedding copyWithCompanion(WeddingsCompanion data) {
     return Wedding(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
-      weddingDate:
-          data.weddingDate.present ? data.weddingDate.value : this.weddingDate,
+      weddingDate: data.weddingDate.present
+          ? data.weddingDate.value
+          : this.weddingDate,
       city: data.city.present ? data.city.value : this.city,
-      guestCount:
-          data.guestCount.present ? data.guestCount.value : this.guestCount,
-      totalBudget:
-          data.totalBudget.present ? data.totalBudget.value : this.totalBudget,
+      guestCount: data.guestCount.present
+          ? data.guestCount.value
+          : this.guestCount,
+      totalBudget: data.totalBudget.present
+          ? data.totalBudget.value
+          : this.totalBudget,
       planGenerated: data.planGenerated.present
           ? data.planGenerated.value
           : this.planGenerated,
@@ -319,8 +402,17 @@ class Wedding extends DataClass implements Insertable<Wedding> {
   }
 
   @override
-  int get hashCode => Object.hash(id, name, weddingDate, city, guestCount,
-      totalBudget, planGenerated, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    id,
+    name,
+    weddingDate,
+    city,
+    guestCount,
+    totalBudget,
+    planGenerated,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -367,11 +459,11 @@ class WeddingsCompanion extends UpdateCompanion<Wedding> {
     this.planGenerated = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : name = Value(name),
-        weddingDate = Value(weddingDate),
-        city = Value(city),
-        guestCount = Value(guestCount),
-        totalBudget = Value(totalBudget);
+  }) : name = Value(name),
+       weddingDate = Value(weddingDate),
+       city = Value(city),
+       guestCount = Value(guestCount),
+       totalBudget = Value(totalBudget);
   static Insertable<Wedding> custom({
     Expression<int>? id,
     Expression<String>? name,
@@ -396,16 +488,17 @@ class WeddingsCompanion extends UpdateCompanion<Wedding> {
     });
   }
 
-  WeddingsCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? name,
-      Value<DateTime>? weddingDate,
-      Value<String>? city,
-      Value<int>? guestCount,
-      Value<int>? totalBudget,
-      Value<bool>? planGenerated,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  WeddingsCompanion copyWith({
+    Value<int>? id,
+    Value<String>? name,
+    Value<DateTime>? weddingDate,
+    Value<String>? city,
+    Value<int>? guestCount,
+    Value<int>? totalBudget,
+    Value<bool>? planGenerated,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return WeddingsCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
@@ -477,140 +570,197 @@ class $EventsTable extends Events with TableInfo<$EventsTable, Event> {
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _weddingIdMeta =
-      const VerificationMeta('weddingId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _weddingIdMeta = const VerificationMeta(
+    'weddingId',
+  );
   @override
   late final GeneratedColumn<int> weddingId = GeneratedColumn<int>(
-      'wedding_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES weddings (id) ON DELETE CASCADE'));
+    'wedding_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES weddings (id) ON DELETE CASCADE',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _templateKeyMeta =
-      const VerificationMeta('templateKey');
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _templateKeyMeta = const VerificationMeta(
+    'templateKey',
+  );
   @override
   late final GeneratedColumn<String> templateKey = GeneratedColumn<String>(
-      'template_key', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _isCustomMeta =
-      const VerificationMeta('isCustom');
+    'template_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isCustomMeta = const VerificationMeta(
+    'isCustom',
+  );
   @override
   late final GeneratedColumn<bool> isCustom = GeneratedColumn<bool>(
-      'is_custom', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('CHECK ("is_custom" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  static const VerificationMeta _isArchivedMeta =
-      const VerificationMeta('isArchived');
+    'is_custom',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_custom" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _isArchivedMeta = const VerificationMeta(
+    'isArchived',
+  );
   @override
   late final GeneratedColumn<bool> isArchived = GeneratedColumn<bool>(
-      'is_archived', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('CHECK ("is_archived" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  static const VerificationMeta _sortOrderMeta =
-      const VerificationMeta('sortOrder');
+    'is_archived',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_archived" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _sortOrderMeta = const VerificationMeta(
+    'sortOrder',
+  );
   @override
   late final GeneratedColumn<int> sortOrder = GeneratedColumn<int>(
-      'sort_order', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'sort_order',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        weddingId,
-        name,
-        templateKey,
-        isCustom,
-        isArchived,
-        sortOrder,
-        createdAt,
-        updatedAt
-      ];
+    id,
+    weddingId,
+    name,
+    templateKey,
+    isCustom,
+    isArchived,
+    sortOrder,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'events';
   @override
-  VerificationContext validateIntegrity(Insertable<Event> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<Event> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('wedding_id')) {
-      context.handle(_weddingIdMeta,
-          weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta));
+      context.handle(
+        _weddingIdMeta,
+        weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_weddingIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('template_key')) {
       context.handle(
+        _templateKeyMeta,
+        templateKey.isAcceptableOrUnknown(
+          data['template_key']!,
           _templateKeyMeta,
-          templateKey.isAcceptableOrUnknown(
-              data['template_key']!, _templateKeyMeta));
+        ),
+      );
     }
     if (data.containsKey('is_custom')) {
-      context.handle(_isCustomMeta,
-          isCustom.isAcceptableOrUnknown(data['is_custom']!, _isCustomMeta));
+      context.handle(
+        _isCustomMeta,
+        isCustom.isAcceptableOrUnknown(data['is_custom']!, _isCustomMeta),
+      );
     }
     if (data.containsKey('is_archived')) {
       context.handle(
-          _isArchivedMeta,
-          isArchived.isAcceptableOrUnknown(
-              data['is_archived']!, _isArchivedMeta));
+        _isArchivedMeta,
+        isArchived.isAcceptableOrUnknown(data['is_archived']!, _isArchivedMeta),
+      );
     }
     if (data.containsKey('sort_order')) {
-      context.handle(_sortOrderMeta,
-          sortOrder.isAcceptableOrUnknown(data['sort_order']!, _sortOrderMeta));
+      context.handle(
+        _sortOrderMeta,
+        sortOrder.isAcceptableOrUnknown(data['sort_order']!, _sortOrderMeta),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -619,30 +769,48 @@ class $EventsTable extends Events with TableInfo<$EventsTable, Event> {
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
   List<Set<GeneratedColumn>> get uniqueKeys => [
-        {weddingId, templateKey},
-      ];
+    {weddingId, templateKey},
+  ];
   @override
   Event map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Event(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      weddingId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}wedding_id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      templateKey: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}template_key']),
-      isCustom: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_custom'])!,
-      isArchived: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_archived'])!,
-      sortOrder: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}sort_order'])!,
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      weddingId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wedding_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      templateKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}template_key'],
+      ),
+      isCustom: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_custom'],
+      )!,
+      isArchived: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_archived'],
+      )!,
+      sortOrder: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sort_order'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -662,16 +830,17 @@ class Event extends DataClass implements Insertable<Event> {
   final int sortOrder;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const Event(
-      {required this.id,
-      required this.weddingId,
-      required this.name,
-      this.templateKey,
-      required this.isCustom,
-      required this.isArchived,
-      required this.sortOrder,
-      required this.createdAt,
-      required this.updatedAt});
+  const Event({
+    required this.id,
+    required this.weddingId,
+    required this.name,
+    this.templateKey,
+    required this.isCustom,
+    required this.isArchived,
+    required this.sortOrder,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -705,8 +874,10 @@ class Event extends DataClass implements Insertable<Event> {
     );
   }
 
-  factory Event.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory Event.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Event(
       id: serializer.fromJson<int>(json['id']),
@@ -736,37 +907,39 @@ class Event extends DataClass implements Insertable<Event> {
     };
   }
 
-  Event copyWith(
-          {int? id,
-          int? weddingId,
-          String? name,
-          Value<String?> templateKey = const Value.absent(),
-          bool? isCustom,
-          bool? isArchived,
-          int? sortOrder,
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      Event(
-        id: id ?? this.id,
-        weddingId: weddingId ?? this.weddingId,
-        name: name ?? this.name,
-        templateKey: templateKey.present ? templateKey.value : this.templateKey,
-        isCustom: isCustom ?? this.isCustom,
-        isArchived: isArchived ?? this.isArchived,
-        sortOrder: sortOrder ?? this.sortOrder,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  Event copyWith({
+    int? id,
+    int? weddingId,
+    String? name,
+    Value<String?> templateKey = const Value.absent(),
+    bool? isCustom,
+    bool? isArchived,
+    int? sortOrder,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => Event(
+    id: id ?? this.id,
+    weddingId: weddingId ?? this.weddingId,
+    name: name ?? this.name,
+    templateKey: templateKey.present ? templateKey.value : this.templateKey,
+    isCustom: isCustom ?? this.isCustom,
+    isArchived: isArchived ?? this.isArchived,
+    sortOrder: sortOrder ?? this.sortOrder,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   Event copyWithCompanion(EventsCompanion data) {
     return Event(
       id: data.id.present ? data.id.value : this.id,
       weddingId: data.weddingId.present ? data.weddingId.value : this.weddingId,
       name: data.name.present ? data.name.value : this.name,
-      templateKey:
-          data.templateKey.present ? data.templateKey.value : this.templateKey,
+      templateKey: data.templateKey.present
+          ? data.templateKey.value
+          : this.templateKey,
       isCustom: data.isCustom.present ? data.isCustom.value : this.isCustom,
-      isArchived:
-          data.isArchived.present ? data.isArchived.value : this.isArchived,
+      isArchived: data.isArchived.present
+          ? data.isArchived.value
+          : this.isArchived,
       sortOrder: data.sortOrder.present ? data.sortOrder.value : this.sortOrder,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
@@ -790,8 +963,17 @@ class Event extends DataClass implements Insertable<Event> {
   }
 
   @override
-  int get hashCode => Object.hash(id, weddingId, name, templateKey, isCustom,
-      isArchived, sortOrder, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    id,
+    weddingId,
+    name,
+    templateKey,
+    isCustom,
+    isArchived,
+    sortOrder,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -838,8 +1020,8 @@ class EventsCompanion extends UpdateCompanion<Event> {
     this.sortOrder = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : weddingId = Value(weddingId),
-        name = Value(name);
+  }) : weddingId = Value(weddingId),
+       name = Value(name);
   static Insertable<Event> custom({
     Expression<int>? id,
     Expression<int>? weddingId,
@@ -864,16 +1046,17 @@ class EventsCompanion extends UpdateCompanion<Event> {
     });
   }
 
-  EventsCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? weddingId,
-      Value<String>? name,
-      Value<String?>? templateKey,
-      Value<bool>? isCustom,
-      Value<bool>? isArchived,
-      Value<int>? sortOrder,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  EventsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? weddingId,
+    Value<String>? name,
+    Value<String?>? templateKey,
+    Value<bool>? isCustom,
+    Value<bool>? isArchived,
+    Value<int>? sortOrder,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return EventsCompanion(
       id: id ?? this.id,
       weddingId: weddingId ?? this.weddingId,
@@ -946,113 +1129,171 @@ class $ChecklistItemsTable extends ChecklistItems
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _eventIdMeta =
-      const VerificationMeta('eventId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _eventIdMeta = const VerificationMeta(
+    'eventId',
+  );
   @override
   late final GeneratedColumn<int> eventId = GeneratedColumn<int>(
-      'event_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES events (id) ON DELETE CASCADE'));
+    'event_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES events (id) ON DELETE CASCADE',
+    ),
+  );
   static const VerificationMeta _titleMeta = const VerificationMeta('title');
   @override
   late final GeneratedColumn<String> title = GeneratedColumn<String>(
-      'title', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _isDoneMeta = const VerificationMeta('isDone');
   @override
   late final GeneratedColumn<bool> isDone = GeneratedColumn<bool>(
-      'is_done', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('CHECK ("is_done" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'is_done',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_done" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   static const VerificationMeta _sourceMeta = const VerificationMeta('source');
   @override
   late final GeneratedColumn<String> source = GeneratedColumn<String>(
-      'source', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('user'));
-  static const VerificationMeta _templateKeyMeta =
-      const VerificationMeta('templateKey');
+    'source',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('user'),
+  );
+  static const VerificationMeta _templateKeyMeta = const VerificationMeta(
+    'templateKey',
+  );
   @override
   late final GeneratedColumn<String> templateKey = GeneratedColumn<String>(
-      'template_key', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'template_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, eventId, title, isDone, source, templateKey, createdAt, updatedAt];
+  List<GeneratedColumn> get $columns => [
+    id,
+    eventId,
+    title,
+    isDone,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'checklist_items';
   @override
-  VerificationContext validateIntegrity(Insertable<ChecklistItem> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<ChecklistItem> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('event_id')) {
-      context.handle(_eventIdMeta,
-          eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta));
+      context.handle(
+        _eventIdMeta,
+        eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_eventIdMeta);
     }
     if (data.containsKey('title')) {
       context.handle(
-          _titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
     } else if (isInserting) {
       context.missing(_titleMeta);
     }
     if (data.containsKey('is_done')) {
-      context.handle(_isDoneMeta,
-          isDone.isAcceptableOrUnknown(data['is_done']!, _isDoneMeta));
+      context.handle(
+        _isDoneMeta,
+        isDone.isAcceptableOrUnknown(data['is_done']!, _isDoneMeta),
+      );
     }
     if (data.containsKey('source')) {
-      context.handle(_sourceMeta,
-          source.isAcceptableOrUnknown(data['source']!, _sourceMeta));
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
     }
     if (data.containsKey('template_key')) {
       context.handle(
+        _templateKeyMeta,
+        templateKey.isAcceptableOrUnknown(
+          data['template_key']!,
           _templateKeyMeta,
-          templateKey.isAcceptableOrUnknown(
-              data['template_key']!, _templateKeyMeta));
+        ),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -1063,22 +1304,38 @@ class $ChecklistItemsTable extends ChecklistItems
   ChecklistItem map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ChecklistItem(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      eventId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}event_id'])!,
-      title: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
-      isDone: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_done'])!,
-      source: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}source'])!,
-      templateKey: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}template_key']),
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      eventId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}event_id'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      isDone: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_done'],
+      )!,
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      )!,
+      templateKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}template_key'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -1097,15 +1354,16 @@ class ChecklistItem extends DataClass implements Insertable<ChecklistItem> {
   final String? templateKey;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const ChecklistItem(
-      {required this.id,
-      required this.eventId,
-      required this.title,
-      required this.isDone,
-      required this.source,
-      this.templateKey,
-      required this.createdAt,
-      required this.updatedAt});
+  const ChecklistItem({
+    required this.id,
+    required this.eventId,
+    required this.title,
+    required this.isDone,
+    required this.source,
+    this.templateKey,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -1137,8 +1395,10 @@ class ChecklistItem extends DataClass implements Insertable<ChecklistItem> {
     );
   }
 
-  factory ChecklistItem.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory ChecklistItem.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ChecklistItem(
       id: serializer.fromJson<int>(json['id']),
@@ -1166,25 +1426,25 @@ class ChecklistItem extends DataClass implements Insertable<ChecklistItem> {
     };
   }
 
-  ChecklistItem copyWith(
-          {int? id,
-          int? eventId,
-          String? title,
-          bool? isDone,
-          String? source,
-          Value<String?> templateKey = const Value.absent(),
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      ChecklistItem(
-        id: id ?? this.id,
-        eventId: eventId ?? this.eventId,
-        title: title ?? this.title,
-        isDone: isDone ?? this.isDone,
-        source: source ?? this.source,
-        templateKey: templateKey.present ? templateKey.value : this.templateKey,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  ChecklistItem copyWith({
+    int? id,
+    int? eventId,
+    String? title,
+    bool? isDone,
+    String? source,
+    Value<String?> templateKey = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => ChecklistItem(
+    id: id ?? this.id,
+    eventId: eventId ?? this.eventId,
+    title: title ?? this.title,
+    isDone: isDone ?? this.isDone,
+    source: source ?? this.source,
+    templateKey: templateKey.present ? templateKey.value : this.templateKey,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   ChecklistItem copyWithCompanion(ChecklistItemsCompanion data) {
     return ChecklistItem(
       id: data.id.present ? data.id.value : this.id,
@@ -1192,8 +1452,9 @@ class ChecklistItem extends DataClass implements Insertable<ChecklistItem> {
       title: data.title.present ? data.title.value : this.title,
       isDone: data.isDone.present ? data.isDone.value : this.isDone,
       source: data.source.present ? data.source.value : this.source,
-      templateKey:
-          data.templateKey.present ? data.templateKey.value : this.templateKey,
+      templateKey: data.templateKey.present
+          ? data.templateKey.value
+          : this.templateKey,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -1216,7 +1477,15 @@ class ChecklistItem extends DataClass implements Insertable<ChecklistItem> {
 
   @override
   int get hashCode => Object.hash(
-      id, eventId, title, isDone, source, templateKey, createdAt, updatedAt);
+    id,
+    eventId,
+    title,
+    isDone,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1259,8 +1528,8 @@ class ChecklistItemsCompanion extends UpdateCompanion<ChecklistItem> {
     this.templateKey = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : eventId = Value(eventId),
-        title = Value(title);
+  }) : eventId = Value(eventId),
+       title = Value(title);
   static Insertable<ChecklistItem> custom({
     Expression<int>? id,
     Expression<int>? eventId,
@@ -1283,15 +1552,16 @@ class ChecklistItemsCompanion extends UpdateCompanion<ChecklistItem> {
     });
   }
 
-  ChecklistItemsCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? eventId,
-      Value<String>? title,
-      Value<bool>? isDone,
-      Value<String>? source,
-      Value<String?>? templateKey,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  ChecklistItemsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? eventId,
+    Value<String>? title,
+    Value<bool>? isDone,
+    Value<String>? source,
+    Value<String?>? templateKey,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return ChecklistItemsCompanion(
       id: id ?? this.id,
       eventId: eventId ?? this.eventId,
@@ -1358,155 +1628,225 @@ class $TasksTable extends Tasks with TableInfo<$TasksTable, Task> {
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _weddingIdMeta =
-      const VerificationMeta('weddingId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _weddingIdMeta = const VerificationMeta(
+    'weddingId',
+  );
   @override
   late final GeneratedColumn<int> weddingId = GeneratedColumn<int>(
-      'wedding_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES weddings (id) ON DELETE CASCADE'));
-  static const VerificationMeta _eventIdMeta =
-      const VerificationMeta('eventId');
+    'wedding_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES weddings (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _eventIdMeta = const VerificationMeta(
+    'eventId',
+  );
   @override
   late final GeneratedColumn<int> eventId = GeneratedColumn<int>(
-      'event_id', aliasedName, true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES events (id) ON DELETE SET NULL'));
+    'event_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES events (id) ON DELETE SET NULL',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _dueDateMeta =
-      const VerificationMeta('dueDate');
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dueDateMeta = const VerificationMeta(
+    'dueDate',
+  );
   @override
   late final GeneratedColumn<DateTime> dueDate = GeneratedColumn<DateTime>(
-      'due_date', aliasedName, true,
-      type: DriftSqlType.dateTime, requiredDuringInsert: false);
-  static const VerificationMeta _assigneeMeta =
-      const VerificationMeta('assignee');
+    'due_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _assigneeMeta = const VerificationMeta(
+    'assignee',
+  );
   @override
   late final GeneratedColumn<String> assignee = GeneratedColumn<String>(
-      'assignee', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+    'assignee',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _statusMeta = const VerificationMeta('status');
   @override
   late final GeneratedColumn<String> status = GeneratedColumn<String>(
-      'status', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('todo'));
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('todo'),
+  );
   static const VerificationMeta _sourceMeta = const VerificationMeta('source');
   @override
   late final GeneratedColumn<String> source = GeneratedColumn<String>(
-      'source', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('user'));
-  static const VerificationMeta _templateKeyMeta =
-      const VerificationMeta('templateKey');
+    'source',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('user'),
+  );
+  static const VerificationMeta _templateKeyMeta = const VerificationMeta(
+    'templateKey',
+  );
   @override
   late final GeneratedColumn<String> templateKey = GeneratedColumn<String>(
-      'template_key', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'template_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        weddingId,
-        eventId,
-        name,
-        dueDate,
-        assignee,
-        status,
-        source,
-        templateKey,
-        createdAt,
-        updatedAt
-      ];
+    id,
+    weddingId,
+    eventId,
+    name,
+    dueDate,
+    assignee,
+    status,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'tasks';
   @override
-  VerificationContext validateIntegrity(Insertable<Task> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<Task> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('wedding_id')) {
-      context.handle(_weddingIdMeta,
-          weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta));
+      context.handle(
+        _weddingIdMeta,
+        weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_weddingIdMeta);
     }
     if (data.containsKey('event_id')) {
-      context.handle(_eventIdMeta,
-          eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta));
+      context.handle(
+        _eventIdMeta,
+        eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta),
+      );
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('due_date')) {
-      context.handle(_dueDateMeta,
-          dueDate.isAcceptableOrUnknown(data['due_date']!, _dueDateMeta));
+      context.handle(
+        _dueDateMeta,
+        dueDate.isAcceptableOrUnknown(data['due_date']!, _dueDateMeta),
+      );
     }
     if (data.containsKey('assignee')) {
-      context.handle(_assigneeMeta,
-          assignee.isAcceptableOrUnknown(data['assignee']!, _assigneeMeta));
+      context.handle(
+        _assigneeMeta,
+        assignee.isAcceptableOrUnknown(data['assignee']!, _assigneeMeta),
+      );
     }
     if (data.containsKey('status')) {
-      context.handle(_statusMeta,
-          status.isAcceptableOrUnknown(data['status']!, _statusMeta));
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
     }
     if (data.containsKey('source')) {
-      context.handle(_sourceMeta,
-          source.isAcceptableOrUnknown(data['source']!, _sourceMeta));
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
     }
     if (data.containsKey('template_key')) {
       context.handle(
+        _templateKeyMeta,
+        templateKey.isAcceptableOrUnknown(
+          data['template_key']!,
           _templateKeyMeta,
-          templateKey.isAcceptableOrUnknown(
-              data['template_key']!, _templateKeyMeta));
+        ),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -1517,28 +1857,50 @@ class $TasksTable extends Tasks with TableInfo<$TasksTable, Task> {
   Task map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Task(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      weddingId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}wedding_id'])!,
-      eventId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}event_id']),
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      dueDate: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}due_date']),
-      assignee: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}assignee']),
-      status: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}status'])!,
-      source: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}source'])!,
-      templateKey: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}template_key']),
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      weddingId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wedding_id'],
+      )!,
+      eventId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}event_id'],
+      ),
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      dueDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}due_date'],
+      ),
+      assignee: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}assignee'],
+      ),
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      )!,
+      templateKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}template_key'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -1560,18 +1922,19 @@ class Task extends DataClass implements Insertable<Task> {
   final String? templateKey;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const Task(
-      {required this.id,
-      required this.weddingId,
-      this.eventId,
-      required this.name,
-      this.dueDate,
-      this.assignee,
-      required this.status,
-      required this.source,
-      this.templateKey,
-      required this.createdAt,
-      required this.updatedAt});
+  const Task({
+    required this.id,
+    required this.weddingId,
+    this.eventId,
+    required this.name,
+    this.dueDate,
+    this.assignee,
+    required this.status,
+    required this.source,
+    this.templateKey,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -1621,8 +1984,10 @@ class Task extends DataClass implements Insertable<Task> {
     );
   }
 
-  factory Task.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory Task.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Task(
       id: serializer.fromJson<int>(json['id']),
@@ -1656,31 +2021,31 @@ class Task extends DataClass implements Insertable<Task> {
     };
   }
 
-  Task copyWith(
-          {int? id,
-          int? weddingId,
-          Value<int?> eventId = const Value.absent(),
-          String? name,
-          Value<DateTime?> dueDate = const Value.absent(),
-          Value<String?> assignee = const Value.absent(),
-          String? status,
-          String? source,
-          Value<String?> templateKey = const Value.absent(),
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      Task(
-        id: id ?? this.id,
-        weddingId: weddingId ?? this.weddingId,
-        eventId: eventId.present ? eventId.value : this.eventId,
-        name: name ?? this.name,
-        dueDate: dueDate.present ? dueDate.value : this.dueDate,
-        assignee: assignee.present ? assignee.value : this.assignee,
-        status: status ?? this.status,
-        source: source ?? this.source,
-        templateKey: templateKey.present ? templateKey.value : this.templateKey,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  Task copyWith({
+    int? id,
+    int? weddingId,
+    Value<int?> eventId = const Value.absent(),
+    String? name,
+    Value<DateTime?> dueDate = const Value.absent(),
+    Value<String?> assignee = const Value.absent(),
+    String? status,
+    String? source,
+    Value<String?> templateKey = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => Task(
+    id: id ?? this.id,
+    weddingId: weddingId ?? this.weddingId,
+    eventId: eventId.present ? eventId.value : this.eventId,
+    name: name ?? this.name,
+    dueDate: dueDate.present ? dueDate.value : this.dueDate,
+    assignee: assignee.present ? assignee.value : this.assignee,
+    status: status ?? this.status,
+    source: source ?? this.source,
+    templateKey: templateKey.present ? templateKey.value : this.templateKey,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   Task copyWithCompanion(TasksCompanion data) {
     return Task(
       id: data.id.present ? data.id.value : this.id,
@@ -1691,8 +2056,9 @@ class Task extends DataClass implements Insertable<Task> {
       assignee: data.assignee.present ? data.assignee.value : this.assignee,
       status: data.status.present ? data.status.value : this.status,
       source: data.source.present ? data.source.value : this.source,
-      templateKey:
-          data.templateKey.present ? data.templateKey.value : this.templateKey,
+      templateKey: data.templateKey.present
+          ? data.templateKey.value
+          : this.templateKey,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -1717,8 +2083,19 @@ class Task extends DataClass implements Insertable<Task> {
   }
 
   @override
-  int get hashCode => Object.hash(id, weddingId, eventId, name, dueDate,
-      assignee, status, source, templateKey, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    id,
+    weddingId,
+    eventId,
+    name,
+    dueDate,
+    assignee,
+    status,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1773,8 +2150,8 @@ class TasksCompanion extends UpdateCompanion<Task> {
     this.templateKey = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : weddingId = Value(weddingId),
-        name = Value(name);
+  }) : weddingId = Value(weddingId),
+       name = Value(name);
   static Insertable<Task> custom({
     Expression<int>? id,
     Expression<int>? weddingId,
@@ -1803,18 +2180,19 @@ class TasksCompanion extends UpdateCompanion<Task> {
     });
   }
 
-  TasksCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? weddingId,
-      Value<int?>? eventId,
-      Value<String>? name,
-      Value<DateTime?>? dueDate,
-      Value<String?>? assignee,
-      Value<String>? status,
-      Value<String>? source,
-      Value<String?>? templateKey,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  TasksCompanion copyWith({
+    Value<int>? id,
+    Value<int>? weddingId,
+    Value<int?>? eventId,
+    Value<String>? name,
+    Value<DateTime?>? dueDate,
+    Value<String?>? assignee,
+    Value<String>? status,
+    Value<String>? source,
+    Value<String?>? templateKey,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return TasksCompanion(
       id: id ?? this.id,
       weddingId: weddingId ?? this.weddingId,
@@ -1897,100 +2275,151 @@ class $VendorCategoriesTable extends VendorCategories
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _weddingIdMeta =
-      const VerificationMeta('weddingId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _weddingIdMeta = const VerificationMeta(
+    'weddingId',
+  );
   @override
   late final GeneratedColumn<int> weddingId = GeneratedColumn<int>(
-      'wedding_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES weddings (id) ON DELETE CASCADE'));
+    'wedding_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES weddings (id) ON DELETE CASCADE',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _sourceMeta = const VerificationMeta('source');
   @override
   late final GeneratedColumn<String> source = GeneratedColumn<String>(
-      'source', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('user'));
-  static const VerificationMeta _templateKeyMeta =
-      const VerificationMeta('templateKey');
+    'source',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('user'),
+  );
+  static const VerificationMeta _templateKeyMeta = const VerificationMeta(
+    'templateKey',
+  );
   @override
   late final GeneratedColumn<String> templateKey = GeneratedColumn<String>(
-      'template_key', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'template_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, weddingId, name, source, templateKey, createdAt, updatedAt];
+  List<GeneratedColumn> get $columns => [
+    id,
+    weddingId,
+    name,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'vendor_categories';
   @override
-  VerificationContext validateIntegrity(Insertable<VendorCategory> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<VendorCategory> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('wedding_id')) {
-      context.handle(_weddingIdMeta,
-          weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta));
+      context.handle(
+        _weddingIdMeta,
+        weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_weddingIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('source')) {
-      context.handle(_sourceMeta,
-          source.isAcceptableOrUnknown(data['source']!, _sourceMeta));
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
     }
     if (data.containsKey('template_key')) {
       context.handle(
+        _templateKeyMeta,
+        templateKey.isAcceptableOrUnknown(
+          data['template_key']!,
           _templateKeyMeta,
-          templateKey.isAcceptableOrUnknown(
-              data['template_key']!, _templateKeyMeta));
+        ),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -2001,20 +2430,34 @@ class $VendorCategoriesTable extends VendorCategories
   VendorCategory map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return VendorCategory(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      weddingId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}wedding_id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      source: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}source'])!,
-      templateKey: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}template_key']),
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      weddingId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wedding_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      )!,
+      templateKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}template_key'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -2032,14 +2475,15 @@ class VendorCategory extends DataClass implements Insertable<VendorCategory> {
   final String? templateKey;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const VendorCategory(
-      {required this.id,
-      required this.weddingId,
-      required this.name,
-      required this.source,
-      this.templateKey,
-      required this.createdAt,
-      required this.updatedAt});
+  const VendorCategory({
+    required this.id,
+    required this.weddingId,
+    required this.name,
+    required this.source,
+    this.templateKey,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -2069,8 +2513,10 @@ class VendorCategory extends DataClass implements Insertable<VendorCategory> {
     );
   }
 
-  factory VendorCategory.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory VendorCategory.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return VendorCategory(
       id: serializer.fromJson<int>(json['id']),
@@ -2096,31 +2542,32 @@ class VendorCategory extends DataClass implements Insertable<VendorCategory> {
     };
   }
 
-  VendorCategory copyWith(
-          {int? id,
-          int? weddingId,
-          String? name,
-          String? source,
-          Value<String?> templateKey = const Value.absent(),
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      VendorCategory(
-        id: id ?? this.id,
-        weddingId: weddingId ?? this.weddingId,
-        name: name ?? this.name,
-        source: source ?? this.source,
-        templateKey: templateKey.present ? templateKey.value : this.templateKey,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  VendorCategory copyWith({
+    int? id,
+    int? weddingId,
+    String? name,
+    String? source,
+    Value<String?> templateKey = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => VendorCategory(
+    id: id ?? this.id,
+    weddingId: weddingId ?? this.weddingId,
+    name: name ?? this.name,
+    source: source ?? this.source,
+    templateKey: templateKey.present ? templateKey.value : this.templateKey,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   VendorCategory copyWithCompanion(VendorCategoriesCompanion data) {
     return VendorCategory(
       id: data.id.present ? data.id.value : this.id,
       weddingId: data.weddingId.present ? data.weddingId.value : this.weddingId,
       name: data.name.present ? data.name.value : this.name,
       source: data.source.present ? data.source.value : this.source,
-      templateKey:
-          data.templateKey.present ? data.templateKey.value : this.templateKey,
+      templateKey: data.templateKey.present
+          ? data.templateKey.value
+          : this.templateKey,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -2142,7 +2589,14 @@ class VendorCategory extends DataClass implements Insertable<VendorCategory> {
 
   @override
   int get hashCode => Object.hash(
-      id, weddingId, name, source, templateKey, createdAt, updatedAt);
+    id,
+    weddingId,
+    name,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -2181,8 +2635,8 @@ class VendorCategoriesCompanion extends UpdateCompanion<VendorCategory> {
     this.templateKey = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : weddingId = Value(weddingId),
-        name = Value(name);
+  }) : weddingId = Value(weddingId),
+       name = Value(name);
   static Insertable<VendorCategory> custom({
     Expression<int>? id,
     Expression<int>? weddingId,
@@ -2203,14 +2657,15 @@ class VendorCategoriesCompanion extends UpdateCompanion<VendorCategory> {
     });
   }
 
-  VendorCategoriesCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? weddingId,
-      Value<String>? name,
-      Value<String>? source,
-      Value<String?>? templateKey,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  VendorCategoriesCompanion copyWith({
+    Value<int>? id,
+    Value<int>? weddingId,
+    Value<String>? name,
+    Value<String>? source,
+    Value<String?>? templateKey,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return VendorCategoriesCompanion(
       id: id ?? this.id,
       weddingId: weddingId ?? this.weddingId,
@@ -2270,24 +2725,34 @@ class $EventVendorCategoriesTable extends EventVendorCategories
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $EventVendorCategoriesTable(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _eventIdMeta =
-      const VerificationMeta('eventId');
+  static const VerificationMeta _eventIdMeta = const VerificationMeta(
+    'eventId',
+  );
   @override
   late final GeneratedColumn<int> eventId = GeneratedColumn<int>(
-      'event_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES events (id) ON DELETE CASCADE'));
-  static const VerificationMeta _vendorCategoryIdMeta =
-      const VerificationMeta('vendorCategoryId');
+    'event_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES events (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _vendorCategoryIdMeta = const VerificationMeta(
+    'vendorCategoryId',
+  );
   @override
   late final GeneratedColumn<int> vendorCategoryId = GeneratedColumn<int>(
-      'vendor_category_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES vendor_categories (id) ON DELETE CASCADE'));
+    'vendor_category_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES vendor_categories (id) ON DELETE CASCADE',
+    ),
+  );
   @override
   List<GeneratedColumn> get $columns => [eventId, vendorCategoryId];
   @override
@@ -2297,21 +2762,27 @@ class $EventVendorCategoriesTable extends EventVendorCategories
   static const String $name = 'event_vendor_categories';
   @override
   VerificationContext validateIntegrity(
-      Insertable<EventVendorCategory> instance,
-      {bool isInserting = false}) {
+    Insertable<EventVendorCategory> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('event_id')) {
-      context.handle(_eventIdMeta,
-          eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta));
+      context.handle(
+        _eventIdMeta,
+        eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_eventIdMeta);
     }
     if (data.containsKey('vendor_category_id')) {
       context.handle(
+        _vendorCategoryIdMeta,
+        vendorCategoryId.isAcceptableOrUnknown(
+          data['vendor_category_id']!,
           _vendorCategoryIdMeta,
-          vendorCategoryId.isAcceptableOrUnknown(
-              data['vendor_category_id']!, _vendorCategoryIdMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_vendorCategoryIdMeta);
     }
@@ -2324,10 +2795,14 @@ class $EventVendorCategoriesTable extends EventVendorCategories
   EventVendorCategory map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return EventVendorCategory(
-      eventId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}event_id'])!,
+      eventId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}event_id'],
+      )!,
       vendorCategoryId: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}vendor_category_id'])!,
+        DriftSqlType.int,
+        data['${effectivePrefix}vendor_category_id'],
+      )!,
     );
   }
 
@@ -2341,8 +2816,10 @@ class EventVendorCategory extends DataClass
     implements Insertable<EventVendorCategory> {
   final int eventId;
   final int vendorCategoryId;
-  const EventVendorCategory(
-      {required this.eventId, required this.vendorCategoryId});
+  const EventVendorCategory({
+    required this.eventId,
+    required this.vendorCategoryId,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -2358,8 +2835,10 @@ class EventVendorCategory extends DataClass
     );
   }
 
-  factory EventVendorCategory.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory EventVendorCategory.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return EventVendorCategory(
       eventId: serializer.fromJson<int>(json['eventId']),
@@ -2422,8 +2901,8 @@ class EventVendorCategoriesCompanion
     required int eventId,
     required int vendorCategoryId,
     this.rowid = const Value.absent(),
-  })  : eventId = Value(eventId),
-        vendorCategoryId = Value(vendorCategoryId);
+  }) : eventId = Value(eventId),
+       vendorCategoryId = Value(vendorCategoryId);
   static Insertable<EventVendorCategory> custom({
     Expression<int>? eventId,
     Expression<int>? vendorCategoryId,
@@ -2436,8 +2915,11 @@ class EventVendorCategoriesCompanion
     });
   }
 
-  EventVendorCategoriesCompanion copyWith(
-      {Value<int>? eventId, Value<int>? vendorCategoryId, Value<int>? rowid}) {
+  EventVendorCategoriesCompanion copyWith({
+    Value<int>? eventId,
+    Value<int>? vendorCategoryId,
+    Value<int>? rowid,
+  }) {
     return EventVendorCategoriesCompanion(
       eventId: eventId ?? this.eventId,
       vendorCategoryId: vendorCategoryId ?? this.vendorCategoryId,
@@ -2479,97 +2961,140 @@ class $VendorsTable extends Vendors with TableInfo<$VendorsTable, Vendor> {
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _vendorCategoryIdMeta =
-      const VerificationMeta('vendorCategoryId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _vendorCategoryIdMeta = const VerificationMeta(
+    'vendorCategoryId',
+  );
   @override
   late final GeneratedColumn<int> vendorCategoryId = GeneratedColumn<int>(
-      'vendor_category_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES vendor_categories (id) ON DELETE CASCADE'));
+    'vendor_category_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES vendor_categories (id) ON DELETE CASCADE',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _contactMeta =
-      const VerificationMeta('contact');
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _contactMeta = const VerificationMeta(
+    'contact',
+  );
   @override
   late final GeneratedColumn<String> contact = GeneratedColumn<String>(
-      'contact', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+    'contact',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _priceMeta = const VerificationMeta('price');
   @override
   late final GeneratedColumn<int> price = GeneratedColumn<int>(
-      'price', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _advancePaidMeta =
-      const VerificationMeta('advancePaid');
+    'price',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _advancePaidMeta = const VerificationMeta(
+    'advancePaid',
+  );
   @override
   late final GeneratedColumn<int> advancePaid = GeneratedColumn<int>(
-      'advance_paid', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _bookingStatusMeta =
-      const VerificationMeta('bookingStatus');
+    'advance_paid',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _bookingStatusMeta = const VerificationMeta(
+    'bookingStatus',
+  );
   @override
   late final GeneratedColumn<String> bookingStatus = GeneratedColumn<String>(
-      'booking_status', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('not_contacted'));
+    'booking_status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('not_contacted'),
+  );
   static const VerificationMeta _notesMeta = const VerificationMeta('notes');
   @override
   late final GeneratedColumn<String> notes = GeneratedColumn<String>(
-      'notes', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        vendorCategoryId,
-        name,
-        contact,
-        price,
-        advancePaid,
-        bookingStatus,
-        notes,
-        createdAt,
-        updatedAt
-      ];
+    id,
+    vendorCategoryId,
+    name,
+    contact,
+    price,
+    advancePaid,
+    bookingStatus,
+    notes,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'vendors';
   @override
-  VerificationContext validateIntegrity(Insertable<Vendor> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<Vendor> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -2577,49 +3102,70 @@ class $VendorsTable extends Vendors with TableInfo<$VendorsTable, Vendor> {
     }
     if (data.containsKey('vendor_category_id')) {
       context.handle(
+        _vendorCategoryIdMeta,
+        vendorCategoryId.isAcceptableOrUnknown(
+          data['vendor_category_id']!,
           _vendorCategoryIdMeta,
-          vendorCategoryId.isAcceptableOrUnknown(
-              data['vendor_category_id']!, _vendorCategoryIdMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_vendorCategoryIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('contact')) {
-      context.handle(_contactMeta,
-          contact.isAcceptableOrUnknown(data['contact']!, _contactMeta));
+      context.handle(
+        _contactMeta,
+        contact.isAcceptableOrUnknown(data['contact']!, _contactMeta),
+      );
     }
     if (data.containsKey('price')) {
       context.handle(
-          _priceMeta, price.isAcceptableOrUnknown(data['price']!, _priceMeta));
+        _priceMeta,
+        price.isAcceptableOrUnknown(data['price']!, _priceMeta),
+      );
     }
     if (data.containsKey('advance_paid')) {
       context.handle(
+        _advancePaidMeta,
+        advancePaid.isAcceptableOrUnknown(
+          data['advance_paid']!,
           _advancePaidMeta,
-          advancePaid.isAcceptableOrUnknown(
-              data['advance_paid']!, _advancePaidMeta));
+        ),
+      );
     }
     if (data.containsKey('booking_status')) {
       context.handle(
+        _bookingStatusMeta,
+        bookingStatus.isAcceptableOrUnknown(
+          data['booking_status']!,
           _bookingStatusMeta,
-          bookingStatus.isAcceptableOrUnknown(
-              data['booking_status']!, _bookingStatusMeta));
+        ),
+      );
     }
     if (data.containsKey('notes')) {
       context.handle(
-          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -2630,26 +3176,46 @@ class $VendorsTable extends Vendors with TableInfo<$VendorsTable, Vendor> {
   Vendor map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Vendor(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
       vendorCategoryId: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}vendor_category_id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      contact: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}contact']),
-      price: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}price'])!,
-      advancePaid: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}advance_paid'])!,
-      bookingStatus: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}booking_status'])!,
-      notes: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+        DriftSqlType.int,
+        data['${effectivePrefix}vendor_category_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      contact: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}contact'],
+      ),
+      price: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}price'],
+      )!,
+      advancePaid: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}advance_paid'],
+      )!,
+      bookingStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}booking_status'],
+      )!,
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -2670,17 +3236,18 @@ class Vendor extends DataClass implements Insertable<Vendor> {
   final String? notes;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const Vendor(
-      {required this.id,
-      required this.vendorCategoryId,
-      required this.name,
-      this.contact,
-      required this.price,
-      required this.advancePaid,
-      required this.bookingStatus,
-      this.notes,
-      required this.createdAt,
-      required this.updatedAt});
+  const Vendor({
+    required this.id,
+    required this.vendorCategoryId,
+    required this.name,
+    this.contact,
+    required this.price,
+    required this.advancePaid,
+    required this.bookingStatus,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -2712,15 +3279,18 @@ class Vendor extends DataClass implements Insertable<Vendor> {
       price: Value(price),
       advancePaid: Value(advancePaid),
       bookingStatus: Value(bookingStatus),
-      notes:
-          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
       createdAt: Value(createdAt),
       updatedAt: Value(updatedAt),
     );
   }
 
-  factory Vendor.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory Vendor.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Vendor(
       id: serializer.fromJson<int>(json['id']),
@@ -2752,29 +3322,29 @@ class Vendor extends DataClass implements Insertable<Vendor> {
     };
   }
 
-  Vendor copyWith(
-          {int? id,
-          int? vendorCategoryId,
-          String? name,
-          Value<String?> contact = const Value.absent(),
-          int? price,
-          int? advancePaid,
-          String? bookingStatus,
-          Value<String?> notes = const Value.absent(),
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      Vendor(
-        id: id ?? this.id,
-        vendorCategoryId: vendorCategoryId ?? this.vendorCategoryId,
-        name: name ?? this.name,
-        contact: contact.present ? contact.value : this.contact,
-        price: price ?? this.price,
-        advancePaid: advancePaid ?? this.advancePaid,
-        bookingStatus: bookingStatus ?? this.bookingStatus,
-        notes: notes.present ? notes.value : this.notes,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  Vendor copyWith({
+    int? id,
+    int? vendorCategoryId,
+    String? name,
+    Value<String?> contact = const Value.absent(),
+    int? price,
+    int? advancePaid,
+    String? bookingStatus,
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => Vendor(
+    id: id ?? this.id,
+    vendorCategoryId: vendorCategoryId ?? this.vendorCategoryId,
+    name: name ?? this.name,
+    contact: contact.present ? contact.value : this.contact,
+    price: price ?? this.price,
+    advancePaid: advancePaid ?? this.advancePaid,
+    bookingStatus: bookingStatus ?? this.bookingStatus,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   Vendor copyWithCompanion(VendorsCompanion data) {
     return Vendor(
       id: data.id.present ? data.id.value : this.id,
@@ -2784,8 +3354,9 @@ class Vendor extends DataClass implements Insertable<Vendor> {
       name: data.name.present ? data.name.value : this.name,
       contact: data.contact.present ? data.contact.value : this.contact,
       price: data.price.present ? data.price.value : this.price,
-      advancePaid:
-          data.advancePaid.present ? data.advancePaid.value : this.advancePaid,
+      advancePaid: data.advancePaid.present
+          ? data.advancePaid.value
+          : this.advancePaid,
       bookingStatus: data.bookingStatus.present
           ? data.bookingStatus.value
           : this.bookingStatus,
@@ -2813,8 +3384,18 @@ class Vendor extends DataClass implements Insertable<Vendor> {
   }
 
   @override
-  int get hashCode => Object.hash(id, vendorCategoryId, name, contact, price,
-      advancePaid, bookingStatus, notes, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    id,
+    vendorCategoryId,
+    name,
+    contact,
+    price,
+    advancePaid,
+    bookingStatus,
+    notes,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -2865,8 +3446,8 @@ class VendorsCompanion extends UpdateCompanion<Vendor> {
     this.notes = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : vendorCategoryId = Value(vendorCategoryId),
-        name = Value(name);
+  }) : vendorCategoryId = Value(vendorCategoryId),
+       name = Value(name);
   static Insertable<Vendor> custom({
     Expression<int>? id,
     Expression<int>? vendorCategoryId,
@@ -2893,17 +3474,18 @@ class VendorsCompanion extends UpdateCompanion<Vendor> {
     });
   }
 
-  VendorsCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? vendorCategoryId,
-      Value<String>? name,
-      Value<String?>? contact,
-      Value<int>? price,
-      Value<int>? advancePaid,
-      Value<String>? bookingStatus,
-      Value<String?>? notes,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  VendorsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? vendorCategoryId,
+    Value<String>? name,
+    Value<String?>? contact,
+    Value<int>? price,
+    Value<int>? advancePaid,
+    Value<String>? bookingStatus,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return VendorsCompanion(
       id: id ?? this.id,
       vendorCategoryId: vendorCategoryId ?? this.vendorCategoryId,
@@ -2980,112 +3562,170 @@ class $GuestsTable extends Guests with TableInfo<$GuestsTable, Guest> {
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _weddingIdMeta =
-      const VerificationMeta('weddingId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _weddingIdMeta = const VerificationMeta(
+    'weddingId',
+  );
   @override
   late final GeneratedColumn<int> weddingId = GeneratedColumn<int>(
-      'wedding_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES weddings (id) ON DELETE CASCADE'));
+    'wedding_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES weddings (id) ON DELETE CASCADE',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _groupNameMeta =
-      const VerificationMeta('groupName');
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _groupNameMeta = const VerificationMeta(
+    'groupName',
+  );
   @override
   late final GeneratedColumn<String> groupName = GeneratedColumn<String>(
-      'group_name', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _peopleCountMeta =
-      const VerificationMeta('peopleCount');
+    'group_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _peopleCountMeta = const VerificationMeta(
+    'peopleCount',
+  );
   @override
   late final GeneratedColumn<int> peopleCount = GeneratedColumn<int>(
-      'people_count', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(1));
+    'people_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(1),
+  );
   static const VerificationMeta _rsvpMeta = const VerificationMeta('rsvp');
   @override
   late final GeneratedColumn<String> rsvp = GeneratedColumn<String>(
-      'rsvp', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('pending'));
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'rsvp',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('pending'),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, weddingId, name, groupName, peopleCount, rsvp, createdAt, updatedAt];
+  List<GeneratedColumn> get $columns => [
+    id,
+    weddingId,
+    name,
+    groupName,
+    peopleCount,
+    rsvp,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'guests';
   @override
-  VerificationContext validateIntegrity(Insertable<Guest> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<Guest> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('wedding_id')) {
-      context.handle(_weddingIdMeta,
-          weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta));
+      context.handle(
+        _weddingIdMeta,
+        weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_weddingIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('group_name')) {
-      context.handle(_groupNameMeta,
-          groupName.isAcceptableOrUnknown(data['group_name']!, _groupNameMeta));
+      context.handle(
+        _groupNameMeta,
+        groupName.isAcceptableOrUnknown(data['group_name']!, _groupNameMeta),
+      );
     }
     if (data.containsKey('people_count')) {
       context.handle(
+        _peopleCountMeta,
+        peopleCount.isAcceptableOrUnknown(
+          data['people_count']!,
           _peopleCountMeta,
-          peopleCount.isAcceptableOrUnknown(
-              data['people_count']!, _peopleCountMeta));
+        ),
+      );
     }
     if (data.containsKey('rsvp')) {
       context.handle(
-          _rsvpMeta, rsvp.isAcceptableOrUnknown(data['rsvp']!, _rsvpMeta));
+        _rsvpMeta,
+        rsvp.isAcceptableOrUnknown(data['rsvp']!, _rsvpMeta),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -3096,22 +3736,38 @@ class $GuestsTable extends Guests with TableInfo<$GuestsTable, Guest> {
   Guest map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Guest(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      weddingId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}wedding_id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      groupName: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}group_name']),
-      peopleCount: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}people_count'])!,
-      rsvp: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}rsvp'])!,
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      weddingId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wedding_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      groupName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}group_name'],
+      ),
+      peopleCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}people_count'],
+      )!,
+      rsvp: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rsvp'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -3130,15 +3786,16 @@ class Guest extends DataClass implements Insertable<Guest> {
   final String rsvp;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const Guest(
-      {required this.id,
-      required this.weddingId,
-      required this.name,
-      this.groupName,
-      required this.peopleCount,
-      required this.rsvp,
-      required this.createdAt,
-      required this.updatedAt});
+  const Guest({
+    required this.id,
+    required this.weddingId,
+    required this.name,
+    this.groupName,
+    required this.peopleCount,
+    required this.rsvp,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -3170,8 +3827,10 @@ class Guest extends DataClass implements Insertable<Guest> {
     );
   }
 
-  factory Guest.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory Guest.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Guest(
       id: serializer.fromJson<int>(json['id']),
@@ -3199,33 +3858,34 @@ class Guest extends DataClass implements Insertable<Guest> {
     };
   }
 
-  Guest copyWith(
-          {int? id,
-          int? weddingId,
-          String? name,
-          Value<String?> groupName = const Value.absent(),
-          int? peopleCount,
-          String? rsvp,
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      Guest(
-        id: id ?? this.id,
-        weddingId: weddingId ?? this.weddingId,
-        name: name ?? this.name,
-        groupName: groupName.present ? groupName.value : this.groupName,
-        peopleCount: peopleCount ?? this.peopleCount,
-        rsvp: rsvp ?? this.rsvp,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  Guest copyWith({
+    int? id,
+    int? weddingId,
+    String? name,
+    Value<String?> groupName = const Value.absent(),
+    int? peopleCount,
+    String? rsvp,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => Guest(
+    id: id ?? this.id,
+    weddingId: weddingId ?? this.weddingId,
+    name: name ?? this.name,
+    groupName: groupName.present ? groupName.value : this.groupName,
+    peopleCount: peopleCount ?? this.peopleCount,
+    rsvp: rsvp ?? this.rsvp,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   Guest copyWithCompanion(GuestsCompanion data) {
     return Guest(
       id: data.id.present ? data.id.value : this.id,
       weddingId: data.weddingId.present ? data.weddingId.value : this.weddingId,
       name: data.name.present ? data.name.value : this.name,
       groupName: data.groupName.present ? data.groupName.value : this.groupName,
-      peopleCount:
-          data.peopleCount.present ? data.peopleCount.value : this.peopleCount,
+      peopleCount: data.peopleCount.present
+          ? data.peopleCount.value
+          : this.peopleCount,
       rsvp: data.rsvp.present ? data.rsvp.value : this.rsvp,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
@@ -3249,7 +3909,15 @@ class Guest extends DataClass implements Insertable<Guest> {
 
   @override
   int get hashCode => Object.hash(
-      id, weddingId, name, groupName, peopleCount, rsvp, createdAt, updatedAt);
+    id,
+    weddingId,
+    name,
+    groupName,
+    peopleCount,
+    rsvp,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -3292,8 +3960,8 @@ class GuestsCompanion extends UpdateCompanion<Guest> {
     this.rsvp = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : weddingId = Value(weddingId),
-        name = Value(name);
+  }) : weddingId = Value(weddingId),
+       name = Value(name);
   static Insertable<Guest> custom({
     Expression<int>? id,
     Expression<int>? weddingId,
@@ -3316,15 +3984,16 @@ class GuestsCompanion extends UpdateCompanion<Guest> {
     });
   }
 
-  GuestsCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? weddingId,
-      Value<String>? name,
-      Value<String?>? groupName,
-      Value<int>? peopleCount,
-      Value<String>? rsvp,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  GuestsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? weddingId,
+    Value<String>? name,
+    Value<String?>? groupName,
+    Value<int>? peopleCount,
+    Value<String>? rsvp,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return GuestsCompanion(
       id: id ?? this.id,
       weddingId: weddingId ?? this.weddingId,
@@ -3389,24 +4058,34 @@ class $GuestEventsTable extends GuestEvents
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $GuestEventsTable(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _guestIdMeta =
-      const VerificationMeta('guestId');
+  static const VerificationMeta _guestIdMeta = const VerificationMeta(
+    'guestId',
+  );
   @override
   late final GeneratedColumn<int> guestId = GeneratedColumn<int>(
-      'guest_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES guests (id) ON DELETE CASCADE'));
-  static const VerificationMeta _eventIdMeta =
-      const VerificationMeta('eventId');
+    'guest_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES guests (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _eventIdMeta = const VerificationMeta(
+    'eventId',
+  );
   @override
   late final GeneratedColumn<int> eventId = GeneratedColumn<int>(
-      'event_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES events (id) ON DELETE CASCADE'));
+    'event_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES events (id) ON DELETE CASCADE',
+    ),
+  );
   @override
   List<GeneratedColumn> get $columns => [guestId, eventId];
   @override
@@ -3415,19 +4094,25 @@ class $GuestEventsTable extends GuestEvents
   String get actualTableName => $name;
   static const String $name = 'guest_events';
   @override
-  VerificationContext validateIntegrity(Insertable<GuestEvent> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<GuestEvent> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('guest_id')) {
-      context.handle(_guestIdMeta,
-          guestId.isAcceptableOrUnknown(data['guest_id']!, _guestIdMeta));
+      context.handle(
+        _guestIdMeta,
+        guestId.isAcceptableOrUnknown(data['guest_id']!, _guestIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_guestIdMeta);
     }
     if (data.containsKey('event_id')) {
-      context.handle(_eventIdMeta,
-          eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta));
+      context.handle(
+        _eventIdMeta,
+        eventId.isAcceptableOrUnknown(data['event_id']!, _eventIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_eventIdMeta);
     }
@@ -3440,10 +4125,14 @@ class $GuestEventsTable extends GuestEvents
   GuestEvent map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return GuestEvent(
-      guestId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}guest_id'])!,
-      eventId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}event_id'])!,
+      guestId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}guest_id'],
+      )!,
+      eventId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}event_id'],
+      )!,
     );
   }
 
@@ -3472,8 +4161,10 @@ class GuestEvent extends DataClass implements Insertable<GuestEvent> {
     );
   }
 
-  factory GuestEvent.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory GuestEvent.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return GuestEvent(
       guestId: serializer.fromJson<int>(json['guestId']),
@@ -3490,9 +4181,9 @@ class GuestEvent extends DataClass implements Insertable<GuestEvent> {
   }
 
   GuestEvent copyWith({int? guestId, int? eventId}) => GuestEvent(
-        guestId: guestId ?? this.guestId,
-        eventId: eventId ?? this.eventId,
-      );
+    guestId: guestId ?? this.guestId,
+    eventId: eventId ?? this.eventId,
+  );
   GuestEvent copyWithCompanion(GuestEventsCompanion data) {
     return GuestEvent(
       guestId: data.guestId.present ? data.guestId.value : this.guestId,
@@ -3532,8 +4223,8 @@ class GuestEventsCompanion extends UpdateCompanion<GuestEvent> {
     required int guestId,
     required int eventId,
     this.rowid = const Value.absent(),
-  })  : guestId = Value(guestId),
-        eventId = Value(eventId);
+  }) : guestId = Value(guestId),
+       eventId = Value(eventId);
   static Insertable<GuestEvent> custom({
     Expression<int>? guestId,
     Expression<int>? eventId,
@@ -3546,8 +4237,11 @@ class GuestEventsCompanion extends UpdateCompanion<GuestEvent> {
     });
   }
 
-  GuestEventsCompanion copyWith(
-      {Value<int>? guestId, Value<int>? eventId, Value<int>? rowid}) {
+  GuestEventsCompanion copyWith({
+    Value<int>? guestId,
+    Value<int>? eventId,
+    Value<int>? rowid,
+  }) {
     return GuestEventsCompanion(
       guestId: guestId ?? this.guestId,
       eventId: eventId ?? this.eventId,
@@ -3590,137 +4284,195 @@ class $ShoppingItemsTable extends ShoppingItems
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _weddingIdMeta =
-      const VerificationMeta('weddingId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _weddingIdMeta = const VerificationMeta(
+    'weddingId',
+  );
   @override
   late final GeneratedColumn<int> weddingId = GeneratedColumn<int>(
-      'wedding_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES weddings (id) ON DELETE CASCADE'));
+    'wedding_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES weddings (id) ON DELETE CASCADE',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _categoryMeta =
-      const VerificationMeta('category');
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
   @override
   late final GeneratedColumn<String> category = GeneratedColumn<String>(
-      'category', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('other'));
-  static const VerificationMeta _isPurchasedMeta =
-      const VerificationMeta('isPurchased');
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('other'),
+  );
+  static const VerificationMeta _isPurchasedMeta = const VerificationMeta(
+    'isPurchased',
+  );
   @override
   late final GeneratedColumn<bool> isPurchased = GeneratedColumn<bool>(
-      'is_purchased', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("is_purchased" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'is_purchased',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_purchased" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   static const VerificationMeta _sourceMeta = const VerificationMeta('source');
   @override
   late final GeneratedColumn<String> source = GeneratedColumn<String>(
-      'source', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('user'));
-  static const VerificationMeta _templateKeyMeta =
-      const VerificationMeta('templateKey');
+    'source',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('user'),
+  );
+  static const VerificationMeta _templateKeyMeta = const VerificationMeta(
+    'templateKey',
+  );
   @override
   late final GeneratedColumn<String> templateKey = GeneratedColumn<String>(
-      'template_key', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'template_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        weddingId,
-        name,
-        category,
-        isPurchased,
-        source,
-        templateKey,
-        createdAt,
-        updatedAt
-      ];
+    id,
+    weddingId,
+    name,
+    category,
+    isPurchased,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'shopping_items';
   @override
-  VerificationContext validateIntegrity(Insertable<ShoppingItem> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<ShoppingItem> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('wedding_id')) {
-      context.handle(_weddingIdMeta,
-          weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta));
+      context.handle(
+        _weddingIdMeta,
+        weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_weddingIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('category')) {
-      context.handle(_categoryMeta,
-          category.isAcceptableOrUnknown(data['category']!, _categoryMeta));
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
     }
     if (data.containsKey('is_purchased')) {
       context.handle(
+        _isPurchasedMeta,
+        isPurchased.isAcceptableOrUnknown(
+          data['is_purchased']!,
           _isPurchasedMeta,
-          isPurchased.isAcceptableOrUnknown(
-              data['is_purchased']!, _isPurchasedMeta));
+        ),
+      );
     }
     if (data.containsKey('source')) {
-      context.handle(_sourceMeta,
-          source.isAcceptableOrUnknown(data['source']!, _sourceMeta));
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
     }
     if (data.containsKey('template_key')) {
       context.handle(
+        _templateKeyMeta,
+        templateKey.isAcceptableOrUnknown(
+          data['template_key']!,
           _templateKeyMeta,
-          templateKey.isAcceptableOrUnknown(
-              data['template_key']!, _templateKeyMeta));
+        ),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -3731,24 +4483,42 @@ class $ShoppingItemsTable extends ShoppingItems
   ShoppingItem map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ShoppingItem(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      weddingId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}wedding_id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      category: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}category'])!,
-      isPurchased: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_purchased'])!,
-      source: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}source'])!,
-      templateKey: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}template_key']),
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      weddingId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wedding_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      )!,
+      isPurchased: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_purchased'],
+      )!,
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      )!,
+      templateKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}template_key'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -3768,16 +4538,17 @@ class ShoppingItem extends DataClass implements Insertable<ShoppingItem> {
   final String? templateKey;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const ShoppingItem(
-      {required this.id,
-      required this.weddingId,
-      required this.name,
-      required this.category,
-      required this.isPurchased,
-      required this.source,
-      this.templateKey,
-      required this.createdAt,
-      required this.updatedAt});
+  const ShoppingItem({
+    required this.id,
+    required this.weddingId,
+    required this.name,
+    required this.category,
+    required this.isPurchased,
+    required this.source,
+    this.templateKey,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -3811,8 +4582,10 @@ class ShoppingItem extends DataClass implements Insertable<ShoppingItem> {
     );
   }
 
-  factory ShoppingItem.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory ShoppingItem.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ShoppingItem(
       id: serializer.fromJson<int>(json['id']),
@@ -3842,38 +4615,40 @@ class ShoppingItem extends DataClass implements Insertable<ShoppingItem> {
     };
   }
 
-  ShoppingItem copyWith(
-          {int? id,
-          int? weddingId,
-          String? name,
-          String? category,
-          bool? isPurchased,
-          String? source,
-          Value<String?> templateKey = const Value.absent(),
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      ShoppingItem(
-        id: id ?? this.id,
-        weddingId: weddingId ?? this.weddingId,
-        name: name ?? this.name,
-        category: category ?? this.category,
-        isPurchased: isPurchased ?? this.isPurchased,
-        source: source ?? this.source,
-        templateKey: templateKey.present ? templateKey.value : this.templateKey,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  ShoppingItem copyWith({
+    int? id,
+    int? weddingId,
+    String? name,
+    String? category,
+    bool? isPurchased,
+    String? source,
+    Value<String?> templateKey = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => ShoppingItem(
+    id: id ?? this.id,
+    weddingId: weddingId ?? this.weddingId,
+    name: name ?? this.name,
+    category: category ?? this.category,
+    isPurchased: isPurchased ?? this.isPurchased,
+    source: source ?? this.source,
+    templateKey: templateKey.present ? templateKey.value : this.templateKey,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   ShoppingItem copyWithCompanion(ShoppingItemsCompanion data) {
     return ShoppingItem(
       id: data.id.present ? data.id.value : this.id,
       weddingId: data.weddingId.present ? data.weddingId.value : this.weddingId,
       name: data.name.present ? data.name.value : this.name,
       category: data.category.present ? data.category.value : this.category,
-      isPurchased:
-          data.isPurchased.present ? data.isPurchased.value : this.isPurchased,
+      isPurchased: data.isPurchased.present
+          ? data.isPurchased.value
+          : this.isPurchased,
       source: data.source.present ? data.source.value : this.source,
-      templateKey:
-          data.templateKey.present ? data.templateKey.value : this.templateKey,
+      templateKey: data.templateKey.present
+          ? data.templateKey.value
+          : this.templateKey,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -3896,8 +4671,17 @@ class ShoppingItem extends DataClass implements Insertable<ShoppingItem> {
   }
 
   @override
-  int get hashCode => Object.hash(id, weddingId, name, category, isPurchased,
-      source, templateKey, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    id,
+    weddingId,
+    name,
+    category,
+    isPurchased,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -3944,8 +4728,8 @@ class ShoppingItemsCompanion extends UpdateCompanion<ShoppingItem> {
     this.templateKey = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : weddingId = Value(weddingId),
-        name = Value(name);
+  }) : weddingId = Value(weddingId),
+       name = Value(name);
   static Insertable<ShoppingItem> custom({
     Expression<int>? id,
     Expression<int>? weddingId,
@@ -3970,16 +4754,17 @@ class ShoppingItemsCompanion extends UpdateCompanion<ShoppingItem> {
     });
   }
 
-  ShoppingItemsCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? weddingId,
-      Value<String>? name,
-      Value<String>? category,
-      Value<bool>? isPurchased,
-      Value<String>? source,
-      Value<String?>? templateKey,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  ShoppingItemsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? weddingId,
+    Value<String>? name,
+    Value<String>? category,
+    Value<bool>? isPurchased,
+    Value<String>? source,
+    Value<String?>? templateKey,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return ShoppingItemsCompanion(
       id: id ?? this.id,
       weddingId: weddingId ?? this.weddingId,
@@ -4052,145 +4837,208 @@ class $BudgetItemsTable extends BudgetItems
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _weddingIdMeta =
-      const VerificationMeta('weddingId');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _weddingIdMeta = const VerificationMeta(
+    'weddingId',
+  );
   @override
   late final GeneratedColumn<int> weddingId = GeneratedColumn<int>(
-      'wedding_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES weddings (id) ON DELETE CASCADE'));
-  static const VerificationMeta _categoryNameMeta =
-      const VerificationMeta('categoryName');
+    'wedding_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES weddings (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _categoryNameMeta = const VerificationMeta(
+    'categoryName',
+  );
   @override
   late final GeneratedColumn<String> categoryName = GeneratedColumn<String>(
-      'category_name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _estimatedMeta =
-      const VerificationMeta('estimated');
+    'category_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _estimatedMeta = const VerificationMeta(
+    'estimated',
+  );
   @override
   late final GeneratedColumn<int> estimated = GeneratedColumn<int>(
-      'estimated', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'estimated',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   static const VerificationMeta _actualMeta = const VerificationMeta('actual');
   @override
   late final GeneratedColumn<int> actual = GeneratedColumn<int>(
-      'actual', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'actual',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   static const VerificationMeta _notesMeta = const VerificationMeta('notes');
   @override
   late final GeneratedColumn<String> notes = GeneratedColumn<String>(
-      'notes', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _sourceMeta = const VerificationMeta('source');
   @override
   late final GeneratedColumn<String> source = GeneratedColumn<String>(
-      'source', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant('user'));
-  static const VerificationMeta _templateKeyMeta =
-      const VerificationMeta('templateKey');
+    'source',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('user'),
+  );
+  static const VerificationMeta _templateKeyMeta = const VerificationMeta(
+    'templateKey',
+  );
   @override
   late final GeneratedColumn<String> templateKey = GeneratedColumn<String>(
-      'template_key', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'template_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        weddingId,
-        categoryName,
-        estimated,
-        actual,
-        notes,
-        source,
-        templateKey,
-        createdAt,
-        updatedAt
-      ];
+    id,
+    weddingId,
+    categoryName,
+    estimated,
+    actual,
+    notes,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'budget_items';
   @override
-  VerificationContext validateIntegrity(Insertable<BudgetItem> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<BudgetItem> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('wedding_id')) {
-      context.handle(_weddingIdMeta,
-          weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta));
+      context.handle(
+        _weddingIdMeta,
+        weddingId.isAcceptableOrUnknown(data['wedding_id']!, _weddingIdMeta),
+      );
     } else if (isInserting) {
       context.missing(_weddingIdMeta);
     }
     if (data.containsKey('category_name')) {
       context.handle(
+        _categoryNameMeta,
+        categoryName.isAcceptableOrUnknown(
+          data['category_name']!,
           _categoryNameMeta,
-          categoryName.isAcceptableOrUnknown(
-              data['category_name']!, _categoryNameMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_categoryNameMeta);
     }
     if (data.containsKey('estimated')) {
-      context.handle(_estimatedMeta,
-          estimated.isAcceptableOrUnknown(data['estimated']!, _estimatedMeta));
+      context.handle(
+        _estimatedMeta,
+        estimated.isAcceptableOrUnknown(data['estimated']!, _estimatedMeta),
+      );
     }
     if (data.containsKey('actual')) {
-      context.handle(_actualMeta,
-          actual.isAcceptableOrUnknown(data['actual']!, _actualMeta));
+      context.handle(
+        _actualMeta,
+        actual.isAcceptableOrUnknown(data['actual']!, _actualMeta),
+      );
     }
     if (data.containsKey('notes')) {
       context.handle(
-          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
     }
     if (data.containsKey('source')) {
-      context.handle(_sourceMeta,
-          source.isAcceptableOrUnknown(data['source']!, _sourceMeta));
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
     }
     if (data.containsKey('template_key')) {
       context.handle(
+        _templateKeyMeta,
+        templateKey.isAcceptableOrUnknown(
+          data['template_key']!,
           _templateKeyMeta,
-          templateKey.isAcceptableOrUnknown(
-              data['template_key']!, _templateKeyMeta));
+        ),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -4201,26 +5049,46 @@ class $BudgetItemsTable extends BudgetItems
   BudgetItem map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return BudgetItem(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      weddingId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}wedding_id'])!,
-      categoryName: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}category_name'])!,
-      estimated: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}estimated'])!,
-      actual: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}actual'])!,
-      notes: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
-      source: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}source'])!,
-      templateKey: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}template_key']),
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      weddingId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wedding_id'],
+      )!,
+      categoryName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category_name'],
+      )!,
+      estimated: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}estimated'],
+      )!,
+      actual: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}actual'],
+      )!,
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      )!,
+      templateKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}template_key'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -4241,17 +5109,18 @@ class BudgetItem extends DataClass implements Insertable<BudgetItem> {
   final String? templateKey;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const BudgetItem(
-      {required this.id,
-      required this.weddingId,
-      required this.categoryName,
-      required this.estimated,
-      required this.actual,
-      this.notes,
-      required this.source,
-      this.templateKey,
-      required this.createdAt,
-      required this.updatedAt});
+  const BudgetItem({
+    required this.id,
+    required this.weddingId,
+    required this.categoryName,
+    required this.estimated,
+    required this.actual,
+    this.notes,
+    required this.source,
+    this.templateKey,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -4279,8 +5148,9 @@ class BudgetItem extends DataClass implements Insertable<BudgetItem> {
       categoryName: Value(categoryName),
       estimated: Value(estimated),
       actual: Value(actual),
-      notes:
-          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
       source: Value(source),
       templateKey: templateKey == null && nullToAbsent
           ? const Value.absent()
@@ -4290,8 +5160,10 @@ class BudgetItem extends DataClass implements Insertable<BudgetItem> {
     );
   }
 
-  factory BudgetItem.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory BudgetItem.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return BudgetItem(
       id: serializer.fromJson<int>(json['id']),
@@ -4323,29 +5195,29 @@ class BudgetItem extends DataClass implements Insertable<BudgetItem> {
     };
   }
 
-  BudgetItem copyWith(
-          {int? id,
-          int? weddingId,
-          String? categoryName,
-          int? estimated,
-          int? actual,
-          Value<String?> notes = const Value.absent(),
-          String? source,
-          Value<String?> templateKey = const Value.absent(),
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      BudgetItem(
-        id: id ?? this.id,
-        weddingId: weddingId ?? this.weddingId,
-        categoryName: categoryName ?? this.categoryName,
-        estimated: estimated ?? this.estimated,
-        actual: actual ?? this.actual,
-        notes: notes.present ? notes.value : this.notes,
-        source: source ?? this.source,
-        templateKey: templateKey.present ? templateKey.value : this.templateKey,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  BudgetItem copyWith({
+    int? id,
+    int? weddingId,
+    String? categoryName,
+    int? estimated,
+    int? actual,
+    Value<String?> notes = const Value.absent(),
+    String? source,
+    Value<String?> templateKey = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => BudgetItem(
+    id: id ?? this.id,
+    weddingId: weddingId ?? this.weddingId,
+    categoryName: categoryName ?? this.categoryName,
+    estimated: estimated ?? this.estimated,
+    actual: actual ?? this.actual,
+    notes: notes.present ? notes.value : this.notes,
+    source: source ?? this.source,
+    templateKey: templateKey.present ? templateKey.value : this.templateKey,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   BudgetItem copyWithCompanion(BudgetItemsCompanion data) {
     return BudgetItem(
       id: data.id.present ? data.id.value : this.id,
@@ -4357,8 +5229,9 @@ class BudgetItem extends DataClass implements Insertable<BudgetItem> {
       actual: data.actual.present ? data.actual.value : this.actual,
       notes: data.notes.present ? data.notes.value : this.notes,
       source: data.source.present ? data.source.value : this.source,
-      templateKey:
-          data.templateKey.present ? data.templateKey.value : this.templateKey,
+      templateKey: data.templateKey.present
+          ? data.templateKey.value
+          : this.templateKey,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -4382,8 +5255,18 @@ class BudgetItem extends DataClass implements Insertable<BudgetItem> {
   }
 
   @override
-  int get hashCode => Object.hash(id, weddingId, categoryName, estimated,
-      actual, notes, source, templateKey, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    id,
+    weddingId,
+    categoryName,
+    estimated,
+    actual,
+    notes,
+    source,
+    templateKey,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -4434,8 +5317,8 @@ class BudgetItemsCompanion extends UpdateCompanion<BudgetItem> {
     this.templateKey = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : weddingId = Value(weddingId),
-        categoryName = Value(categoryName);
+  }) : weddingId = Value(weddingId),
+       categoryName = Value(categoryName);
   static Insertable<BudgetItem> custom({
     Expression<int>? id,
     Expression<int>? weddingId,
@@ -4462,17 +5345,18 @@ class BudgetItemsCompanion extends UpdateCompanion<BudgetItem> {
     });
   }
 
-  BudgetItemsCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? weddingId,
-      Value<String>? categoryName,
-      Value<int>? estimated,
-      Value<int>? actual,
-      Value<String?>? notes,
-      Value<String>? source,
-      Value<String?>? templateKey,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  BudgetItemsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? weddingId,
+    Value<String>? categoryName,
+    Value<int>? estimated,
+    Value<int>? actual,
+    Value<String?>? notes,
+    Value<String>? source,
+    Value<String?>? templateKey,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return BudgetItemsCompanion(
       id: id ?? this.id,
       weddingId: weddingId ?? this.weddingId,
@@ -4550,25 +5434,37 @@ class $WaitlistInterestsTable extends WaitlistInterests
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
   static const VerificationMeta _cityMeta = const VerificationMeta('city');
   @override
   late final GeneratedColumn<String> city = GeneratedColumn<String>(
-      'city', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'city',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      clientDefault: DateTime.now);
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    clientDefault: DateTime.now,
+  );
   @override
   List<GeneratedColumn> get $columns => [id, city, createdAt];
   @override
@@ -4577,8 +5473,10 @@ class $WaitlistInterestsTable extends WaitlistInterests
   String get actualTableName => $name;
   static const String $name = 'waitlist_interests';
   @override
-  VerificationContext validateIntegrity(Insertable<WaitlistInterest> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<WaitlistInterest> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -4586,13 +5484,17 @@ class $WaitlistInterestsTable extends WaitlistInterests
     }
     if (data.containsKey('city')) {
       context.handle(
-          _cityMeta, city.isAcceptableOrUnknown(data['city']!, _cityMeta));
+        _cityMeta,
+        city.isAcceptableOrUnknown(data['city']!, _cityMeta),
+      );
     } else if (isInserting) {
       context.missing(_cityMeta);
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     return context;
   }
@@ -4603,12 +5505,18 @@ class $WaitlistInterestsTable extends WaitlistInterests
   WaitlistInterest map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return WaitlistInterest(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      city: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}city'])!,
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      city: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}city'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
     );
   }
 
@@ -4623,8 +5531,11 @@ class WaitlistInterest extends DataClass
   final int id;
   final String city;
   final DateTime createdAt;
-  const WaitlistInterest(
-      {required this.id, required this.city, required this.createdAt});
+  const WaitlistInterest({
+    required this.id,
+    required this.city,
+    required this.createdAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -4642,8 +5553,10 @@ class WaitlistInterest extends DataClass
     );
   }
 
-  factory WaitlistInterest.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory WaitlistInterest.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return WaitlistInterest(
       id: serializer.fromJson<int>(json['id']),
@@ -4722,8 +5635,11 @@ class WaitlistInterestsCompanion extends UpdateCompanion<WaitlistInterest> {
     });
   }
 
-  WaitlistInterestsCompanion copyWith(
-      {Value<int>? id, Value<String>? city, Value<DateTime>? createdAt}) {
+  WaitlistInterestsCompanion copyWith({
+    Value<int>? id,
+    Value<String>? city,
+    Value<DateTime>? createdAt,
+  }) {
     return WaitlistInterestsCompanion(
       id: id ?? this.id,
       city: city ?? this.city,
@@ -4764,8 +5680,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $EventsTable events = $EventsTable(this);
   late final $ChecklistItemsTable checklistItems = $ChecklistItemsTable(this);
   late final $TasksTable tasks = $TasksTable(this);
-  late final $VendorCategoriesTable vendorCategories =
-      $VendorCategoriesTable(this);
+  late final $VendorCategoriesTable vendorCategories = $VendorCategoriesTable(
+    this,
+  );
   late final $EventVendorCategoriesTable eventVendorCategories =
       $EventVendorCategoriesTable(this);
   late final $VendorsTable vendors = $VendorsTable(this);
@@ -4780,231 +5697,258 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [
-        weddings,
-        events,
-        checklistItems,
-        tasks,
-        vendorCategories,
-        eventVendorCategories,
-        vendors,
-        guests,
-        guestEvents,
-        shoppingItems,
-        budgetItems,
-        waitlistInterests
-      ];
+    weddings,
+    events,
+    checklistItems,
+    tasks,
+    vendorCategories,
+    eventVendorCategories,
+    vendors,
+    guests,
+    guestEvents,
+    shoppingItems,
+    budgetItems,
+    waitlistInterests,
+  ];
   @override
-  StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
-        [
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('weddings',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('events', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('events',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('checklist_items', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('weddings',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('tasks', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('events',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('tasks', kind: UpdateKind.update),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('weddings',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('vendor_categories', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('events',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('event_vendor_categories', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('vendor_categories',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('event_vendor_categories', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('vendor_categories',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('vendors', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('weddings',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('guests', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('guests',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('guest_events', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('events',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('guest_events', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('weddings',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('shopping_items', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('weddings',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('budget_items', kind: UpdateKind.delete),
-            ],
-          ),
-        ],
-      );
+  StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'weddings',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('events', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'events',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('checklist_items', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'weddings',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('tasks', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'events',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('tasks', kind: UpdateKind.update)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'weddings',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('vendor_categories', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'events',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('event_vendor_categories', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'vendor_categories',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('event_vendor_categories', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'vendor_categories',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('vendors', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'weddings',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('guests', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'guests',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('guest_events', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'events',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('guest_events', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'weddings',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('shopping_items', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'weddings',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('budget_items', kind: UpdateKind.delete)],
+    ),
+  ]);
 }
 
-typedef $$WeddingsTableCreateCompanionBuilder = WeddingsCompanion Function({
-  Value<int> id,
-  required String name,
-  required DateTime weddingDate,
-  required String city,
-  required int guestCount,
-  required int totalBudget,
-  Value<bool> planGenerated,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$WeddingsTableUpdateCompanionBuilder = WeddingsCompanion Function({
-  Value<int> id,
-  Value<String> name,
-  Value<DateTime> weddingDate,
-  Value<String> city,
-  Value<int> guestCount,
-  Value<int> totalBudget,
-  Value<bool> planGenerated,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+typedef $$WeddingsTableCreateCompanionBuilder =
+    WeddingsCompanion Function({
+      Value<int> id,
+      required String name,
+      required DateTime weddingDate,
+      required String city,
+      required int guestCount,
+      required int totalBudget,
+      Value<bool> planGenerated,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$WeddingsTableUpdateCompanionBuilder =
+    WeddingsCompanion Function({
+      Value<int> id,
+      Value<String> name,
+      Value<DateTime> weddingDate,
+      Value<String> city,
+      Value<int> guestCount,
+      Value<int> totalBudget,
+      Value<bool> planGenerated,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$WeddingsTableReferences
     extends BaseReferences<_$AppDatabase, $WeddingsTable, Wedding> {
   $$WeddingsTableReferences(super.$_db, super.$_table, super.$_typedResult);
 
   static MultiTypedResultKey<$EventsTable, List<Event>> _eventsRefsTable(
-          _$AppDatabase db) =>
-      MultiTypedResultKey.fromTable(db.events,
-          aliasName: $_aliasNameGenerator(db.weddings.id, db.events.weddingId));
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.events,
+    aliasName: $_aliasNameGenerator(db.weddings.id, db.events.weddingId),
+  );
 
   $$EventsTableProcessedTableManager get eventsRefs {
-    final manager = $$EventsTableTableManager($_db, $_db.events)
-        .filter((f) => f.weddingId.id($_item.id));
+    final manager = $$EventsTableTableManager(
+      $_db,
+      $_db.events,
+    ).filter((f) => f.weddingId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_eventsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$TasksTable, List<Task>> _tasksRefsTable(
-          _$AppDatabase db) =>
-      MultiTypedResultKey.fromTable(db.tasks,
-          aliasName: $_aliasNameGenerator(db.weddings.id, db.tasks.weddingId));
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.tasks,
+    aliasName: $_aliasNameGenerator(db.weddings.id, db.tasks.weddingId),
+  );
 
   $$TasksTableProcessedTableManager get tasksRefs {
-    final manager = $$TasksTableTableManager($_db, $_db.tasks)
-        .filter((f) => f.weddingId.id($_item.id));
+    final manager = $$TasksTableTableManager(
+      $_db,
+      $_db.tasks,
+    ).filter((f) => f.weddingId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_tasksRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$VendorCategoriesTable, List<VendorCategory>>
-      _vendorCategoriesRefsTable(_$AppDatabase db) =>
-          MultiTypedResultKey.fromTable(db.vendorCategories,
-              aliasName: $_aliasNameGenerator(
-                  db.weddings.id, db.vendorCategories.weddingId));
+  _vendorCategoriesRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.vendorCategories,
+    aliasName: $_aliasNameGenerator(
+      db.weddings.id,
+      db.vendorCategories.weddingId,
+    ),
+  );
 
   $$VendorCategoriesTableProcessedTableManager get vendorCategoriesRefs {
-    final manager =
-        $$VendorCategoriesTableTableManager($_db, $_db.vendorCategories)
-            .filter((f) => f.weddingId.id($_item.id));
+    final manager = $$VendorCategoriesTableTableManager(
+      $_db,
+      $_db.vendorCategories,
+    ).filter((f) => f.weddingId.id.sqlEquals($_itemColumn<int>('id')!));
 
-    final cache =
-        $_typedResult.readTableOrNull(_vendorCategoriesRefsTable($_db));
+    final cache = $_typedResult.readTableOrNull(
+      _vendorCategoriesRefsTable($_db),
+    );
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$GuestsTable, List<Guest>> _guestsRefsTable(
-          _$AppDatabase db) =>
-      MultiTypedResultKey.fromTable(db.guests,
-          aliasName: $_aliasNameGenerator(db.weddings.id, db.guests.weddingId));
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.guests,
+    aliasName: $_aliasNameGenerator(db.weddings.id, db.guests.weddingId),
+  );
 
   $$GuestsTableProcessedTableManager get guestsRefs {
-    final manager = $$GuestsTableTableManager($_db, $_db.guests)
-        .filter((f) => f.weddingId.id($_item.id));
+    final manager = $$GuestsTableTableManager(
+      $_db,
+      $_db.guests,
+    ).filter((f) => f.weddingId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_guestsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$ShoppingItemsTable, List<ShoppingItem>>
-      _shoppingItemsRefsTable(_$AppDatabase db) =>
-          MultiTypedResultKey.fromTable(db.shoppingItems,
-              aliasName: $_aliasNameGenerator(
-                  db.weddings.id, db.shoppingItems.weddingId));
+  _shoppingItemsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.shoppingItems,
+    aliasName: $_aliasNameGenerator(db.weddings.id, db.shoppingItems.weddingId),
+  );
 
   $$ShoppingItemsTableProcessedTableManager get shoppingItemsRefs {
-    final manager = $$ShoppingItemsTableTableManager($_db, $_db.shoppingItems)
-        .filter((f) => f.weddingId.id($_item.id));
+    final manager = $$ShoppingItemsTableTableManager(
+      $_db,
+      $_db.shoppingItems,
+    ).filter((f) => f.weddingId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_shoppingItemsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$BudgetItemsTable, List<BudgetItem>>
-      _budgetItemsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
-          db.budgetItems,
-          aliasName:
-              $_aliasNameGenerator(db.weddings.id, db.budgetItems.weddingId));
+  _budgetItemsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.budgetItems,
+    aliasName: $_aliasNameGenerator(db.weddings.id, db.budgetItems.weddingId),
+  );
 
   $$BudgetItemsTableProcessedTableManager get budgetItemsRefs {
-    final manager = $$BudgetItemsTableTableManager($_db, $_db.budgetItems)
-        .filter((f) => f.weddingId.id($_item.id));
+    final manager = $$BudgetItemsTableTableManager(
+      $_db,
+      $_db.budgetItems,
+    ).filter((f) => f.weddingId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_budgetItemsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 }
 
@@ -5018,155 +5962,197 @@ class $$WeddingsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get weddingDate => $composableBuilder(
-      column: $table.weddingDate, builder: (column) => ColumnFilters(column));
+    column: $table.weddingDate,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get city => $composableBuilder(
-      column: $table.city, builder: (column) => ColumnFilters(column));
+    column: $table.city,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get guestCount => $composableBuilder(
-      column: $table.guestCount, builder: (column) => ColumnFilters(column));
+    column: $table.guestCount,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get totalBudget => $composableBuilder(
-      column: $table.totalBudget, builder: (column) => ColumnFilters(column));
+    column: $table.totalBudget,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get planGenerated => $composableBuilder(
-      column: $table.planGenerated, builder: (column) => ColumnFilters(column));
+    column: $table.planGenerated,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   Expression<bool> eventsRefs(
-      Expression<bool> Function($$EventsTableFilterComposer f) f) {
+    Expression<bool> Function($$EventsTableFilterComposer f) f,
+  ) {
     final $$EventsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableFilterComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableFilterComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<bool> tasksRefs(
-      Expression<bool> Function($$TasksTableFilterComposer f) f) {
+    Expression<bool> Function($$TasksTableFilterComposer f) f,
+  ) {
     final $$TasksTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.tasks,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$TasksTableFilterComposer(
-              $db: $db,
-              $table: $db.tasks,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tasks,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$TasksTableFilterComposer(
+            $db: $db,
+            $table: $db.tasks,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<bool> vendorCategoriesRefs(
-      Expression<bool> Function($$VendorCategoriesTableFilterComposer f) f) {
+    Expression<bool> Function($$VendorCategoriesTableFilterComposer f) f,
+  ) {
     final $$VendorCategoriesTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableFilterComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableFilterComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<bool> guestsRefs(
-      Expression<bool> Function($$GuestsTableFilterComposer f) f) {
+    Expression<bool> Function($$GuestsTableFilterComposer f) f,
+  ) {
     final $$GuestsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.guests,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestsTableFilterComposer(
-              $db: $db,
-              $table: $db.guests,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.guests,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestsTableFilterComposer(
+            $db: $db,
+            $table: $db.guests,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<bool> shoppingItemsRefs(
-      Expression<bool> Function($$ShoppingItemsTableFilterComposer f) f) {
+    Expression<bool> Function($$ShoppingItemsTableFilterComposer f) f,
+  ) {
     final $$ShoppingItemsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.shoppingItems,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$ShoppingItemsTableFilterComposer(
-              $db: $db,
-              $table: $db.shoppingItems,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.shoppingItems,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ShoppingItemsTableFilterComposer(
+            $db: $db,
+            $table: $db.shoppingItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<bool> budgetItemsRefs(
-      Expression<bool> Function($$BudgetItemsTableFilterComposer f) f) {
+    Expression<bool> Function($$BudgetItemsTableFilterComposer f) f,
+  ) {
     final $$BudgetItemsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.budgetItems,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$BudgetItemsTableFilterComposer(
-              $db: $db,
-              $table: $db.budgetItems,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.budgetItems,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BudgetItemsTableFilterComposer(
+            $db: $db,
+            $table: $db.budgetItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
@@ -5181,32 +6167,49 @@ class $$WeddingsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get weddingDate => $composableBuilder(
-      column: $table.weddingDate, builder: (column) => ColumnOrderings(column));
+    column: $table.weddingDate,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get city => $composableBuilder(
-      column: $table.city, builder: (column) => ColumnOrderings(column));
+    column: $table.city,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get guestCount => $composableBuilder(
-      column: $table.guestCount, builder: (column) => ColumnOrderings(column));
+    column: $table.guestCount,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get totalBudget => $composableBuilder(
-      column: $table.totalBudget, builder: (column) => ColumnOrderings(column));
+    column: $table.totalBudget,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get planGenerated => $composableBuilder(
-      column: $table.planGenerated,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.planGenerated,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$WeddingsTableAnnotationComposer
@@ -5225,19 +6228,27 @@ class $$WeddingsTableAnnotationComposer
       $composableBuilder(column: $table.name, builder: (column) => column);
 
   GeneratedColumn<DateTime> get weddingDate => $composableBuilder(
-      column: $table.weddingDate, builder: (column) => column);
+    column: $table.weddingDate,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get city =>
       $composableBuilder(column: $table.city, builder: (column) => column);
 
   GeneratedColumn<int> get guestCount => $composableBuilder(
-      column: $table.guestCount, builder: (column) => column);
+    column: $table.guestCount,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get totalBudget => $composableBuilder(
-      column: $table.totalBudget, builder: (column) => column);
+    column: $table.totalBudget,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get planGenerated => $composableBuilder(
-      column: $table.planGenerated, builder: (column) => column);
+    column: $table.planGenerated,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -5246,152 +6257,181 @@ class $$WeddingsTableAnnotationComposer
       $composableBuilder(column: $table.updatedAt, builder: (column) => column);
 
   Expression<T> eventsRefs<T extends Object>(
-      Expression<T> Function($$EventsTableAnnotationComposer a) f) {
+    Expression<T> Function($$EventsTableAnnotationComposer a) f,
+  ) {
     final $$EventsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<T> tasksRefs<T extends Object>(
-      Expression<T> Function($$TasksTableAnnotationComposer a) f) {
+    Expression<T> Function($$TasksTableAnnotationComposer a) f,
+  ) {
     final $$TasksTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.tasks,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$TasksTableAnnotationComposer(
-              $db: $db,
-              $table: $db.tasks,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tasks,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$TasksTableAnnotationComposer(
+            $db: $db,
+            $table: $db.tasks,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<T> vendorCategoriesRefs<T extends Object>(
-      Expression<T> Function($$VendorCategoriesTableAnnotationComposer a) f) {
+    Expression<T> Function($$VendorCategoriesTableAnnotationComposer a) f,
+  ) {
     final $$VendorCategoriesTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableAnnotationComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<T> guestsRefs<T extends Object>(
-      Expression<T> Function($$GuestsTableAnnotationComposer a) f) {
+    Expression<T> Function($$GuestsTableAnnotationComposer a) f,
+  ) {
     final $$GuestsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.guests,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.guests,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.guests,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.guests,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<T> shoppingItemsRefs<T extends Object>(
-      Expression<T> Function($$ShoppingItemsTableAnnotationComposer a) f) {
+    Expression<T> Function($$ShoppingItemsTableAnnotationComposer a) f,
+  ) {
     final $$ShoppingItemsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.shoppingItems,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$ShoppingItemsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.shoppingItems,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.shoppingItems,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ShoppingItemsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.shoppingItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<T> budgetItemsRefs<T extends Object>(
-      Expression<T> Function($$BudgetItemsTableAnnotationComposer a) f) {
+    Expression<T> Function($$BudgetItemsTableAnnotationComposer a) f,
+  ) {
     final $$BudgetItemsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.budgetItems,
-        getReferencedColumn: (t) => t.weddingId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$BudgetItemsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.budgetItems,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.budgetItems,
+      getReferencedColumn: (t) => t.weddingId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BudgetItemsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.budgetItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
 
-class $$WeddingsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $WeddingsTable,
-    Wedding,
-    $$WeddingsTableFilterComposer,
-    $$WeddingsTableOrderingComposer,
-    $$WeddingsTableAnnotationComposer,
-    $$WeddingsTableCreateCompanionBuilder,
-    $$WeddingsTableUpdateCompanionBuilder,
-    (Wedding, $$WeddingsTableReferences),
-    Wedding,
-    PrefetchHooks Function(
-        {bool eventsRefs,
-        bool tasksRefs,
-        bool vendorCategoriesRefs,
-        bool guestsRefs,
-        bool shoppingItemsRefs,
-        bool budgetItemsRefs})> {
+class $$WeddingsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $WeddingsTable,
+          Wedding,
+          $$WeddingsTableFilterComposer,
+          $$WeddingsTableOrderingComposer,
+          $$WeddingsTableAnnotationComposer,
+          $$WeddingsTableCreateCompanionBuilder,
+          $$WeddingsTableUpdateCompanionBuilder,
+          (Wedding, $$WeddingsTableReferences),
+          Wedding,
+          PrefetchHooks Function({
+            bool eventsRefs,
+            bool tasksRefs,
+            bool vendorCategoriesRefs,
+            bool guestsRefs,
+            bool shoppingItemsRefs,
+            bool budgetItemsRefs,
+          })
+        > {
   $$WeddingsTableTableManager(_$AppDatabase db, $WeddingsTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -5400,190 +6440,259 @@ class $$WeddingsTableTableManager extends RootTableManager<
               $$WeddingsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$WeddingsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<DateTime> weddingDate = const Value.absent(),
-            Value<String> city = const Value.absent(),
-            Value<int> guestCount = const Value.absent(),
-            Value<int> totalBudget = const Value.absent(),
-            Value<bool> planGenerated = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              WeddingsCompanion(
-            id: id,
-            name: name,
-            weddingDate: weddingDate,
-            city: city,
-            guestCount: guestCount,
-            totalBudget: totalBudget,
-            planGenerated: planGenerated,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required String name,
-            required DateTime weddingDate,
-            required String city,
-            required int guestCount,
-            required int totalBudget,
-            Value<bool> planGenerated = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              WeddingsCompanion.insert(
-            id: id,
-            name: name,
-            weddingDate: weddingDate,
-            city: city,
-            guestCount: guestCount,
-            totalBudget: totalBudget,
-            planGenerated: planGenerated,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<DateTime> weddingDate = const Value.absent(),
+                Value<String> city = const Value.absent(),
+                Value<int> guestCount = const Value.absent(),
+                Value<int> totalBudget = const Value.absent(),
+                Value<bool> planGenerated = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => WeddingsCompanion(
+                id: id,
+                name: name,
+                weddingDate: weddingDate,
+                city: city,
+                guestCount: guestCount,
+                totalBudget: totalBudget,
+                planGenerated: planGenerated,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String name,
+                required DateTime weddingDate,
+                required String city,
+                required int guestCount,
+                required int totalBudget,
+                Value<bool> planGenerated = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => WeddingsCompanion.insert(
+                id: id,
+                name: name,
+                weddingDate: weddingDate,
+                city: city,
+                guestCount: guestCount,
+                totalBudget: totalBudget,
+                planGenerated: planGenerated,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) =>
-                  (e.readTable(table), $$WeddingsTableReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$WeddingsTableReferences(db, table, e),
+                ),
+              )
               .toList(),
-          prefetchHooksCallback: (
-              {eventsRefs = false,
-              tasksRefs = false,
-              vendorCategoriesRefs = false,
-              guestsRefs = false,
-              shoppingItemsRefs = false,
-              budgetItemsRefs = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [
-                if (eventsRefs) db.events,
-                if (tasksRefs) db.tasks,
-                if (vendorCategoriesRefs) db.vendorCategories,
-                if (guestsRefs) db.guests,
-                if (shoppingItemsRefs) db.shoppingItems,
-                if (budgetItemsRefs) db.budgetItems
-              ],
-              addJoins: null,
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (eventsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable:
-                            $$WeddingsTableReferences._eventsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$WeddingsTableReferences(db, table, p0).eventsRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.weddingId == item.id),
-                        typedResults: items),
-                  if (tasksRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable:
-                            $$WeddingsTableReferences._tasksRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$WeddingsTableReferences(db, table, p0).tasksRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.weddingId == item.id),
-                        typedResults: items),
-                  if (vendorCategoriesRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable: $$WeddingsTableReferences
-                            ._vendorCategoriesRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$WeddingsTableReferences(db, table, p0)
-                                .vendorCategoriesRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.weddingId == item.id),
-                        typedResults: items),
-                  if (guestsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable:
-                            $$WeddingsTableReferences._guestsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$WeddingsTableReferences(db, table, p0).guestsRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.weddingId == item.id),
-                        typedResults: items),
-                  if (shoppingItemsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable: $$WeddingsTableReferences
-                            ._shoppingItemsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$WeddingsTableReferences(db, table, p0)
-                                .shoppingItemsRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.weddingId == item.id),
-                        typedResults: items),
-                  if (budgetItemsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable:
-                            $$WeddingsTableReferences._budgetItemsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$WeddingsTableReferences(db, table, p0)
-                                .budgetItemsRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.weddingId == item.id),
-                        typedResults: items)
-                ];
+          prefetchHooksCallback:
+              ({
+                eventsRefs = false,
+                tasksRefs = false,
+                vendorCategoriesRefs = false,
+                guestsRefs = false,
+                shoppingItemsRefs = false,
+                budgetItemsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (eventsRefs) db.events,
+                    if (tasksRefs) db.tasks,
+                    if (vendorCategoriesRefs) db.vendorCategories,
+                    if (guestsRefs) db.guests,
+                    if (shoppingItemsRefs) db.shoppingItems,
+                    if (budgetItemsRefs) db.budgetItems,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (eventsRefs)
+                        await $_getPrefetchedData<
+                          Wedding,
+                          $WeddingsTable,
+                          Event
+                        >(
+                          currentTable: table,
+                          referencedTable: $$WeddingsTableReferences
+                              ._eventsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$WeddingsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).eventsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.weddingId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (tasksRefs)
+                        await $_getPrefetchedData<
+                          Wedding,
+                          $WeddingsTable,
+                          Task
+                        >(
+                          currentTable: table,
+                          referencedTable: $$WeddingsTableReferences
+                              ._tasksRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$WeddingsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).tasksRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.weddingId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (vendorCategoriesRefs)
+                        await $_getPrefetchedData<
+                          Wedding,
+                          $WeddingsTable,
+                          VendorCategory
+                        >(
+                          currentTable: table,
+                          referencedTable: $$WeddingsTableReferences
+                              ._vendorCategoriesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$WeddingsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).vendorCategoriesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.weddingId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (guestsRefs)
+                        await $_getPrefetchedData<
+                          Wedding,
+                          $WeddingsTable,
+                          Guest
+                        >(
+                          currentTable: table,
+                          referencedTable: $$WeddingsTableReferences
+                              ._guestsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$WeddingsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).guestsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.weddingId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (shoppingItemsRefs)
+                        await $_getPrefetchedData<
+                          Wedding,
+                          $WeddingsTable,
+                          ShoppingItem
+                        >(
+                          currentTable: table,
+                          referencedTable: $$WeddingsTableReferences
+                              ._shoppingItemsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$WeddingsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).shoppingItemsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.weddingId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (budgetItemsRefs)
+                        await $_getPrefetchedData<
+                          Wedding,
+                          $WeddingsTable,
+                          BudgetItem
+                        >(
+                          currentTable: table,
+                          referencedTable: $$WeddingsTableReferences
+                              ._budgetItemsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$WeddingsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).budgetItemsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.weddingId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
               },
-            );
-          },
-        ));
+        ),
+      );
 }
 
-typedef $$WeddingsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $WeddingsTable,
-    Wedding,
-    $$WeddingsTableFilterComposer,
-    $$WeddingsTableOrderingComposer,
-    $$WeddingsTableAnnotationComposer,
-    $$WeddingsTableCreateCompanionBuilder,
-    $$WeddingsTableUpdateCompanionBuilder,
-    (Wedding, $$WeddingsTableReferences),
-    Wedding,
-    PrefetchHooks Function(
-        {bool eventsRefs,
+typedef $$WeddingsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $WeddingsTable,
+      Wedding,
+      $$WeddingsTableFilterComposer,
+      $$WeddingsTableOrderingComposer,
+      $$WeddingsTableAnnotationComposer,
+      $$WeddingsTableCreateCompanionBuilder,
+      $$WeddingsTableUpdateCompanionBuilder,
+      (Wedding, $$WeddingsTableReferences),
+      Wedding,
+      PrefetchHooks Function({
+        bool eventsRefs,
         bool tasksRefs,
         bool vendorCategoriesRefs,
         bool guestsRefs,
         bool shoppingItemsRefs,
-        bool budgetItemsRefs})>;
-typedef $$EventsTableCreateCompanionBuilder = EventsCompanion Function({
-  Value<int> id,
-  required int weddingId,
-  required String name,
-  Value<String?> templateKey,
-  Value<bool> isCustom,
-  Value<bool> isArchived,
-  Value<int> sortOrder,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$EventsTableUpdateCompanionBuilder = EventsCompanion Function({
-  Value<int> id,
-  Value<int> weddingId,
-  Value<String> name,
-  Value<String?> templateKey,
-  Value<bool> isCustom,
-  Value<bool> isArchived,
-  Value<int> sortOrder,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+        bool budgetItemsRefs,
+      })
+    >;
+typedef $$EventsTableCreateCompanionBuilder =
+    EventsCompanion Function({
+      Value<int> id,
+      required int weddingId,
+      required String name,
+      Value<String?> templateKey,
+      Value<bool> isCustom,
+      Value<bool> isArchived,
+      Value<int> sortOrder,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$EventsTableUpdateCompanionBuilder =
+    EventsCompanion Function({
+      Value<int> id,
+      Value<int> weddingId,
+      Value<String> name,
+      Value<String?> templateKey,
+      Value<bool> isCustom,
+      Value<bool> isArchived,
+      Value<int> sortOrder,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$EventsTableReferences
     extends BaseReferences<_$AppDatabase, $EventsTable, Event> {
@@ -5593,75 +6702,100 @@ final class $$EventsTableReferences
       .createAlias($_aliasNameGenerator(db.events.weddingId, db.weddings.id));
 
   $$WeddingsTableProcessedTableManager get weddingId {
-    final manager = $$WeddingsTableTableManager($_db, $_db.weddings)
-        .filter((f) => f.id($_item.weddingId!));
+    final $_column = $_itemColumn<int>('wedding_id')!;
+
+    final manager = $$WeddingsTableTableManager(
+      $_db,
+      $_db.weddings,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_weddingIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 
   static MultiTypedResultKey<$ChecklistItemsTable, List<ChecklistItem>>
-      _checklistItemsRefsTable(_$AppDatabase db) =>
-          MultiTypedResultKey.fromTable(db.checklistItems,
-              aliasName: $_aliasNameGenerator(
-                  db.events.id, db.checklistItems.eventId));
+  _checklistItemsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.checklistItems,
+    aliasName: $_aliasNameGenerator(db.events.id, db.checklistItems.eventId),
+  );
 
   $$ChecklistItemsTableProcessedTableManager get checklistItemsRefs {
-    final manager = $$ChecklistItemsTableTableManager($_db, $_db.checklistItems)
-        .filter((f) => f.eventId.id($_item.id));
+    final manager = $$ChecklistItemsTableTableManager(
+      $_db,
+      $_db.checklistItems,
+    ).filter((f) => f.eventId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_checklistItemsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$TasksTable, List<Task>> _tasksRefsTable(
-          _$AppDatabase db) =>
-      MultiTypedResultKey.fromTable(db.tasks,
-          aliasName: $_aliasNameGenerator(db.events.id, db.tasks.eventId));
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.tasks,
+    aliasName: $_aliasNameGenerator(db.events.id, db.tasks.eventId),
+  );
 
   $$TasksTableProcessedTableManager get tasksRefs {
-    final manager = $$TasksTableTableManager($_db, $_db.tasks)
-        .filter((f) => f.eventId.id($_item.id));
+    final manager = $$TasksTableTableManager(
+      $_db,
+      $_db.tasks,
+    ).filter((f) => f.eventId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_tasksRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
-  static MultiTypedResultKey<$EventVendorCategoriesTable,
-      List<EventVendorCategory>> _eventVendorCategoriesRefsTable(
-          _$AppDatabase db) =>
-      MultiTypedResultKey.fromTable(db.eventVendorCategories,
-          aliasName: $_aliasNameGenerator(
-              db.events.id, db.eventVendorCategories.eventId));
+  static MultiTypedResultKey<
+    $EventVendorCategoriesTable,
+    List<EventVendorCategory>
+  >
+  _eventVendorCategoriesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.eventVendorCategories,
+        aliasName: $_aliasNameGenerator(
+          db.events.id,
+          db.eventVendorCategories.eventId,
+        ),
+      );
 
   $$EventVendorCategoriesTableProcessedTableManager
-      get eventVendorCategoriesRefs {
+  get eventVendorCategoriesRefs {
     final manager = $$EventVendorCategoriesTableTableManager(
-            $_db, $_db.eventVendorCategories)
-        .filter((f) => f.eventId.id($_item.id));
+      $_db,
+      $_db.eventVendorCategories,
+    ).filter((f) => f.eventId.id.sqlEquals($_itemColumn<int>('id')!));
 
-    final cache =
-        $_typedResult.readTableOrNull(_eventVendorCategoriesRefsTable($_db));
+    final cache = $_typedResult.readTableOrNull(
+      _eventVendorCategoriesRefsTable($_db),
+    );
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$GuestEventsTable, List<GuestEvent>>
-      _guestEventsRefsTable(_$AppDatabase db) =>
-          MultiTypedResultKey.fromTable(db.guestEvents,
-              aliasName:
-                  $_aliasNameGenerator(db.events.id, db.guestEvents.eventId));
+  _guestEventsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.guestEvents,
+    aliasName: $_aliasNameGenerator(db.events.id, db.guestEvents.eventId),
+  );
 
   $$GuestEventsTableProcessedTableManager get guestEventsRefs {
-    final manager = $$GuestEventsTableTableManager($_db, $_db.guestEvents)
-        .filter((f) => f.eventId.id($_item.id));
+    final manager = $$GuestEventsTableTableManager(
+      $_db,
+      $_db.guestEvents,
+    ).filter((f) => f.eventId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_guestEventsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 }
 
@@ -5675,132 +6809,166 @@ class $$EventsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnFilters(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get isCustom => $composableBuilder(
-      column: $table.isCustom, builder: (column) => ColumnFilters(column));
+    column: $table.isCustom,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get isArchived => $composableBuilder(
-      column: $table.isArchived, builder: (column) => ColumnFilters(column));
+    column: $table.isArchived,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get sortOrder => $composableBuilder(
-      column: $table.sortOrder, builder: (column) => ColumnFilters(column));
+    column: $table.sortOrder,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$WeddingsTableFilterComposer get weddingId {
     final $$WeddingsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableFilterComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableFilterComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   Expression<bool> checklistItemsRefs(
-      Expression<bool> Function($$ChecklistItemsTableFilterComposer f) f) {
+    Expression<bool> Function($$ChecklistItemsTableFilterComposer f) f,
+  ) {
     final $$ChecklistItemsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.checklistItems,
-        getReferencedColumn: (t) => t.eventId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$ChecklistItemsTableFilterComposer(
-              $db: $db,
-              $table: $db.checklistItems,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.checklistItems,
+      getReferencedColumn: (t) => t.eventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ChecklistItemsTableFilterComposer(
+            $db: $db,
+            $table: $db.checklistItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<bool> tasksRefs(
-      Expression<bool> Function($$TasksTableFilterComposer f) f) {
+    Expression<bool> Function($$TasksTableFilterComposer f) f,
+  ) {
     final $$TasksTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.tasks,
-        getReferencedColumn: (t) => t.eventId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$TasksTableFilterComposer(
-              $db: $db,
-              $table: $db.tasks,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tasks,
+      getReferencedColumn: (t) => t.eventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$TasksTableFilterComposer(
+            $db: $db,
+            $table: $db.tasks,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<bool> eventVendorCategoriesRefs(
-      Expression<bool> Function($$EventVendorCategoriesTableFilterComposer f)
-          f) {
+    Expression<bool> Function($$EventVendorCategoriesTableFilterComposer f) f,
+  ) {
     final $$EventVendorCategoriesTableFilterComposer composer =
         $composerBuilder(
-            composer: this,
-            getCurrentColumn: (t) => t.id,
-            referencedTable: $db.eventVendorCategories,
-            getReferencedColumn: (t) => t.eventId,
-            builder: (joinBuilder,
-                    {$addJoinBuilderToRootComposer,
-                    $removeJoinBuilderFromRootComposer}) =>
-                $$EventVendorCategoriesTableFilterComposer(
-                  $db: $db,
-                  $table: $db.eventVendorCategories,
-                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-                  joinBuilder: joinBuilder,
-                  $removeJoinBuilderFromRootComposer:
-                      $removeJoinBuilderFromRootComposer,
-                ));
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.eventVendorCategories,
+          getReferencedColumn: (t) => t.eventId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$EventVendorCategoriesTableFilterComposer(
+                $db: $db,
+                $table: $db.eventVendorCategories,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
     return f(composer);
   }
 
   Expression<bool> guestEventsRefs(
-      Expression<bool> Function($$GuestEventsTableFilterComposer f) f) {
+    Expression<bool> Function($$GuestEventsTableFilterComposer f) f,
+  ) {
     final $$GuestEventsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.guestEvents,
-        getReferencedColumn: (t) => t.eventId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestEventsTableFilterComposer(
-              $db: $db,
-              $table: $db.guestEvents,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.guestEvents,
+      getReferencedColumn: (t) => t.eventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestEventsTableFilterComposer(
+            $db: $db,
+            $table: $db.guestEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
@@ -5815,46 +6983,65 @@ class $$EventsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnOrderings(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isCustom => $composableBuilder(
-      column: $table.isCustom, builder: (column) => ColumnOrderings(column));
+    column: $table.isCustom,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isArchived => $composableBuilder(
-      column: $table.isArchived, builder: (column) => ColumnOrderings(column));
+    column: $table.isArchived,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get sortOrder => $composableBuilder(
-      column: $table.sortOrder, builder: (column) => ColumnOrderings(column));
+    column: $table.sortOrder,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$WeddingsTableOrderingComposer get weddingId {
     final $$WeddingsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableOrderingComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableOrderingComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -5875,13 +7062,17 @@ class $$EventsTableAnnotationComposer
       $composableBuilder(column: $table.name, builder: (column) => column);
 
   GeneratedColumn<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => column);
+    column: $table.templateKey,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get isCustom =>
       $composableBuilder(column: $table.isCustom, builder: (column) => column);
 
   GeneratedColumn<bool> get isArchived => $composableBuilder(
-      column: $table.isArchived, builder: (column) => column);
+    column: $table.isArchived,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get sortOrder =>
       $composableBuilder(column: $table.sortOrder, builder: (column) => column);
@@ -5894,130 +7085,153 @@ class $$EventsTableAnnotationComposer
 
   $$WeddingsTableAnnotationComposer get weddingId {
     final $$WeddingsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   Expression<T> checklistItemsRefs<T extends Object>(
-      Expression<T> Function($$ChecklistItemsTableAnnotationComposer a) f) {
+    Expression<T> Function($$ChecklistItemsTableAnnotationComposer a) f,
+  ) {
     final $$ChecklistItemsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.checklistItems,
-        getReferencedColumn: (t) => t.eventId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$ChecklistItemsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.checklistItems,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.checklistItems,
+      getReferencedColumn: (t) => t.eventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ChecklistItemsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.checklistItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<T> tasksRefs<T extends Object>(
-      Expression<T> Function($$TasksTableAnnotationComposer a) f) {
+    Expression<T> Function($$TasksTableAnnotationComposer a) f,
+  ) {
     final $$TasksTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.tasks,
-        getReferencedColumn: (t) => t.eventId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$TasksTableAnnotationComposer(
-              $db: $db,
-              $table: $db.tasks,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tasks,
+      getReferencedColumn: (t) => t.eventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$TasksTableAnnotationComposer(
+            $db: $db,
+            $table: $db.tasks,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 
   Expression<T> eventVendorCategoriesRefs<T extends Object>(
-      Expression<T> Function($$EventVendorCategoriesTableAnnotationComposer a)
-          f) {
+    Expression<T> Function($$EventVendorCategoriesTableAnnotationComposer a) f,
+  ) {
     final $$EventVendorCategoriesTableAnnotationComposer composer =
         $composerBuilder(
-            composer: this,
-            getCurrentColumn: (t) => t.id,
-            referencedTable: $db.eventVendorCategories,
-            getReferencedColumn: (t) => t.eventId,
-            builder: (joinBuilder,
-                    {$addJoinBuilderToRootComposer,
-                    $removeJoinBuilderFromRootComposer}) =>
-                $$EventVendorCategoriesTableAnnotationComposer(
-                  $db: $db,
-                  $table: $db.eventVendorCategories,
-                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-                  joinBuilder: joinBuilder,
-                  $removeJoinBuilderFromRootComposer:
-                      $removeJoinBuilderFromRootComposer,
-                ));
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.eventVendorCategories,
+          getReferencedColumn: (t) => t.eventId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$EventVendorCategoriesTableAnnotationComposer(
+                $db: $db,
+                $table: $db.eventVendorCategories,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
     return f(composer);
   }
 
   Expression<T> guestEventsRefs<T extends Object>(
-      Expression<T> Function($$GuestEventsTableAnnotationComposer a) f) {
+    Expression<T> Function($$GuestEventsTableAnnotationComposer a) f,
+  ) {
     final $$GuestEventsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.guestEvents,
-        getReferencedColumn: (t) => t.eventId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestEventsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.guestEvents,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.guestEvents,
+      getReferencedColumn: (t) => t.eventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestEventsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.guestEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
 
-class $$EventsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $EventsTable,
-    Event,
-    $$EventsTableFilterComposer,
-    $$EventsTableOrderingComposer,
-    $$EventsTableAnnotationComposer,
-    $$EventsTableCreateCompanionBuilder,
-    $$EventsTableUpdateCompanionBuilder,
-    (Event, $$EventsTableReferences),
-    Event,
-    PrefetchHooks Function(
-        {bool weddingId,
-        bool checklistItemsRefs,
-        bool tasksRefs,
-        bool eventVendorCategoriesRefs,
-        bool guestEventsRefs})> {
+class $$EventsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $EventsTable,
+          Event,
+          $$EventsTableFilterComposer,
+          $$EventsTableOrderingComposer,
+          $$EventsTableAnnotationComposer,
+          $$EventsTableCreateCompanionBuilder,
+          $$EventsTableUpdateCompanionBuilder,
+          (Event, $$EventsTableReferences),
+          Event,
+          PrefetchHooks Function({
+            bool weddingId,
+            bool checklistItemsRefs,
+            bool tasksRefs,
+            bool eventVendorCategoriesRefs,
+            bool guestEventsRefs,
+          })
+        > {
   $$EventsTableTableManager(_$AppDatabase db, $EventsTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -6026,205 +7240,257 @@ class $$EventsTableTableManager extends RootTableManager<
               $$EventsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$EventsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> weddingId = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<bool> isCustom = const Value.absent(),
-            Value<bool> isArchived = const Value.absent(),
-            Value<int> sortOrder = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              EventsCompanion(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            templateKey: templateKey,
-            isCustom: isCustom,
-            isArchived: isArchived,
-            sortOrder: sortOrder,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int weddingId,
-            required String name,
-            Value<String?> templateKey = const Value.absent(),
-            Value<bool> isCustom = const Value.absent(),
-            Value<bool> isArchived = const Value.absent(),
-            Value<int> sortOrder = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              EventsCompanion.insert(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            templateKey: templateKey,
-            isCustom: isCustom,
-            isArchived: isArchived,
-            sortOrder: sortOrder,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> weddingId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<bool> isCustom = const Value.absent(),
+                Value<bool> isArchived = const Value.absent(),
+                Value<int> sortOrder = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => EventsCompanion(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                templateKey: templateKey,
+                isCustom: isCustom,
+                isArchived: isArchived,
+                sortOrder: sortOrder,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int weddingId,
+                required String name,
+                Value<String?> templateKey = const Value.absent(),
+                Value<bool> isCustom = const Value.absent(),
+                Value<bool> isArchived = const Value.absent(),
+                Value<int> sortOrder = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => EventsCompanion.insert(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                templateKey: templateKey,
+                isCustom: isCustom,
+                isArchived: isArchived,
+                sortOrder: sortOrder,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) =>
-                  (e.readTable(table), $$EventsTableReferences(db, table, e)))
+              .map(
+                (e) =>
+                    (e.readTable(table), $$EventsTableReferences(db, table, e)),
+              )
               .toList(),
-          prefetchHooksCallback: (
-              {weddingId = false,
-              checklistItemsRefs = false,
-              tasksRefs = false,
-              eventVendorCategoriesRefs = false,
-              guestEventsRefs = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [
-                if (checklistItemsRefs) db.checklistItems,
-                if (tasksRefs) db.tasks,
-                if (eventVendorCategoriesRefs) db.eventVendorCategories,
-                if (guestEventsRefs) db.guestEvents
-              ],
-              addJoins: <
-                  T extends TableManagerState<
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic>>(state) {
-                if (weddingId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.weddingId,
-                    referencedTable:
-                        $$EventsTableReferences._weddingIdTable(db),
-                    referencedColumn:
-                        $$EventsTableReferences._weddingIdTable(db).id,
-                  ) as T;
-                }
+          prefetchHooksCallback:
+              ({
+                weddingId = false,
+                checklistItemsRefs = false,
+                tasksRefs = false,
+                eventVendorCategoriesRefs = false,
+                guestEventsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (checklistItemsRefs) db.checklistItems,
+                    if (tasksRefs) db.tasks,
+                    if (eventVendorCategoriesRefs) db.eventVendorCategories,
+                    if (guestEventsRefs) db.guestEvents,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (weddingId) {
+                          state =
+                              state.withJoin(
+                                    currentTable: table,
+                                    currentColumn: table.weddingId,
+                                    referencedTable: $$EventsTableReferences
+                                        ._weddingIdTable(db),
+                                    referencedColumn: $$EventsTableReferences
+                                        ._weddingIdTable(db)
+                                        .id,
+                                  )
+                                  as T;
+                        }
 
-                return state;
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (checklistItemsRefs)
+                        await $_getPrefetchedData<
+                          Event,
+                          $EventsTable,
+                          ChecklistItem
+                        >(
+                          currentTable: table,
+                          referencedTable: $$EventsTableReferences
+                              ._checklistItemsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$EventsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).checklistItemsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.eventId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (tasksRefs)
+                        await $_getPrefetchedData<Event, $EventsTable, Task>(
+                          currentTable: table,
+                          referencedTable: $$EventsTableReferences
+                              ._tasksRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$EventsTableReferences(db, table, p0).tasksRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.eventId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (eventVendorCategoriesRefs)
+                        await $_getPrefetchedData<
+                          Event,
+                          $EventsTable,
+                          EventVendorCategory
+                        >(
+                          currentTable: table,
+                          referencedTable: $$EventsTableReferences
+                              ._eventVendorCategoriesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$EventsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).eventVendorCategoriesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.eventId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (guestEventsRefs)
+                        await $_getPrefetchedData<
+                          Event,
+                          $EventsTable,
+                          GuestEvent
+                        >(
+                          currentTable: table,
+                          referencedTable: $$EventsTableReferences
+                              ._guestEventsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$EventsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).guestEventsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.eventId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
               },
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (checklistItemsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable: $$EventsTableReferences
-                            ._checklistItemsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$EventsTableReferences(db, table, p0)
-                                .checklistItemsRefs,
-                        referencedItemsForCurrentItem: (item,
-                                referencedItems) =>
-                            referencedItems.where((e) => e.eventId == item.id),
-                        typedResults: items),
-                  if (tasksRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable:
-                            $$EventsTableReferences._tasksRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$EventsTableReferences(db, table, p0).tasksRefs,
-                        referencedItemsForCurrentItem: (item,
-                                referencedItems) =>
-                            referencedItems.where((e) => e.eventId == item.id),
-                        typedResults: items),
-                  if (eventVendorCategoriesRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable: $$EventsTableReferences
-                            ._eventVendorCategoriesRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$EventsTableReferences(db, table, p0)
-                                .eventVendorCategoriesRefs,
-                        referencedItemsForCurrentItem: (item,
-                                referencedItems) =>
-                            referencedItems.where((e) => e.eventId == item.id),
-                        typedResults: items),
-                  if (guestEventsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable:
-                            $$EventsTableReferences._guestEventsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$EventsTableReferences(db, table, p0)
-                                .guestEventsRefs,
-                        referencedItemsForCurrentItem: (item,
-                                referencedItems) =>
-                            referencedItems.where((e) => e.eventId == item.id),
-                        typedResults: items)
-                ];
-              },
-            );
-          },
-        ));
+        ),
+      );
 }
 
-typedef $$EventsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $EventsTable,
-    Event,
-    $$EventsTableFilterComposer,
-    $$EventsTableOrderingComposer,
-    $$EventsTableAnnotationComposer,
-    $$EventsTableCreateCompanionBuilder,
-    $$EventsTableUpdateCompanionBuilder,
-    (Event, $$EventsTableReferences),
-    Event,
-    PrefetchHooks Function(
-        {bool weddingId,
+typedef $$EventsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $EventsTable,
+      Event,
+      $$EventsTableFilterComposer,
+      $$EventsTableOrderingComposer,
+      $$EventsTableAnnotationComposer,
+      $$EventsTableCreateCompanionBuilder,
+      $$EventsTableUpdateCompanionBuilder,
+      (Event, $$EventsTableReferences),
+      Event,
+      PrefetchHooks Function({
+        bool weddingId,
         bool checklistItemsRefs,
         bool tasksRefs,
         bool eventVendorCategoriesRefs,
-        bool guestEventsRefs})>;
-typedef $$ChecklistItemsTableCreateCompanionBuilder = ChecklistItemsCompanion
-    Function({
-  Value<int> id,
-  required int eventId,
-  required String title,
-  Value<bool> isDone,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$ChecklistItemsTableUpdateCompanionBuilder = ChecklistItemsCompanion
-    Function({
-  Value<int> id,
-  Value<int> eventId,
-  Value<String> title,
-  Value<bool> isDone,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+        bool guestEventsRefs,
+      })
+    >;
+typedef $$ChecklistItemsTableCreateCompanionBuilder =
+    ChecklistItemsCompanion Function({
+      Value<int> id,
+      required int eventId,
+      required String title,
+      Value<bool> isDone,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$ChecklistItemsTableUpdateCompanionBuilder =
+    ChecklistItemsCompanion Function({
+      Value<int> id,
+      Value<int> eventId,
+      Value<String> title,
+      Value<bool> isDone,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$ChecklistItemsTableReferences
     extends BaseReferences<_$AppDatabase, $ChecklistItemsTable, ChecklistItem> {
   $$ChecklistItemsTableReferences(
-      super.$_db, super.$_table, super.$_typedResult);
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
 
   static $EventsTable _eventIdTable(_$AppDatabase db) => db.events.createAlias(
-      $_aliasNameGenerator(db.checklistItems.eventId, db.events.id));
+    $_aliasNameGenerator(db.checklistItems.eventId, db.events.id),
+  );
 
   $$EventsTableProcessedTableManager get eventId {
-    final manager = $$EventsTableTableManager($_db, $_db.events)
-        .filter((f) => f.id($_item.eventId!));
+    final $_column = $_itemColumn<int>('event_id')!;
+
+    final manager = $$EventsTableTableManager(
+      $_db,
+      $_db.events,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_eventIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 }
 
@@ -6238,43 +7504,60 @@ class $$ChecklistItemsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get title => $composableBuilder(
-      column: $table.title, builder: (column) => ColumnFilters(column));
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get isDone => $composableBuilder(
-      column: $table.isDone, builder: (column) => ColumnFilters(column));
+    column: $table.isDone,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnFilters(column));
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnFilters(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$EventsTableFilterComposer get eventId {
     final $$EventsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableFilterComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableFilterComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -6289,43 +7572,60 @@ class $$ChecklistItemsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get title => $composableBuilder(
-      column: $table.title, builder: (column) => ColumnOrderings(column));
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isDone => $composableBuilder(
-      column: $table.isDone, builder: (column) => ColumnOrderings(column));
+    column: $table.isDone,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnOrderings(column));
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnOrderings(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$EventsTableOrderingComposer get eventId {
     final $$EventsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableOrderingComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableOrderingComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -6352,7 +7652,9 @@ class $$ChecklistItemsTableAnnotationComposer
       $composableBuilder(column: $table.source, builder: (column) => column);
 
   GeneratedColumn<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => column);
+    column: $table.templateKey,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -6362,40 +7664,48 @@ class $$ChecklistItemsTableAnnotationComposer
 
   $$EventsTableAnnotationComposer get eventId {
     final $$EventsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
 
-class $$ChecklistItemsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $ChecklistItemsTable,
-    ChecklistItem,
-    $$ChecklistItemsTableFilterComposer,
-    $$ChecklistItemsTableOrderingComposer,
-    $$ChecklistItemsTableAnnotationComposer,
-    $$ChecklistItemsTableCreateCompanionBuilder,
-    $$ChecklistItemsTableUpdateCompanionBuilder,
-    (ChecklistItem, $$ChecklistItemsTableReferences),
-    ChecklistItem,
-    PrefetchHooks Function({bool eventId})> {
+class $$ChecklistItemsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ChecklistItemsTable,
+          ChecklistItem,
+          $$ChecklistItemsTableFilterComposer,
+          $$ChecklistItemsTableOrderingComposer,
+          $$ChecklistItemsTableAnnotationComposer,
+          $$ChecklistItemsTableCreateCompanionBuilder,
+          $$ChecklistItemsTableUpdateCompanionBuilder,
+          (ChecklistItem, $$ChecklistItemsTableReferences),
+          ChecklistItem,
+          PrefetchHooks Function({bool eventId})
+        > {
   $$ChecklistItemsTableTableManager(
-      _$AppDatabase db, $ChecklistItemsTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $ChecklistItemsTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -6404,58 +7714,61 @@ class $$ChecklistItemsTableTableManager extends RootTableManager<
               $$ChecklistItemsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$ChecklistItemsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> eventId = const Value.absent(),
-            Value<String> title = const Value.absent(),
-            Value<bool> isDone = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              ChecklistItemsCompanion(
-            id: id,
-            eventId: eventId,
-            title: title,
-            isDone: isDone,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int eventId,
-            required String title,
-            Value<bool> isDone = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              ChecklistItemsCompanion.insert(
-            id: id,
-            eventId: eventId,
-            title: title,
-            isDone: isDone,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> eventId = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<bool> isDone = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => ChecklistItemsCompanion(
+                id: id,
+                eventId: eventId,
+                title: title,
+                isDone: isDone,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int eventId,
+                required String title,
+                Value<bool> isDone = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => ChecklistItemsCompanion.insert(
+                id: id,
+                eventId: eventId,
+                title: title,
+                isDone: isDone,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$ChecklistItemsTableReferences(db, table, e)
-                  ))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$ChecklistItemsTableReferences(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: ({eventId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
+              addJoins:
+                  <
+                    T extends TableManagerState<
                       dynamic,
                       dynamic,
                       dynamic,
@@ -6466,66 +7779,77 @@ class $$ChecklistItemsTableTableManager extends RootTableManager<
                       dynamic,
                       dynamic,
                       dynamic,
-                      dynamic>>(state) {
-                if (eventId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.eventId,
-                    referencedTable:
-                        $$ChecklistItemsTableReferences._eventIdTable(db),
-                    referencedColumn:
-                        $$ChecklistItemsTableReferences._eventIdTable(db).id,
-                  ) as T;
-                }
+                      dynamic
+                    >
+                  >(state) {
+                    if (eventId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.eventId,
+                                referencedTable: $$ChecklistItemsTableReferences
+                                    ._eventIdTable(db),
+                                referencedColumn:
+                                    $$ChecklistItemsTableReferences
+                                        ._eventIdTable(db)
+                                        .id,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
             );
           },
-        ));
+        ),
+      );
 }
 
-typedef $$ChecklistItemsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $ChecklistItemsTable,
-    ChecklistItem,
-    $$ChecklistItemsTableFilterComposer,
-    $$ChecklistItemsTableOrderingComposer,
-    $$ChecklistItemsTableAnnotationComposer,
-    $$ChecklistItemsTableCreateCompanionBuilder,
-    $$ChecklistItemsTableUpdateCompanionBuilder,
-    (ChecklistItem, $$ChecklistItemsTableReferences),
-    ChecklistItem,
-    PrefetchHooks Function({bool eventId})>;
-typedef $$TasksTableCreateCompanionBuilder = TasksCompanion Function({
-  Value<int> id,
-  required int weddingId,
-  Value<int?> eventId,
-  required String name,
-  Value<DateTime?> dueDate,
-  Value<String?> assignee,
-  Value<String> status,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$TasksTableUpdateCompanionBuilder = TasksCompanion Function({
-  Value<int> id,
-  Value<int> weddingId,
-  Value<int?> eventId,
-  Value<String> name,
-  Value<DateTime?> dueDate,
-  Value<String?> assignee,
-  Value<String> status,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+typedef $$ChecklistItemsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ChecklistItemsTable,
+      ChecklistItem,
+      $$ChecklistItemsTableFilterComposer,
+      $$ChecklistItemsTableOrderingComposer,
+      $$ChecklistItemsTableAnnotationComposer,
+      $$ChecklistItemsTableCreateCompanionBuilder,
+      $$ChecklistItemsTableUpdateCompanionBuilder,
+      (ChecklistItem, $$ChecklistItemsTableReferences),
+      ChecklistItem,
+      PrefetchHooks Function({bool eventId})
+    >;
+typedef $$TasksTableCreateCompanionBuilder =
+    TasksCompanion Function({
+      Value<int> id,
+      required int weddingId,
+      Value<int?> eventId,
+      required String name,
+      Value<DateTime?> dueDate,
+      Value<String?> assignee,
+      Value<String> status,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$TasksTableUpdateCompanionBuilder =
+    TasksCompanion Function({
+      Value<int> id,
+      Value<int> weddingId,
+      Value<int?> eventId,
+      Value<String> name,
+      Value<DateTime?> dueDate,
+      Value<String?> assignee,
+      Value<String> status,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$TasksTableReferences
     extends BaseReferences<_$AppDatabase, $TasksTable, Task> {
@@ -6535,25 +7859,35 @@ final class $$TasksTableReferences
       .createAlias($_aliasNameGenerator(db.tasks.weddingId, db.weddings.id));
 
   $$WeddingsTableProcessedTableManager get weddingId {
-    final manager = $$WeddingsTableTableManager($_db, $_db.weddings)
-        .filter((f) => f.id($_item.weddingId!));
+    final $_column = $_itemColumn<int>('wedding_id')!;
+
+    final manager = $$WeddingsTableTableManager(
+      $_db,
+      $_db.weddings,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_weddingIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 
-  static $EventsTable _eventIdTable(_$AppDatabase db) => db.events
-      .createAlias($_aliasNameGenerator(db.tasks.eventId, db.events.id));
+  static $EventsTable _eventIdTable(_$AppDatabase db) => db.events.createAlias(
+    $_aliasNameGenerator(db.tasks.eventId, db.events.id),
+  );
 
   $$EventsTableProcessedTableManager? get eventId {
-    if ($_item.eventId == null) return null;
-    final manager = $$EventsTableTableManager($_db, $_db.events)
-        .filter((f) => f.id($_item.eventId!));
+    final $_column = $_itemColumn<int>('event_id');
+    if ($_column == null) return null;
+    final manager = $$EventsTableTableManager(
+      $_db,
+      $_db.events,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_eventIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 }
 
@@ -6566,69 +7900,93 @@ class $$TasksTableFilterComposer extends Composer<_$AppDatabase, $TasksTable> {
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get dueDate => $composableBuilder(
-      column: $table.dueDate, builder: (column) => ColumnFilters(column));
+    column: $table.dueDate,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get assignee => $composableBuilder(
-      column: $table.assignee, builder: (column) => ColumnFilters(column));
+    column: $table.assignee,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get status => $composableBuilder(
-      column: $table.status, builder: (column) => ColumnFilters(column));
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnFilters(column));
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnFilters(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$WeddingsTableFilterComposer get weddingId {
     final $$WeddingsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableFilterComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableFilterComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$EventsTableFilterComposer get eventId {
     final $$EventsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableFilterComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableFilterComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -6643,69 +8001,93 @@ class $$TasksTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get dueDate => $composableBuilder(
-      column: $table.dueDate, builder: (column) => ColumnOrderings(column));
+    column: $table.dueDate,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get assignee => $composableBuilder(
-      column: $table.assignee, builder: (column) => ColumnOrderings(column));
+    column: $table.assignee,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get status => $composableBuilder(
-      column: $table.status, builder: (column) => ColumnOrderings(column));
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnOrderings(column));
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnOrderings(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$WeddingsTableOrderingComposer get weddingId {
     final $$WeddingsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableOrderingComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableOrderingComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$EventsTableOrderingComposer get eventId {
     final $$EventsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableOrderingComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableOrderingComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -6738,7 +8120,9 @@ class $$TasksTableAnnotationComposer
       $composableBuilder(column: $table.source, builder: (column) => column);
 
   GeneratedColumn<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => column);
+    column: $table.templateKey,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -6748,59 +8132,69 @@ class $$TasksTableAnnotationComposer
 
   $$WeddingsTableAnnotationComposer get weddingId {
     final $$WeddingsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$EventsTableAnnotationComposer get eventId {
     final $$EventsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
 
-class $$TasksTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $TasksTable,
-    Task,
-    $$TasksTableFilterComposer,
-    $$TasksTableOrderingComposer,
-    $$TasksTableAnnotationComposer,
-    $$TasksTableCreateCompanionBuilder,
-    $$TasksTableUpdateCompanionBuilder,
-    (Task, $$TasksTableReferences),
-    Task,
-    PrefetchHooks Function({bool weddingId, bool eventId})> {
+class $$TasksTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $TasksTable,
+          Task,
+          $$TasksTableFilterComposer,
+          $$TasksTableOrderingComposer,
+          $$TasksTableAnnotationComposer,
+          $$TasksTableCreateCompanionBuilder,
+          $$TasksTableUpdateCompanionBuilder,
+          (Task, $$TasksTableReferences),
+          Task,
+          PrefetchHooks Function({bool weddingId, bool eventId})
+        > {
   $$TasksTableTableManager(_$AppDatabase db, $TasksTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -6809,68 +8203,71 @@ class $$TasksTableTableManager extends RootTableManager<
               $$TasksTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$TasksTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> weddingId = const Value.absent(),
-            Value<int?> eventId = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<DateTime?> dueDate = const Value.absent(),
-            Value<String?> assignee = const Value.absent(),
-            Value<String> status = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              TasksCompanion(
-            id: id,
-            weddingId: weddingId,
-            eventId: eventId,
-            name: name,
-            dueDate: dueDate,
-            assignee: assignee,
-            status: status,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int weddingId,
-            Value<int?> eventId = const Value.absent(),
-            required String name,
-            Value<DateTime?> dueDate = const Value.absent(),
-            Value<String?> assignee = const Value.absent(),
-            Value<String> status = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              TasksCompanion.insert(
-            id: id,
-            weddingId: weddingId,
-            eventId: eventId,
-            name: name,
-            dueDate: dueDate,
-            assignee: assignee,
-            status: status,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> weddingId = const Value.absent(),
+                Value<int?> eventId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<DateTime?> dueDate = const Value.absent(),
+                Value<String?> assignee = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => TasksCompanion(
+                id: id,
+                weddingId: weddingId,
+                eventId: eventId,
+                name: name,
+                dueDate: dueDate,
+                assignee: assignee,
+                status: status,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int weddingId,
+                Value<int?> eventId = const Value.absent(),
+                required String name,
+                Value<DateTime?> dueDate = const Value.absent(),
+                Value<String?> assignee = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => TasksCompanion.insert(
+                id: id,
+                weddingId: weddingId,
+                eventId: eventId,
+                name: name,
+                dueDate: dueDate,
+                assignee: assignee,
+                status: status,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) =>
-                  (e.readTable(table), $$TasksTableReferences(db, table, e)))
+              .map(
+                (e) =>
+                    (e.readTable(table), $$TasksTableReferences(db, table, e)),
+              )
               .toList(),
           prefetchHooksCallback: ({weddingId = false, eventId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
+              addJoins:
+                  <
+                    T extends TableManagerState<
                       dynamic,
                       dynamic,
                       dynamic,
@@ -6881,119 +8278,158 @@ class $$TasksTableTableManager extends RootTableManager<
                       dynamic,
                       dynamic,
                       dynamic,
-                      dynamic>>(state) {
-                if (weddingId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.weddingId,
-                    referencedTable: $$TasksTableReferences._weddingIdTable(db),
-                    referencedColumn:
-                        $$TasksTableReferences._weddingIdTable(db).id,
-                  ) as T;
-                }
-                if (eventId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.eventId,
-                    referencedTable: $$TasksTableReferences._eventIdTable(db),
-                    referencedColumn:
-                        $$TasksTableReferences._eventIdTable(db).id,
-                  ) as T;
-                }
+                      dynamic
+                    >
+                  >(state) {
+                    if (weddingId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.weddingId,
+                                referencedTable: $$TasksTableReferences
+                                    ._weddingIdTable(db),
+                                referencedColumn: $$TasksTableReferences
+                                    ._weddingIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
+                    if (eventId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.eventId,
+                                referencedTable: $$TasksTableReferences
+                                    ._eventIdTable(db),
+                                referencedColumn: $$TasksTableReferences
+                                    ._eventIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
             );
           },
-        ));
+        ),
+      );
 }
 
-typedef $$TasksTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $TasksTable,
-    Task,
-    $$TasksTableFilterComposer,
-    $$TasksTableOrderingComposer,
-    $$TasksTableAnnotationComposer,
-    $$TasksTableCreateCompanionBuilder,
-    $$TasksTableUpdateCompanionBuilder,
-    (Task, $$TasksTableReferences),
-    Task,
-    PrefetchHooks Function({bool weddingId, bool eventId})>;
-typedef $$VendorCategoriesTableCreateCompanionBuilder
-    = VendorCategoriesCompanion Function({
-  Value<int> id,
-  required int weddingId,
-  required String name,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$VendorCategoriesTableUpdateCompanionBuilder
-    = VendorCategoriesCompanion Function({
-  Value<int> id,
-  Value<int> weddingId,
-  Value<String> name,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+typedef $$TasksTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $TasksTable,
+      Task,
+      $$TasksTableFilterComposer,
+      $$TasksTableOrderingComposer,
+      $$TasksTableAnnotationComposer,
+      $$TasksTableCreateCompanionBuilder,
+      $$TasksTableUpdateCompanionBuilder,
+      (Task, $$TasksTableReferences),
+      Task,
+      PrefetchHooks Function({bool weddingId, bool eventId})
+    >;
+typedef $$VendorCategoriesTableCreateCompanionBuilder =
+    VendorCategoriesCompanion Function({
+      Value<int> id,
+      required int weddingId,
+      required String name,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$VendorCategoriesTableUpdateCompanionBuilder =
+    VendorCategoriesCompanion Function({
+      Value<int> id,
+      Value<int> weddingId,
+      Value<String> name,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
-final class $$VendorCategoriesTableReferences extends BaseReferences<
-    _$AppDatabase, $VendorCategoriesTable, VendorCategory> {
+final class $$VendorCategoriesTableReferences
+    extends
+        BaseReferences<_$AppDatabase, $VendorCategoriesTable, VendorCategory> {
   $$VendorCategoriesTableReferences(
-      super.$_db, super.$_table, super.$_typedResult);
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
 
   static $WeddingsTable _weddingIdTable(_$AppDatabase db) =>
       db.weddings.createAlias(
-          $_aliasNameGenerator(db.vendorCategories.weddingId, db.weddings.id));
+        $_aliasNameGenerator(db.vendorCategories.weddingId, db.weddings.id),
+      );
 
   $$WeddingsTableProcessedTableManager get weddingId {
-    final manager = $$WeddingsTableTableManager($_db, $_db.weddings)
-        .filter((f) => f.id($_item.weddingId!));
+    final $_column = $_itemColumn<int>('wedding_id')!;
+
+    final manager = $$WeddingsTableTableManager(
+      $_db,
+      $_db.weddings,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_weddingIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 
-  static MultiTypedResultKey<$EventVendorCategoriesTable,
-      List<EventVendorCategory>> _eventVendorCategoriesRefsTable(
-          _$AppDatabase db) =>
-      MultiTypedResultKey.fromTable(db.eventVendorCategories,
-          aliasName: $_aliasNameGenerator(db.vendorCategories.id,
-              db.eventVendorCategories.vendorCategoryId));
+  static MultiTypedResultKey<
+    $EventVendorCategoriesTable,
+    List<EventVendorCategory>
+  >
+  _eventVendorCategoriesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.eventVendorCategories,
+        aliasName: $_aliasNameGenerator(
+          db.vendorCategories.id,
+          db.eventVendorCategories.vendorCategoryId,
+        ),
+      );
 
   $$EventVendorCategoriesTableProcessedTableManager
-      get eventVendorCategoriesRefs {
+  get eventVendorCategoriesRefs {
     final manager = $$EventVendorCategoriesTableTableManager(
-            $_db, $_db.eventVendorCategories)
-        .filter((f) => f.vendorCategoryId.id($_item.id));
+      $_db,
+      $_db.eventVendorCategories,
+    ).filter((f) => f.vendorCategoryId.id.sqlEquals($_itemColumn<int>('id')!));
 
-    final cache =
-        $_typedResult.readTableOrNull(_eventVendorCategoriesRefsTable($_db));
+    final cache = $_typedResult.readTableOrNull(
+      _eventVendorCategoriesRefsTable($_db),
+    );
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 
   static MultiTypedResultKey<$VendorsTable, List<Vendor>> _vendorsRefsTable(
-          _$AppDatabase db) =>
-      MultiTypedResultKey.fromTable(db.vendors,
-          aliasName: $_aliasNameGenerator(
-              db.vendorCategories.id, db.vendors.vendorCategoryId));
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.vendors,
+    aliasName: $_aliasNameGenerator(
+      db.vendorCategories.id,
+      db.vendors.vendorCategoryId,
+    ),
+  );
 
   $$VendorsTableProcessedTableManager get vendorsRefs {
-    final manager = $$VendorsTableTableManager($_db, $_db.vendors)
-        .filter((f) => f.vendorCategoryId.id($_item.id));
+    final manager = $$VendorsTableTableManager(
+      $_db,
+      $_db.vendors,
+    ).filter((f) => f.vendorCategoryId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_vendorsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 }
 
@@ -7007,84 +8443,106 @@ class $$VendorCategoriesTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnFilters(column));
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnFilters(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$WeddingsTableFilterComposer get weddingId {
     final $$WeddingsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableFilterComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableFilterComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   Expression<bool> eventVendorCategoriesRefs(
-      Expression<bool> Function($$EventVendorCategoriesTableFilterComposer f)
-          f) {
+    Expression<bool> Function($$EventVendorCategoriesTableFilterComposer f) f,
+  ) {
     final $$EventVendorCategoriesTableFilterComposer composer =
         $composerBuilder(
-            composer: this,
-            getCurrentColumn: (t) => t.id,
-            referencedTable: $db.eventVendorCategories,
-            getReferencedColumn: (t) => t.vendorCategoryId,
-            builder: (joinBuilder,
-                    {$addJoinBuilderToRootComposer,
-                    $removeJoinBuilderFromRootComposer}) =>
-                $$EventVendorCategoriesTableFilterComposer(
-                  $db: $db,
-                  $table: $db.eventVendorCategories,
-                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-                  joinBuilder: joinBuilder,
-                  $removeJoinBuilderFromRootComposer:
-                      $removeJoinBuilderFromRootComposer,
-                ));
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.eventVendorCategories,
+          getReferencedColumn: (t) => t.vendorCategoryId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$EventVendorCategoriesTableFilterComposer(
+                $db: $db,
+                $table: $db.eventVendorCategories,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
     return f(composer);
   }
 
   Expression<bool> vendorsRefs(
-      Expression<bool> Function($$VendorsTableFilterComposer f) f) {
+    Expression<bool> Function($$VendorsTableFilterComposer f) f,
+  ) {
     final $$VendorsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.vendors,
-        getReferencedColumn: (t) => t.vendorCategoryId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorsTableFilterComposer(
-              $db: $db,
-              $table: $db.vendors,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.vendors,
+      getReferencedColumn: (t) => t.vendorCategoryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorsTableFilterComposer(
+            $db: $db,
+            $table: $db.vendors,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
@@ -7099,40 +8557,55 @@ class $$VendorCategoriesTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnOrderings(column));
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnOrderings(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$WeddingsTableOrderingComposer get weddingId {
     final $$WeddingsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableOrderingComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableOrderingComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -7156,7 +8629,9 @@ class $$VendorCategoriesTableAnnotationComposer
       $composableBuilder(column: $table.source, builder: (column) => column);
 
   GeneratedColumn<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => column);
+    column: $table.templateKey,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -7166,85 +8641,103 @@ class $$VendorCategoriesTableAnnotationComposer
 
   $$WeddingsTableAnnotationComposer get weddingId {
     final $$WeddingsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   Expression<T> eventVendorCategoriesRefs<T extends Object>(
-      Expression<T> Function($$EventVendorCategoriesTableAnnotationComposer a)
-          f) {
+    Expression<T> Function($$EventVendorCategoriesTableAnnotationComposer a) f,
+  ) {
     final $$EventVendorCategoriesTableAnnotationComposer composer =
         $composerBuilder(
-            composer: this,
-            getCurrentColumn: (t) => t.id,
-            referencedTable: $db.eventVendorCategories,
-            getReferencedColumn: (t) => t.vendorCategoryId,
-            builder: (joinBuilder,
-                    {$addJoinBuilderToRootComposer,
-                    $removeJoinBuilderFromRootComposer}) =>
-                $$EventVendorCategoriesTableAnnotationComposer(
-                  $db: $db,
-                  $table: $db.eventVendorCategories,
-                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-                  joinBuilder: joinBuilder,
-                  $removeJoinBuilderFromRootComposer:
-                      $removeJoinBuilderFromRootComposer,
-                ));
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.eventVendorCategories,
+          getReferencedColumn: (t) => t.vendorCategoryId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$EventVendorCategoriesTableAnnotationComposer(
+                $db: $db,
+                $table: $db.eventVendorCategories,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
     return f(composer);
   }
 
   Expression<T> vendorsRefs<T extends Object>(
-      Expression<T> Function($$VendorsTableAnnotationComposer a) f) {
+    Expression<T> Function($$VendorsTableAnnotationComposer a) f,
+  ) {
     final $$VendorsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.vendors,
-        getReferencedColumn: (t) => t.vendorCategoryId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.vendors,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.vendors,
+      getReferencedColumn: (t) => t.vendorCategoryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.vendors,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
 
-class $$VendorCategoriesTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $VendorCategoriesTable,
-    VendorCategory,
-    $$VendorCategoriesTableFilterComposer,
-    $$VendorCategoriesTableOrderingComposer,
-    $$VendorCategoriesTableAnnotationComposer,
-    $$VendorCategoriesTableCreateCompanionBuilder,
-    $$VendorCategoriesTableUpdateCompanionBuilder,
-    (VendorCategory, $$VendorCategoriesTableReferences),
-    VendorCategory,
-    PrefetchHooks Function(
-        {bool weddingId, bool eventVendorCategoriesRefs, bool vendorsRefs})> {
+class $$VendorCategoriesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $VendorCategoriesTable,
+          VendorCategory,
+          $$VendorCategoriesTableFilterComposer,
+          $$VendorCategoriesTableOrderingComposer,
+          $$VendorCategoriesTableAnnotationComposer,
+          $$VendorCategoriesTableCreateCompanionBuilder,
+          $$VendorCategoriesTableUpdateCompanionBuilder,
+          (VendorCategory, $$VendorCategoriesTableReferences),
+          VendorCategory,
+          PrefetchHooks Function({
+            bool weddingId,
+            bool eventVendorCategoriesRefs,
+            bool vendorsRefs,
+          })
+        > {
   $$VendorCategoriesTableTableManager(
-      _$AppDatabase db, $VendorCategoriesTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $VendorCategoriesTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -7253,173 +8746,230 @@ class $$VendorCategoriesTableTableManager extends RootTableManager<
               $$VendorCategoriesTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$VendorCategoriesTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> weddingId = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              VendorCategoriesCompanion(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int weddingId,
-            required String name,
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              VendorCategoriesCompanion.insert(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> weddingId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => VendorCategoriesCompanion(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int weddingId,
+                required String name,
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => VendorCategoriesCompanion.insert(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$VendorCategoriesTableReferences(db, table, e)
-                  ))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$VendorCategoriesTableReferences(db, table, e),
+                ),
+              )
               .toList(),
-          prefetchHooksCallback: (
-              {weddingId = false,
-              eventVendorCategoriesRefs = false,
-              vendorsRefs = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [
-                if (eventVendorCategoriesRefs) db.eventVendorCategories,
-                if (vendorsRefs) db.vendors
-              ],
-              addJoins: <
-                  T extends TableManagerState<
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic>>(state) {
-                if (weddingId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.weddingId,
-                    referencedTable:
-                        $$VendorCategoriesTableReferences._weddingIdTable(db),
-                    referencedColumn: $$VendorCategoriesTableReferences
-                        ._weddingIdTable(db)
-                        .id,
-                  ) as T;
-                }
+          prefetchHooksCallback:
+              ({
+                weddingId = false,
+                eventVendorCategoriesRefs = false,
+                vendorsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (eventVendorCategoriesRefs) db.eventVendorCategories,
+                    if (vendorsRefs) db.vendors,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (weddingId) {
+                          state =
+                              state.withJoin(
+                                    currentTable: table,
+                                    currentColumn: table.weddingId,
+                                    referencedTable:
+                                        $$VendorCategoriesTableReferences
+                                            ._weddingIdTable(db),
+                                    referencedColumn:
+                                        $$VendorCategoriesTableReferences
+                                            ._weddingIdTable(db)
+                                            .id,
+                                  )
+                                  as T;
+                        }
 
-                return state;
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (eventVendorCategoriesRefs)
+                        await $_getPrefetchedData<
+                          VendorCategory,
+                          $VendorCategoriesTable,
+                          EventVendorCategory
+                        >(
+                          currentTable: table,
+                          referencedTable: $$VendorCategoriesTableReferences
+                              ._eventVendorCategoriesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$VendorCategoriesTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).eventVendorCategoriesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.vendorCategoryId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (vendorsRefs)
+                        await $_getPrefetchedData<
+                          VendorCategory,
+                          $VendorCategoriesTable,
+                          Vendor
+                        >(
+                          currentTable: table,
+                          referencedTable: $$VendorCategoriesTableReferences
+                              ._vendorsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$VendorCategoriesTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).vendorsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.vendorCategoryId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
               },
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (eventVendorCategoriesRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable: $$VendorCategoriesTableReferences
-                            ._eventVendorCategoriesRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$VendorCategoriesTableReferences(db, table, p0)
-                                .eventVendorCategoriesRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.vendorCategoryId == item.id),
-                        typedResults: items),
-                  if (vendorsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable: $$VendorCategoriesTableReferences
-                            ._vendorsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$VendorCategoriesTableReferences(db, table, p0)
-                                .vendorsRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.vendorCategoryId == item.id),
-                        typedResults: items)
-                ];
-              },
-            );
-          },
-        ));
+        ),
+      );
 }
 
-typedef $$VendorCategoriesTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $VendorCategoriesTable,
-    VendorCategory,
-    $$VendorCategoriesTableFilterComposer,
-    $$VendorCategoriesTableOrderingComposer,
-    $$VendorCategoriesTableAnnotationComposer,
-    $$VendorCategoriesTableCreateCompanionBuilder,
-    $$VendorCategoriesTableUpdateCompanionBuilder,
-    (VendorCategory, $$VendorCategoriesTableReferences),
-    VendorCategory,
-    PrefetchHooks Function(
-        {bool weddingId, bool eventVendorCategoriesRefs, bool vendorsRefs})>;
-typedef $$EventVendorCategoriesTableCreateCompanionBuilder
-    = EventVendorCategoriesCompanion Function({
-  required int eventId,
-  required int vendorCategoryId,
-  Value<int> rowid,
-});
-typedef $$EventVendorCategoriesTableUpdateCompanionBuilder
-    = EventVendorCategoriesCompanion Function({
-  Value<int> eventId,
-  Value<int> vendorCategoryId,
-  Value<int> rowid,
-});
+typedef $$VendorCategoriesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $VendorCategoriesTable,
+      VendorCategory,
+      $$VendorCategoriesTableFilterComposer,
+      $$VendorCategoriesTableOrderingComposer,
+      $$VendorCategoriesTableAnnotationComposer,
+      $$VendorCategoriesTableCreateCompanionBuilder,
+      $$VendorCategoriesTableUpdateCompanionBuilder,
+      (VendorCategory, $$VendorCategoriesTableReferences),
+      VendorCategory,
+      PrefetchHooks Function({
+        bool weddingId,
+        bool eventVendorCategoriesRefs,
+        bool vendorsRefs,
+      })
+    >;
+typedef $$EventVendorCategoriesTableCreateCompanionBuilder =
+    EventVendorCategoriesCompanion Function({
+      required int eventId,
+      required int vendorCategoryId,
+      Value<int> rowid,
+    });
+typedef $$EventVendorCategoriesTableUpdateCompanionBuilder =
+    EventVendorCategoriesCompanion Function({
+      Value<int> eventId,
+      Value<int> vendorCategoryId,
+      Value<int> rowid,
+    });
 
-final class $$EventVendorCategoriesTableReferences extends BaseReferences<
-    _$AppDatabase, $EventVendorCategoriesTable, EventVendorCategory> {
+final class $$EventVendorCategoriesTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $EventVendorCategoriesTable,
+          EventVendorCategory
+        > {
   $$EventVendorCategoriesTableReferences(
-      super.$_db, super.$_table, super.$_typedResult);
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
 
   static $EventsTable _eventIdTable(_$AppDatabase db) => db.events.createAlias(
-      $_aliasNameGenerator(db.eventVendorCategories.eventId, db.events.id));
+    $_aliasNameGenerator(db.eventVendorCategories.eventId, db.events.id),
+  );
 
   $$EventsTableProcessedTableManager get eventId {
-    final manager = $$EventsTableTableManager($_db, $_db.events)
-        .filter((f) => f.id($_item.eventId!));
+    final $_column = $_itemColumn<int>('event_id')!;
+
+    final manager = $$EventsTableTableManager(
+      $_db,
+      $_db.events,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_eventIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 
   static $VendorCategoriesTable _vendorCategoryIdTable(_$AppDatabase db) =>
-      db.vendorCategories.createAlias($_aliasNameGenerator(
-          db.eventVendorCategories.vendorCategoryId, db.vendorCategories.id));
+      db.vendorCategories.createAlias(
+        $_aliasNameGenerator(
+          db.eventVendorCategories.vendorCategoryId,
+          db.vendorCategories.id,
+        ),
+      );
 
   $$VendorCategoriesTableProcessedTableManager get vendorCategoryId {
-    final manager =
-        $$VendorCategoriesTableTableManager($_db, $_db.vendorCategories)
-            .filter((f) => f.id($_item.vendorCategoryId!));
+    final $_column = $_itemColumn<int>('vendor_category_id')!;
+
+    final manager = $$VendorCategoriesTableTableManager(
+      $_db,
+      $_db.vendorCategories,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_vendorCategoryIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 }
 
@@ -7434,41 +8984,47 @@ class $$EventVendorCategoriesTableFilterComposer
   });
   $$EventsTableFilterComposer get eventId {
     final $$EventsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableFilterComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableFilterComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$VendorCategoriesTableFilterComposer get vendorCategoryId {
     final $$VendorCategoriesTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.vendorCategoryId,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableFilterComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.vendorCategoryId,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableFilterComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -7484,41 +9040,47 @@ class $$EventVendorCategoriesTableOrderingComposer
   });
   $$EventsTableOrderingComposer get eventId {
     final $$EventsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableOrderingComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableOrderingComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$VendorCategoriesTableOrderingComposer get vendorCategoryId {
     final $$VendorCategoriesTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.vendorCategoryId,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableOrderingComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.vendorCategoryId,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableOrderingComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -7534,103 +9096,123 @@ class $$EventVendorCategoriesTableAnnotationComposer
   });
   $$EventsTableAnnotationComposer get eventId {
     final $$EventsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$VendorCategoriesTableAnnotationComposer get vendorCategoryId {
     final $$VendorCategoriesTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.vendorCategoryId,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableAnnotationComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.vendorCategoryId,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
 
-class $$EventVendorCategoriesTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $EventVendorCategoriesTable,
-    EventVendorCategory,
-    $$EventVendorCategoriesTableFilterComposer,
-    $$EventVendorCategoriesTableOrderingComposer,
-    $$EventVendorCategoriesTableAnnotationComposer,
-    $$EventVendorCategoriesTableCreateCompanionBuilder,
-    $$EventVendorCategoriesTableUpdateCompanionBuilder,
-    (EventVendorCategory, $$EventVendorCategoriesTableReferences),
-    EventVendorCategory,
-    PrefetchHooks Function({bool eventId, bool vendorCategoryId})> {
+class $$EventVendorCategoriesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $EventVendorCategoriesTable,
+          EventVendorCategory,
+          $$EventVendorCategoriesTableFilterComposer,
+          $$EventVendorCategoriesTableOrderingComposer,
+          $$EventVendorCategoriesTableAnnotationComposer,
+          $$EventVendorCategoriesTableCreateCompanionBuilder,
+          $$EventVendorCategoriesTableUpdateCompanionBuilder,
+          (EventVendorCategory, $$EventVendorCategoriesTableReferences),
+          EventVendorCategory,
+          PrefetchHooks Function({bool eventId, bool vendorCategoryId})
+        > {
   $$EventVendorCategoriesTableTableManager(
-      _$AppDatabase db, $EventVendorCategoriesTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $EventVendorCategoriesTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
               $$EventVendorCategoriesTableFilterComposer(
-                  $db: db, $table: table),
+                $db: db,
+                $table: table,
+              ),
           createOrderingComposer: () =>
               $$EventVendorCategoriesTableOrderingComposer(
-                  $db: db, $table: table),
+                $db: db,
+                $table: table,
+              ),
           createComputedFieldComposer: () =>
               $$EventVendorCategoriesTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> eventId = const Value.absent(),
-            Value<int> vendorCategoryId = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              EventVendorCategoriesCompanion(
-            eventId: eventId,
-            vendorCategoryId: vendorCategoryId,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required int eventId,
-            required int vendorCategoryId,
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              EventVendorCategoriesCompanion.insert(
-            eventId: eventId,
-            vendorCategoryId: vendorCategoryId,
-            rowid: rowid,
-          ),
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> eventId = const Value.absent(),
+                Value<int> vendorCategoryId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => EventVendorCategoriesCompanion(
+                eventId: eventId,
+                vendorCategoryId: vendorCategoryId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required int eventId,
+                required int vendorCategoryId,
+                Value<int> rowid = const Value.absent(),
+              }) => EventVendorCategoriesCompanion.insert(
+                eventId: eventId,
+                vendorCategoryId: vendorCategoryId,
+                rowid: rowid,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$EventVendorCategoriesTableReferences(db, table, e)
-                  ))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$EventVendorCategoriesTableReferences(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: ({eventId = false, vendorCategoryId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
+              addJoins:
+                  <
+                    T extends TableManagerState<
                       dynamic,
                       dynamic,
                       dynamic,
@@ -7641,94 +9223,116 @@ class $$EventVendorCategoriesTableTableManager extends RootTableManager<
                       dynamic,
                       dynamic,
                       dynamic,
-                      dynamic>>(state) {
-                if (eventId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.eventId,
-                    referencedTable: $$EventVendorCategoriesTableReferences
-                        ._eventIdTable(db),
-                    referencedColumn: $$EventVendorCategoriesTableReferences
-                        ._eventIdTable(db)
-                        .id,
-                  ) as T;
-                }
-                if (vendorCategoryId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.vendorCategoryId,
-                    referencedTable: $$EventVendorCategoriesTableReferences
-                        ._vendorCategoryIdTable(db),
-                    referencedColumn: $$EventVendorCategoriesTableReferences
-                        ._vendorCategoryIdTable(db)
-                        .id,
-                  ) as T;
-                }
+                      dynamic
+                    >
+                  >(state) {
+                    if (eventId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.eventId,
+                                referencedTable:
+                                    $$EventVendorCategoriesTableReferences
+                                        ._eventIdTable(db),
+                                referencedColumn:
+                                    $$EventVendorCategoriesTableReferences
+                                        ._eventIdTable(db)
+                                        .id,
+                              )
+                              as T;
+                    }
+                    if (vendorCategoryId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.vendorCategoryId,
+                                referencedTable:
+                                    $$EventVendorCategoriesTableReferences
+                                        ._vendorCategoryIdTable(db),
+                                referencedColumn:
+                                    $$EventVendorCategoriesTableReferences
+                                        ._vendorCategoryIdTable(db)
+                                        .id,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
             );
           },
-        ));
+        ),
+      );
 }
 
-typedef $$EventVendorCategoriesTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $EventVendorCategoriesTable,
-        EventVendorCategory,
-        $$EventVendorCategoriesTableFilterComposer,
-        $$EventVendorCategoriesTableOrderingComposer,
-        $$EventVendorCategoriesTableAnnotationComposer,
-        $$EventVendorCategoriesTableCreateCompanionBuilder,
-        $$EventVendorCategoriesTableUpdateCompanionBuilder,
-        (EventVendorCategory, $$EventVendorCategoriesTableReferences),
-        EventVendorCategory,
-        PrefetchHooks Function({bool eventId, bool vendorCategoryId})>;
-typedef $$VendorsTableCreateCompanionBuilder = VendorsCompanion Function({
-  Value<int> id,
-  required int vendorCategoryId,
-  required String name,
-  Value<String?> contact,
-  Value<int> price,
-  Value<int> advancePaid,
-  Value<String> bookingStatus,
-  Value<String?> notes,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$VendorsTableUpdateCompanionBuilder = VendorsCompanion Function({
-  Value<int> id,
-  Value<int> vendorCategoryId,
-  Value<String> name,
-  Value<String?> contact,
-  Value<int> price,
-  Value<int> advancePaid,
-  Value<String> bookingStatus,
-  Value<String?> notes,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+typedef $$EventVendorCategoriesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $EventVendorCategoriesTable,
+      EventVendorCategory,
+      $$EventVendorCategoriesTableFilterComposer,
+      $$EventVendorCategoriesTableOrderingComposer,
+      $$EventVendorCategoriesTableAnnotationComposer,
+      $$EventVendorCategoriesTableCreateCompanionBuilder,
+      $$EventVendorCategoriesTableUpdateCompanionBuilder,
+      (EventVendorCategory, $$EventVendorCategoriesTableReferences),
+      EventVendorCategory,
+      PrefetchHooks Function({bool eventId, bool vendorCategoryId})
+    >;
+typedef $$VendorsTableCreateCompanionBuilder =
+    VendorsCompanion Function({
+      Value<int> id,
+      required int vendorCategoryId,
+      required String name,
+      Value<String?> contact,
+      Value<int> price,
+      Value<int> advancePaid,
+      Value<String> bookingStatus,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$VendorsTableUpdateCompanionBuilder =
+    VendorsCompanion Function({
+      Value<int> id,
+      Value<int> vendorCategoryId,
+      Value<String> name,
+      Value<String?> contact,
+      Value<int> price,
+      Value<int> advancePaid,
+      Value<String> bookingStatus,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$VendorsTableReferences
     extends BaseReferences<_$AppDatabase, $VendorsTable, Vendor> {
   $$VendorsTableReferences(super.$_db, super.$_table, super.$_typedResult);
 
   static $VendorCategoriesTable _vendorCategoryIdTable(_$AppDatabase db) =>
-      db.vendorCategories.createAlias($_aliasNameGenerator(
-          db.vendors.vendorCategoryId, db.vendorCategories.id));
+      db.vendorCategories.createAlias(
+        $_aliasNameGenerator(
+          db.vendors.vendorCategoryId,
+          db.vendorCategories.id,
+        ),
+      );
 
   $$VendorCategoriesTableProcessedTableManager get vendorCategoryId {
-    final manager =
-        $$VendorCategoriesTableTableManager($_db, $_db.vendorCategories)
-            .filter((f) => f.id($_item.vendorCategoryId!));
+    final $_column = $_itemColumn<int>('vendor_category_id')!;
+
+    final manager = $$VendorCategoriesTableTableManager(
+      $_db,
+      $_db.vendorCategories,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_vendorCategoryIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 }
 
@@ -7742,49 +9346,70 @@ class $$VendorsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get contact => $composableBuilder(
-      column: $table.contact, builder: (column) => ColumnFilters(column));
+    column: $table.contact,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get price => $composableBuilder(
-      column: $table.price, builder: (column) => ColumnFilters(column));
+    column: $table.price,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get advancePaid => $composableBuilder(
-      column: $table.advancePaid, builder: (column) => ColumnFilters(column));
+    column: $table.advancePaid,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get bookingStatus => $composableBuilder(
-      column: $table.bookingStatus, builder: (column) => ColumnFilters(column));
+    column: $table.bookingStatus,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get notes => $composableBuilder(
-      column: $table.notes, builder: (column) => ColumnFilters(column));
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$VendorCategoriesTableFilterComposer get vendorCategoryId {
     final $$VendorCategoriesTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.vendorCategoryId,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableFilterComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.vendorCategoryId,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableFilterComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -7799,50 +9424,70 @@ class $$VendorsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get contact => $composableBuilder(
-      column: $table.contact, builder: (column) => ColumnOrderings(column));
+    column: $table.contact,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get price => $composableBuilder(
-      column: $table.price, builder: (column) => ColumnOrderings(column));
+    column: $table.price,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get advancePaid => $composableBuilder(
-      column: $table.advancePaid, builder: (column) => ColumnOrderings(column));
+    column: $table.advancePaid,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get bookingStatus => $composableBuilder(
-      column: $table.bookingStatus,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.bookingStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get notes => $composableBuilder(
-      column: $table.notes, builder: (column) => ColumnOrderings(column));
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$VendorCategoriesTableOrderingComposer get vendorCategoryId {
     final $$VendorCategoriesTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.vendorCategoryId,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableOrderingComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.vendorCategoryId,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableOrderingComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -7869,10 +9514,14 @@ class $$VendorsTableAnnotationComposer
       $composableBuilder(column: $table.price, builder: (column) => column);
 
   GeneratedColumn<int> get advancePaid => $composableBuilder(
-      column: $table.advancePaid, builder: (column) => column);
+    column: $table.advancePaid,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get bookingStatus => $composableBuilder(
-      column: $table.bookingStatus, builder: (column) => column);
+    column: $table.bookingStatus,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get notes =>
       $composableBuilder(column: $table.notes, builder: (column) => column);
@@ -7885,39 +9534,46 @@ class $$VendorsTableAnnotationComposer
 
   $$VendorCategoriesTableAnnotationComposer get vendorCategoryId {
     final $$VendorCategoriesTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.vendorCategoryId,
-        referencedTable: $db.vendorCategories,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$VendorCategoriesTableAnnotationComposer(
-              $db: $db,
-              $table: $db.vendorCategories,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.vendorCategoryId,
+      referencedTable: $db.vendorCategories,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$VendorCategoriesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.vendorCategories,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
 
-class $$VendorsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $VendorsTable,
-    Vendor,
-    $$VendorsTableFilterComposer,
-    $$VendorsTableOrderingComposer,
-    $$VendorsTableAnnotationComposer,
-    $$VendorsTableCreateCompanionBuilder,
-    $$VendorsTableUpdateCompanionBuilder,
-    (Vendor, $$VendorsTableReferences),
-    Vendor,
-    PrefetchHooks Function({bool vendorCategoryId})> {
+class $$VendorsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $VendorsTable,
+          Vendor,
+          $$VendorsTableFilterComposer,
+          $$VendorsTableOrderingComposer,
+          $$VendorsTableAnnotationComposer,
+          $$VendorsTableCreateCompanionBuilder,
+          $$VendorsTableUpdateCompanionBuilder,
+          (Vendor, $$VendorsTableReferences),
+          Vendor,
+          PrefetchHooks Function({bool vendorCategoryId})
+        > {
   $$VendorsTableTableManager(_$AppDatabase db, $VendorsTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -7926,64 +9582,69 @@ class $$VendorsTableTableManager extends RootTableManager<
               $$VendorsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$VendorsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> vendorCategoryId = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String?> contact = const Value.absent(),
-            Value<int> price = const Value.absent(),
-            Value<int> advancePaid = const Value.absent(),
-            Value<String> bookingStatus = const Value.absent(),
-            Value<String?> notes = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              VendorsCompanion(
-            id: id,
-            vendorCategoryId: vendorCategoryId,
-            name: name,
-            contact: contact,
-            price: price,
-            advancePaid: advancePaid,
-            bookingStatus: bookingStatus,
-            notes: notes,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int vendorCategoryId,
-            required String name,
-            Value<String?> contact = const Value.absent(),
-            Value<int> price = const Value.absent(),
-            Value<int> advancePaid = const Value.absent(),
-            Value<String> bookingStatus = const Value.absent(),
-            Value<String?> notes = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              VendorsCompanion.insert(
-            id: id,
-            vendorCategoryId: vendorCategoryId,
-            name: name,
-            contact: contact,
-            price: price,
-            advancePaid: advancePaid,
-            bookingStatus: bookingStatus,
-            notes: notes,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> vendorCategoryId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String?> contact = const Value.absent(),
+                Value<int> price = const Value.absent(),
+                Value<int> advancePaid = const Value.absent(),
+                Value<String> bookingStatus = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => VendorsCompanion(
+                id: id,
+                vendorCategoryId: vendorCategoryId,
+                name: name,
+                contact: contact,
+                price: price,
+                advancePaid: advancePaid,
+                bookingStatus: bookingStatus,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int vendorCategoryId,
+                required String name,
+                Value<String?> contact = const Value.absent(),
+                Value<int> price = const Value.absent(),
+                Value<int> advancePaid = const Value.absent(),
+                Value<String> bookingStatus = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => VendorsCompanion.insert(
+                id: id,
+                vendorCategoryId: vendorCategoryId,
+                name: name,
+                contact: contact,
+                price: price,
+                advancePaid: advancePaid,
+                bookingStatus: bookingStatus,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) =>
-                  (e.readTable(table), $$VendorsTableReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$VendorsTableReferences(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: ({vendorCategoryId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
+              addJoins:
+                  <
+                    T extends TableManagerState<
                       dynamic,
                       dynamic,
                       dynamic,
@@ -7994,60 +9655,70 @@ class $$VendorsTableTableManager extends RootTableManager<
                       dynamic,
                       dynamic,
                       dynamic,
-                      dynamic>>(state) {
-                if (vendorCategoryId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.vendorCategoryId,
-                    referencedTable:
-                        $$VendorsTableReferences._vendorCategoryIdTable(db),
-                    referencedColumn:
-                        $$VendorsTableReferences._vendorCategoryIdTable(db).id,
-                  ) as T;
-                }
+                      dynamic
+                    >
+                  >(state) {
+                    if (vendorCategoryId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.vendorCategoryId,
+                                referencedTable: $$VendorsTableReferences
+                                    ._vendorCategoryIdTable(db),
+                                referencedColumn: $$VendorsTableReferences
+                                    ._vendorCategoryIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
             );
           },
-        ));
+        ),
+      );
 }
 
-typedef $$VendorsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $VendorsTable,
-    Vendor,
-    $$VendorsTableFilterComposer,
-    $$VendorsTableOrderingComposer,
-    $$VendorsTableAnnotationComposer,
-    $$VendorsTableCreateCompanionBuilder,
-    $$VendorsTableUpdateCompanionBuilder,
-    (Vendor, $$VendorsTableReferences),
-    Vendor,
-    PrefetchHooks Function({bool vendorCategoryId})>;
-typedef $$GuestsTableCreateCompanionBuilder = GuestsCompanion Function({
-  Value<int> id,
-  required int weddingId,
-  required String name,
-  Value<String?> groupName,
-  Value<int> peopleCount,
-  Value<String> rsvp,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$GuestsTableUpdateCompanionBuilder = GuestsCompanion Function({
-  Value<int> id,
-  Value<int> weddingId,
-  Value<String> name,
-  Value<String?> groupName,
-  Value<int> peopleCount,
-  Value<String> rsvp,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+typedef $$VendorsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $VendorsTable,
+      Vendor,
+      $$VendorsTableFilterComposer,
+      $$VendorsTableOrderingComposer,
+      $$VendorsTableAnnotationComposer,
+      $$VendorsTableCreateCompanionBuilder,
+      $$VendorsTableUpdateCompanionBuilder,
+      (Vendor, $$VendorsTableReferences),
+      Vendor,
+      PrefetchHooks Function({bool vendorCategoryId})
+    >;
+typedef $$GuestsTableCreateCompanionBuilder =
+    GuestsCompanion Function({
+      Value<int> id,
+      required int weddingId,
+      required String name,
+      Value<String?> groupName,
+      Value<int> peopleCount,
+      Value<String> rsvp,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$GuestsTableUpdateCompanionBuilder =
+    GuestsCompanion Function({
+      Value<int> id,
+      Value<int> weddingId,
+      Value<String> name,
+      Value<String?> groupName,
+      Value<int> peopleCount,
+      Value<String> rsvp,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$GuestsTableReferences
     extends BaseReferences<_$AppDatabase, $GuestsTable, Guest> {
@@ -8057,27 +9728,35 @@ final class $$GuestsTableReferences
       .createAlias($_aliasNameGenerator(db.guests.weddingId, db.weddings.id));
 
   $$WeddingsTableProcessedTableManager get weddingId {
-    final manager = $$WeddingsTableTableManager($_db, $_db.weddings)
-        .filter((f) => f.id($_item.weddingId!));
+    final $_column = $_itemColumn<int>('wedding_id')!;
+
+    final manager = $$WeddingsTableTableManager(
+      $_db,
+      $_db.weddings,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_weddingIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 
   static MultiTypedResultKey<$GuestEventsTable, List<GuestEvent>>
-      _guestEventsRefsTable(_$AppDatabase db) =>
-          MultiTypedResultKey.fromTable(db.guestEvents,
-              aliasName:
-                  $_aliasNameGenerator(db.guests.id, db.guestEvents.guestId));
+  _guestEventsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.guestEvents,
+    aliasName: $_aliasNameGenerator(db.guests.id, db.guestEvents.guestId),
+  );
 
   $$GuestEventsTableProcessedTableManager get guestEventsRefs {
-    final manager = $$GuestEventsTableTableManager($_db, $_db.guestEvents)
-        .filter((f) => f.guestId.id($_item.id));
+    final manager = $$GuestEventsTableTableManager(
+      $_db,
+      $_db.guestEvents,
+    ).filter((f) => f.guestId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_guestEventsRefsTable($_db));
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
+      manager.$state.copyWith(prefetchedData: cache),
+    );
   }
 }
 
@@ -8091,64 +9770,85 @@ class $$GuestsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get groupName => $composableBuilder(
-      column: $table.groupName, builder: (column) => ColumnFilters(column));
+    column: $table.groupName,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get peopleCount => $composableBuilder(
-      column: $table.peopleCount, builder: (column) => ColumnFilters(column));
+    column: $table.peopleCount,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get rsvp => $composableBuilder(
-      column: $table.rsvp, builder: (column) => ColumnFilters(column));
+    column: $table.rsvp,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$WeddingsTableFilterComposer get weddingId {
     final $$WeddingsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableFilterComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableFilterComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   Expression<bool> guestEventsRefs(
-      Expression<bool> Function($$GuestEventsTableFilterComposer f) f) {
+    Expression<bool> Function($$GuestEventsTableFilterComposer f) f,
+  ) {
     final $$GuestEventsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.guestEvents,
-        getReferencedColumn: (t) => t.guestId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestEventsTableFilterComposer(
-              $db: $db,
-              $table: $db.guestEvents,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.guestEvents,
+      getReferencedColumn: (t) => t.guestId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestEventsTableFilterComposer(
+            $db: $db,
+            $table: $db.guestEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
@@ -8163,43 +9863,60 @@ class $$GuestsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get groupName => $composableBuilder(
-      column: $table.groupName, builder: (column) => ColumnOrderings(column));
+    column: $table.groupName,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get peopleCount => $composableBuilder(
-      column: $table.peopleCount, builder: (column) => ColumnOrderings(column));
+    column: $table.peopleCount,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get rsvp => $composableBuilder(
-      column: $table.rsvp, builder: (column) => ColumnOrderings(column));
+    column: $table.rsvp,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$WeddingsTableOrderingComposer get weddingId {
     final $$WeddingsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableOrderingComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableOrderingComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -8223,7 +9940,9 @@ class $$GuestsTableAnnotationComposer
       $composableBuilder(column: $table.groupName, builder: (column) => column);
 
   GeneratedColumn<int> get peopleCount => $composableBuilder(
-      column: $table.peopleCount, builder: (column) => column);
+    column: $table.peopleCount,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get rsvp =>
       $composableBuilder(column: $table.rsvp, builder: (column) => column);
@@ -8236,60 +9955,71 @@ class $$GuestsTableAnnotationComposer
 
   $$WeddingsTableAnnotationComposer get weddingId {
     final $$WeddingsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   Expression<T> guestEventsRefs<T extends Object>(
-      Expression<T> Function($$GuestEventsTableAnnotationComposer a) f) {
+    Expression<T> Function($$GuestEventsTableAnnotationComposer a) f,
+  ) {
     final $$GuestEventsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.guestEvents,
-        getReferencedColumn: (t) => t.guestId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestEventsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.guestEvents,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.guestEvents,
+      getReferencedColumn: (t) => t.guestId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestEventsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.guestEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return f(composer);
   }
 }
 
-class $$GuestsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $GuestsTable,
-    Guest,
-    $$GuestsTableFilterComposer,
-    $$GuestsTableOrderingComposer,
-    $$GuestsTableAnnotationComposer,
-    $$GuestsTableCreateCompanionBuilder,
-    $$GuestsTableUpdateCompanionBuilder,
-    (Guest, $$GuestsTableReferences),
-    Guest,
-    PrefetchHooks Function({bool weddingId, bool guestEventsRefs})> {
+class $$GuestsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $GuestsTable,
+          Guest,
+          $$GuestsTableFilterComposer,
+          $$GuestsTableOrderingComposer,
+          $$GuestsTableAnnotationComposer,
+          $$GuestsTableCreateCompanionBuilder,
+          $$GuestsTableUpdateCompanionBuilder,
+          (Guest, $$GuestsTableReferences),
+          Guest,
+          PrefetchHooks Function({bool weddingId, bool guestEventsRefs})
+        > {
   $$GuestsTableTableManager(_$AppDatabase db, $GuestsTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -8298,153 +10028,187 @@ class $$GuestsTableTableManager extends RootTableManager<
               $$GuestsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$GuestsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> weddingId = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String?> groupName = const Value.absent(),
-            Value<int> peopleCount = const Value.absent(),
-            Value<String> rsvp = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              GuestsCompanion(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            groupName: groupName,
-            peopleCount: peopleCount,
-            rsvp: rsvp,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int weddingId,
-            required String name,
-            Value<String?> groupName = const Value.absent(),
-            Value<int> peopleCount = const Value.absent(),
-            Value<String> rsvp = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              GuestsCompanion.insert(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            groupName: groupName,
-            peopleCount: peopleCount,
-            rsvp: rsvp,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> weddingId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String?> groupName = const Value.absent(),
+                Value<int> peopleCount = const Value.absent(),
+                Value<String> rsvp = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => GuestsCompanion(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                groupName: groupName,
+                peopleCount: peopleCount,
+                rsvp: rsvp,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int weddingId,
+                required String name,
+                Value<String?> groupName = const Value.absent(),
+                Value<int> peopleCount = const Value.absent(),
+                Value<String> rsvp = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => GuestsCompanion.insert(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                groupName: groupName,
+                peopleCount: peopleCount,
+                rsvp: rsvp,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) =>
-                  (e.readTable(table), $$GuestsTableReferences(db, table, e)))
+              .map(
+                (e) =>
+                    (e.readTable(table), $$GuestsTableReferences(db, table, e)),
+              )
               .toList(),
-          prefetchHooksCallback: (
-              {weddingId = false, guestEventsRefs = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [if (guestEventsRefs) db.guestEvents],
-              addJoins: <
-                  T extends TableManagerState<
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic>>(state) {
-                if (weddingId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.weddingId,
-                    referencedTable:
-                        $$GuestsTableReferences._weddingIdTable(db),
-                    referencedColumn:
-                        $$GuestsTableReferences._weddingIdTable(db).id,
-                  ) as T;
-                }
+          prefetchHooksCallback:
+              ({weddingId = false, guestEventsRefs = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (guestEventsRefs) db.guestEvents,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (weddingId) {
+                          state =
+                              state.withJoin(
+                                    currentTable: table,
+                                    currentColumn: table.weddingId,
+                                    referencedTable: $$GuestsTableReferences
+                                        ._weddingIdTable(db),
+                                    referencedColumn: $$GuestsTableReferences
+                                        ._weddingIdTable(db)
+                                        .id,
+                                  )
+                                  as T;
+                        }
 
-                return state;
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (guestEventsRefs)
+                        await $_getPrefetchedData<
+                          Guest,
+                          $GuestsTable,
+                          GuestEvent
+                        >(
+                          currentTable: table,
+                          referencedTable: $$GuestsTableReferences
+                              ._guestEventsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$GuestsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).guestEventsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.guestId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
               },
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (guestEventsRefs)
-                    await $_getPrefetchedData(
-                        currentTable: table,
-                        referencedTable:
-                            $$GuestsTableReferences._guestEventsRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$GuestsTableReferences(db, table, p0)
-                                .guestEventsRefs,
-                        referencedItemsForCurrentItem: (item,
-                                referencedItems) =>
-                            referencedItems.where((e) => e.guestId == item.id),
-                        typedResults: items)
-                ];
-              },
-            );
-          },
-        ));
+        ),
+      );
 }
 
-typedef $$GuestsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $GuestsTable,
-    Guest,
-    $$GuestsTableFilterComposer,
-    $$GuestsTableOrderingComposer,
-    $$GuestsTableAnnotationComposer,
-    $$GuestsTableCreateCompanionBuilder,
-    $$GuestsTableUpdateCompanionBuilder,
-    (Guest, $$GuestsTableReferences),
-    Guest,
-    PrefetchHooks Function({bool weddingId, bool guestEventsRefs})>;
-typedef $$GuestEventsTableCreateCompanionBuilder = GuestEventsCompanion
-    Function({
-  required int guestId,
-  required int eventId,
-  Value<int> rowid,
-});
-typedef $$GuestEventsTableUpdateCompanionBuilder = GuestEventsCompanion
-    Function({
-  Value<int> guestId,
-  Value<int> eventId,
-  Value<int> rowid,
-});
+typedef $$GuestsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $GuestsTable,
+      Guest,
+      $$GuestsTableFilterComposer,
+      $$GuestsTableOrderingComposer,
+      $$GuestsTableAnnotationComposer,
+      $$GuestsTableCreateCompanionBuilder,
+      $$GuestsTableUpdateCompanionBuilder,
+      (Guest, $$GuestsTableReferences),
+      Guest,
+      PrefetchHooks Function({bool weddingId, bool guestEventsRefs})
+    >;
+typedef $$GuestEventsTableCreateCompanionBuilder =
+    GuestEventsCompanion Function({
+      required int guestId,
+      required int eventId,
+      Value<int> rowid,
+    });
+typedef $$GuestEventsTableUpdateCompanionBuilder =
+    GuestEventsCompanion Function({
+      Value<int> guestId,
+      Value<int> eventId,
+      Value<int> rowid,
+    });
 
 final class $$GuestEventsTableReferences
     extends BaseReferences<_$AppDatabase, $GuestEventsTable, GuestEvent> {
   $$GuestEventsTableReferences(super.$_db, super.$_table, super.$_typedResult);
 
-  static $GuestsTable _guestIdTable(_$AppDatabase db) => db.guests
-      .createAlias($_aliasNameGenerator(db.guestEvents.guestId, db.guests.id));
+  static $GuestsTable _guestIdTable(_$AppDatabase db) => db.guests.createAlias(
+    $_aliasNameGenerator(db.guestEvents.guestId, db.guests.id),
+  );
 
   $$GuestsTableProcessedTableManager get guestId {
-    final manager = $$GuestsTableTableManager($_db, $_db.guests)
-        .filter((f) => f.id($_item.guestId!));
+    final $_column = $_itemColumn<int>('guest_id')!;
+
+    final manager = $$GuestsTableTableManager(
+      $_db,
+      $_db.guests,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_guestIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 
-  static $EventsTable _eventIdTable(_$AppDatabase db) => db.events
-      .createAlias($_aliasNameGenerator(db.guestEvents.eventId, db.events.id));
+  static $EventsTable _eventIdTable(_$AppDatabase db) => db.events.createAlias(
+    $_aliasNameGenerator(db.guestEvents.eventId, db.events.id),
+  );
 
   $$EventsTableProcessedTableManager get eventId {
-    final manager = $$EventsTableTableManager($_db, $_db.events)
-        .filter((f) => f.id($_item.eventId!));
+    final $_column = $_itemColumn<int>('event_id')!;
+
+    final manager = $$EventsTableTableManager(
+      $_db,
+      $_db.events,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_eventIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 }
 
@@ -8459,41 +10223,47 @@ class $$GuestEventsTableFilterComposer
   });
   $$GuestsTableFilterComposer get guestId {
     final $$GuestsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.guestId,
-        referencedTable: $db.guests,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestsTableFilterComposer(
-              $db: $db,
-              $table: $db.guests,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.guestId,
+      referencedTable: $db.guests,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestsTableFilterComposer(
+            $db: $db,
+            $table: $db.guests,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$EventsTableFilterComposer get eventId {
     final $$EventsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableFilterComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableFilterComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -8509,41 +10279,47 @@ class $$GuestEventsTableOrderingComposer
   });
   $$GuestsTableOrderingComposer get guestId {
     final $$GuestsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.guestId,
-        referencedTable: $db.guests,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestsTableOrderingComposer(
-              $db: $db,
-              $table: $db.guests,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.guestId,
+      referencedTable: $db.guests,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestsTableOrderingComposer(
+            $db: $db,
+            $table: $db.guests,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$EventsTableOrderingComposer get eventId {
     final $$EventsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableOrderingComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableOrderingComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -8559,59 +10335,69 @@ class $$GuestEventsTableAnnotationComposer
   });
   $$GuestsTableAnnotationComposer get guestId {
     final $$GuestsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.guestId,
-        referencedTable: $db.guests,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$GuestsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.guests,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.guestId,
+      referencedTable: $db.guests,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GuestsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.guests,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 
   $$EventsTableAnnotationComposer get eventId {
     final $$EventsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.eventId,
-        referencedTable: $db.events,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$EventsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.events,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.eventId,
+      referencedTable: $db.events,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EventsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.events,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
 
-class $$GuestEventsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $GuestEventsTable,
-    GuestEvent,
-    $$GuestEventsTableFilterComposer,
-    $$GuestEventsTableOrderingComposer,
-    $$GuestEventsTableAnnotationComposer,
-    $$GuestEventsTableCreateCompanionBuilder,
-    $$GuestEventsTableUpdateCompanionBuilder,
-    (GuestEvent, $$GuestEventsTableReferences),
-    GuestEvent,
-    PrefetchHooks Function({bool guestId, bool eventId})> {
+class $$GuestEventsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $GuestEventsTable,
+          GuestEvent,
+          $$GuestEventsTableFilterComposer,
+          $$GuestEventsTableOrderingComposer,
+          $$GuestEventsTableAnnotationComposer,
+          $$GuestEventsTableCreateCompanionBuilder,
+          $$GuestEventsTableUpdateCompanionBuilder,
+          (GuestEvent, $$GuestEventsTableReferences),
+          GuestEvent,
+          PrefetchHooks Function({bool guestId, bool eventId})
+        > {
   $$GuestEventsTableTableManager(_$AppDatabase db, $GuestEventsTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -8620,38 +10406,41 @@ class $$GuestEventsTableTableManager extends RootTableManager<
               $$GuestEventsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$GuestEventsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> guestId = const Value.absent(),
-            Value<int> eventId = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              GuestEventsCompanion(
-            guestId: guestId,
-            eventId: eventId,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required int guestId,
-            required int eventId,
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              GuestEventsCompanion.insert(
-            guestId: guestId,
-            eventId: eventId,
-            rowid: rowid,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> guestId = const Value.absent(),
+                Value<int> eventId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GuestEventsCompanion(
+                guestId: guestId,
+                eventId: eventId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required int guestId,
+                required int eventId,
+                Value<int> rowid = const Value.absent(),
+              }) => GuestEventsCompanion.insert(
+                guestId: guestId,
+                eventId: eventId,
+                rowid: rowid,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$GuestEventsTableReferences(db, table, e)
-                  ))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$GuestEventsTableReferences(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: ({guestId = false, eventId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
+              addJoins:
+                  <
+                    T extends TableManagerState<
                       dynamic,
                       dynamic,
                       dynamic,
@@ -8662,91 +10451,111 @@ class $$GuestEventsTableTableManager extends RootTableManager<
                       dynamic,
                       dynamic,
                       dynamic,
-                      dynamic>>(state) {
-                if (guestId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.guestId,
-                    referencedTable:
-                        $$GuestEventsTableReferences._guestIdTable(db),
-                    referencedColumn:
-                        $$GuestEventsTableReferences._guestIdTable(db).id,
-                  ) as T;
-                }
-                if (eventId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.eventId,
-                    referencedTable:
-                        $$GuestEventsTableReferences._eventIdTable(db),
-                    referencedColumn:
-                        $$GuestEventsTableReferences._eventIdTable(db).id,
-                  ) as T;
-                }
+                      dynamic
+                    >
+                  >(state) {
+                    if (guestId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.guestId,
+                                referencedTable: $$GuestEventsTableReferences
+                                    ._guestIdTable(db),
+                                referencedColumn: $$GuestEventsTableReferences
+                                    ._guestIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
+                    if (eventId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.eventId,
+                                referencedTable: $$GuestEventsTableReferences
+                                    ._eventIdTable(db),
+                                referencedColumn: $$GuestEventsTableReferences
+                                    ._eventIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
             );
           },
-        ));
+        ),
+      );
 }
 
-typedef $$GuestEventsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $GuestEventsTable,
-    GuestEvent,
-    $$GuestEventsTableFilterComposer,
-    $$GuestEventsTableOrderingComposer,
-    $$GuestEventsTableAnnotationComposer,
-    $$GuestEventsTableCreateCompanionBuilder,
-    $$GuestEventsTableUpdateCompanionBuilder,
-    (GuestEvent, $$GuestEventsTableReferences),
-    GuestEvent,
-    PrefetchHooks Function({bool guestId, bool eventId})>;
-typedef $$ShoppingItemsTableCreateCompanionBuilder = ShoppingItemsCompanion
-    Function({
-  Value<int> id,
-  required int weddingId,
-  required String name,
-  Value<String> category,
-  Value<bool> isPurchased,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$ShoppingItemsTableUpdateCompanionBuilder = ShoppingItemsCompanion
-    Function({
-  Value<int> id,
-  Value<int> weddingId,
-  Value<String> name,
-  Value<String> category,
-  Value<bool> isPurchased,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+typedef $$GuestEventsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $GuestEventsTable,
+      GuestEvent,
+      $$GuestEventsTableFilterComposer,
+      $$GuestEventsTableOrderingComposer,
+      $$GuestEventsTableAnnotationComposer,
+      $$GuestEventsTableCreateCompanionBuilder,
+      $$GuestEventsTableUpdateCompanionBuilder,
+      (GuestEvent, $$GuestEventsTableReferences),
+      GuestEvent,
+      PrefetchHooks Function({bool guestId, bool eventId})
+    >;
+typedef $$ShoppingItemsTableCreateCompanionBuilder =
+    ShoppingItemsCompanion Function({
+      Value<int> id,
+      required int weddingId,
+      required String name,
+      Value<String> category,
+      Value<bool> isPurchased,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$ShoppingItemsTableUpdateCompanionBuilder =
+    ShoppingItemsCompanion Function({
+      Value<int> id,
+      Value<int> weddingId,
+      Value<String> name,
+      Value<String> category,
+      Value<bool> isPurchased,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$ShoppingItemsTableReferences
     extends BaseReferences<_$AppDatabase, $ShoppingItemsTable, ShoppingItem> {
   $$ShoppingItemsTableReferences(
-      super.$_db, super.$_table, super.$_typedResult);
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
 
   static $WeddingsTable _weddingIdTable(_$AppDatabase db) =>
       db.weddings.createAlias(
-          $_aliasNameGenerator(db.shoppingItems.weddingId, db.weddings.id));
+        $_aliasNameGenerator(db.shoppingItems.weddingId, db.weddings.id),
+      );
 
   $$WeddingsTableProcessedTableManager get weddingId {
-    final manager = $$WeddingsTableTableManager($_db, $_db.weddings)
-        .filter((f) => f.id($_item.weddingId!));
+    final $_column = $_itemColumn<int>('wedding_id')!;
+
+    final manager = $$WeddingsTableTableManager(
+      $_db,
+      $_db.weddings,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_weddingIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 }
 
@@ -8760,46 +10569,65 @@ class $$ShoppingItemsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get category => $composableBuilder(
-      column: $table.category, builder: (column) => ColumnFilters(column));
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get isPurchased => $composableBuilder(
-      column: $table.isPurchased, builder: (column) => ColumnFilters(column));
+    column: $table.isPurchased,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnFilters(column));
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnFilters(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$WeddingsTableFilterComposer get weddingId {
     final $$WeddingsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableFilterComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableFilterComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -8814,46 +10642,65 @@ class $$ShoppingItemsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get category => $composableBuilder(
-      column: $table.category, builder: (column) => ColumnOrderings(column));
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isPurchased => $composableBuilder(
-      column: $table.isPurchased, builder: (column) => ColumnOrderings(column));
+    column: $table.isPurchased,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnOrderings(column));
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnOrderings(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$WeddingsTableOrderingComposer get weddingId {
     final $$WeddingsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableOrderingComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableOrderingComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -8877,13 +10724,17 @@ class $$ShoppingItemsTableAnnotationComposer
       $composableBuilder(column: $table.category, builder: (column) => column);
 
   GeneratedColumn<bool> get isPurchased => $composableBuilder(
-      column: $table.isPurchased, builder: (column) => column);
+    column: $table.isPurchased,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get source =>
       $composableBuilder(column: $table.source, builder: (column) => column);
 
   GeneratedColumn<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => column);
+    column: $table.templateKey,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -8893,39 +10744,46 @@ class $$ShoppingItemsTableAnnotationComposer
 
   $$WeddingsTableAnnotationComposer get weddingId {
     final $$WeddingsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
 
-class $$ShoppingItemsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $ShoppingItemsTable,
-    ShoppingItem,
-    $$ShoppingItemsTableFilterComposer,
-    $$ShoppingItemsTableOrderingComposer,
-    $$ShoppingItemsTableAnnotationComposer,
-    $$ShoppingItemsTableCreateCompanionBuilder,
-    $$ShoppingItemsTableUpdateCompanionBuilder,
-    (ShoppingItem, $$ShoppingItemsTableReferences),
-    ShoppingItem,
-    PrefetchHooks Function({bool weddingId})> {
+class $$ShoppingItemsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ShoppingItemsTable,
+          ShoppingItem,
+          $$ShoppingItemsTableFilterComposer,
+          $$ShoppingItemsTableOrderingComposer,
+          $$ShoppingItemsTableAnnotationComposer,
+          $$ShoppingItemsTableCreateCompanionBuilder,
+          $$ShoppingItemsTableUpdateCompanionBuilder,
+          (ShoppingItem, $$ShoppingItemsTableReferences),
+          ShoppingItem,
+          PrefetchHooks Function({bool weddingId})
+        > {
   $$ShoppingItemsTableTableManager(_$AppDatabase db, $ShoppingItemsTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -8934,62 +10792,65 @@ class $$ShoppingItemsTableTableManager extends RootTableManager<
               $$ShoppingItemsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$ShoppingItemsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> weddingId = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String> category = const Value.absent(),
-            Value<bool> isPurchased = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              ShoppingItemsCompanion(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            category: category,
-            isPurchased: isPurchased,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int weddingId,
-            required String name,
-            Value<String> category = const Value.absent(),
-            Value<bool> isPurchased = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              ShoppingItemsCompanion.insert(
-            id: id,
-            weddingId: weddingId,
-            name: name,
-            category: category,
-            isPurchased: isPurchased,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> weddingId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<bool> isPurchased = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => ShoppingItemsCompanion(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                category: category,
+                isPurchased: isPurchased,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int weddingId,
+                required String name,
+                Value<String> category = const Value.absent(),
+                Value<bool> isPurchased = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => ShoppingItemsCompanion.insert(
+                id: id,
+                weddingId: weddingId,
+                name: name,
+                category: category,
+                isPurchased: isPurchased,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$ShoppingItemsTableReferences(db, table, e)
-                  ))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$ShoppingItemsTableReferences(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: ({weddingId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
+              addJoins:
+                  <
+                    T extends TableManagerState<
                       dynamic,
                       dynamic,
                       dynamic,
@@ -9000,66 +10861,74 @@ class $$ShoppingItemsTableTableManager extends RootTableManager<
                       dynamic,
                       dynamic,
                       dynamic,
-                      dynamic>>(state) {
-                if (weddingId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.weddingId,
-                    referencedTable:
-                        $$ShoppingItemsTableReferences._weddingIdTable(db),
-                    referencedColumn:
-                        $$ShoppingItemsTableReferences._weddingIdTable(db).id,
-                  ) as T;
-                }
+                      dynamic
+                    >
+                  >(state) {
+                    if (weddingId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.weddingId,
+                                referencedTable: $$ShoppingItemsTableReferences
+                                    ._weddingIdTable(db),
+                                referencedColumn: $$ShoppingItemsTableReferences
+                                    ._weddingIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
             );
           },
-        ));
+        ),
+      );
 }
 
-typedef $$ShoppingItemsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $ShoppingItemsTable,
-    ShoppingItem,
-    $$ShoppingItemsTableFilterComposer,
-    $$ShoppingItemsTableOrderingComposer,
-    $$ShoppingItemsTableAnnotationComposer,
-    $$ShoppingItemsTableCreateCompanionBuilder,
-    $$ShoppingItemsTableUpdateCompanionBuilder,
-    (ShoppingItem, $$ShoppingItemsTableReferences),
-    ShoppingItem,
-    PrefetchHooks Function({bool weddingId})>;
-typedef $$BudgetItemsTableCreateCompanionBuilder = BudgetItemsCompanion
-    Function({
-  Value<int> id,
-  required int weddingId,
-  required String categoryName,
-  Value<int> estimated,
-  Value<int> actual,
-  Value<String?> notes,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$BudgetItemsTableUpdateCompanionBuilder = BudgetItemsCompanion
-    Function({
-  Value<int> id,
-  Value<int> weddingId,
-  Value<String> categoryName,
-  Value<int> estimated,
-  Value<int> actual,
-  Value<String?> notes,
-  Value<String> source,
-  Value<String?> templateKey,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+typedef $$ShoppingItemsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ShoppingItemsTable,
+      ShoppingItem,
+      $$ShoppingItemsTableFilterComposer,
+      $$ShoppingItemsTableOrderingComposer,
+      $$ShoppingItemsTableAnnotationComposer,
+      $$ShoppingItemsTableCreateCompanionBuilder,
+      $$ShoppingItemsTableUpdateCompanionBuilder,
+      (ShoppingItem, $$ShoppingItemsTableReferences),
+      ShoppingItem,
+      PrefetchHooks Function({bool weddingId})
+    >;
+typedef $$BudgetItemsTableCreateCompanionBuilder =
+    BudgetItemsCompanion Function({
+      Value<int> id,
+      required int weddingId,
+      required String categoryName,
+      Value<int> estimated,
+      Value<int> actual,
+      Value<String?> notes,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$BudgetItemsTableUpdateCompanionBuilder =
+    BudgetItemsCompanion Function({
+      Value<int> id,
+      Value<int> weddingId,
+      Value<String> categoryName,
+      Value<int> estimated,
+      Value<int> actual,
+      Value<String?> notes,
+      Value<String> source,
+      Value<String?> templateKey,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 final class $$BudgetItemsTableReferences
     extends BaseReferences<_$AppDatabase, $BudgetItemsTable, BudgetItem> {
@@ -9067,15 +10936,21 @@ final class $$BudgetItemsTableReferences
 
   static $WeddingsTable _weddingIdTable(_$AppDatabase db) =>
       db.weddings.createAlias(
-          $_aliasNameGenerator(db.budgetItems.weddingId, db.weddings.id));
+        $_aliasNameGenerator(db.budgetItems.weddingId, db.weddings.id),
+      );
 
   $$WeddingsTableProcessedTableManager get weddingId {
-    final manager = $$WeddingsTableTableManager($_db, $_db.weddings)
-        .filter((f) => f.id($_item.weddingId!));
+    final $_column = $_itemColumn<int>('wedding_id')!;
+
+    final manager = $$WeddingsTableTableManager(
+      $_db,
+      $_db.weddings,
+    ).filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_weddingIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
   }
 }
 
@@ -9089,49 +10964,70 @@ class $$BudgetItemsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get categoryName => $composableBuilder(
-      column: $table.categoryName, builder: (column) => ColumnFilters(column));
+    column: $table.categoryName,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get estimated => $composableBuilder(
-      column: $table.estimated, builder: (column) => ColumnFilters(column));
+    column: $table.estimated,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get actual => $composableBuilder(
-      column: $table.actual, builder: (column) => ColumnFilters(column));
+    column: $table.actual,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get notes => $composableBuilder(
-      column: $table.notes, builder: (column) => ColumnFilters(column));
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnFilters(column));
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnFilters(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   $$WeddingsTableFilterComposer get weddingId {
     final $$WeddingsTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableFilterComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableFilterComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -9146,50 +11042,70 @@ class $$BudgetItemsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get categoryName => $composableBuilder(
-      column: $table.categoryName,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.categoryName,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get estimated => $composableBuilder(
-      column: $table.estimated, builder: (column) => ColumnOrderings(column));
+    column: $table.estimated,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get actual => $composableBuilder(
-      column: $table.actual, builder: (column) => ColumnOrderings(column));
+    column: $table.actual,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get notes => $composableBuilder(
-      column: $table.notes, builder: (column) => ColumnOrderings(column));
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get source => $composableBuilder(
-      column: $table.source, builder: (column) => ColumnOrderings(column));
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => ColumnOrderings(column));
+    column: $table.templateKey,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   $$WeddingsTableOrderingComposer get weddingId {
     final $$WeddingsTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableOrderingComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableOrderingComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
@@ -9207,7 +11123,9 @@ class $$BudgetItemsTableAnnotationComposer
       $composableBuilder(column: $table.id, builder: (column) => column);
 
   GeneratedColumn<String> get categoryName => $composableBuilder(
-      column: $table.categoryName, builder: (column) => column);
+    column: $table.categoryName,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get estimated =>
       $composableBuilder(column: $table.estimated, builder: (column) => column);
@@ -9222,7 +11140,9 @@ class $$BudgetItemsTableAnnotationComposer
       $composableBuilder(column: $table.source, builder: (column) => column);
 
   GeneratedColumn<String> get templateKey => $composableBuilder(
-      column: $table.templateKey, builder: (column) => column);
+    column: $table.templateKey,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -9232,39 +11152,46 @@ class $$BudgetItemsTableAnnotationComposer
 
   $$WeddingsTableAnnotationComposer get weddingId {
     final $$WeddingsTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.weddingId,
-        referencedTable: $db.weddings,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$WeddingsTableAnnotationComposer(
-              $db: $db,
-              $table: $db.weddings,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
+      composer: this,
+      getCurrentColumn: (t) => t.weddingId,
+      referencedTable: $db.weddings,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WeddingsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.weddings,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
     return composer;
   }
 }
 
-class $$BudgetItemsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $BudgetItemsTable,
-    BudgetItem,
-    $$BudgetItemsTableFilterComposer,
-    $$BudgetItemsTableOrderingComposer,
-    $$BudgetItemsTableAnnotationComposer,
-    $$BudgetItemsTableCreateCompanionBuilder,
-    $$BudgetItemsTableUpdateCompanionBuilder,
-    (BudgetItem, $$BudgetItemsTableReferences),
-    BudgetItem,
-    PrefetchHooks Function({bool weddingId})> {
+class $$BudgetItemsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $BudgetItemsTable,
+          BudgetItem,
+          $$BudgetItemsTableFilterComposer,
+          $$BudgetItemsTableOrderingComposer,
+          $$BudgetItemsTableAnnotationComposer,
+          $$BudgetItemsTableCreateCompanionBuilder,
+          $$BudgetItemsTableUpdateCompanionBuilder,
+          (BudgetItem, $$BudgetItemsTableReferences),
+          BudgetItem,
+          PrefetchHooks Function({bool weddingId})
+        > {
   $$BudgetItemsTableTableManager(_$AppDatabase db, $BudgetItemsTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -9273,66 +11200,69 @@ class $$BudgetItemsTableTableManager extends RootTableManager<
               $$BudgetItemsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$BudgetItemsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> weddingId = const Value.absent(),
-            Value<String> categoryName = const Value.absent(),
-            Value<int> estimated = const Value.absent(),
-            Value<int> actual = const Value.absent(),
-            Value<String?> notes = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              BudgetItemsCompanion(
-            id: id,
-            weddingId: weddingId,
-            categoryName: categoryName,
-            estimated: estimated,
-            actual: actual,
-            notes: notes,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required int weddingId,
-            required String categoryName,
-            Value<int> estimated = const Value.absent(),
-            Value<int> actual = const Value.absent(),
-            Value<String?> notes = const Value.absent(),
-            Value<String> source = const Value.absent(),
-            Value<String?> templateKey = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              BudgetItemsCompanion.insert(
-            id: id,
-            weddingId: weddingId,
-            categoryName: categoryName,
-            estimated: estimated,
-            actual: actual,
-            notes: notes,
-            source: source,
-            templateKey: templateKey,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> weddingId = const Value.absent(),
+                Value<String> categoryName = const Value.absent(),
+                Value<int> estimated = const Value.absent(),
+                Value<int> actual = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => BudgetItemsCompanion(
+                id: id,
+                weddingId: weddingId,
+                categoryName: categoryName,
+                estimated: estimated,
+                actual: actual,
+                notes: notes,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int weddingId,
+                required String categoryName,
+                Value<int> estimated = const Value.absent(),
+                Value<int> actual = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String?> templateKey = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => BudgetItemsCompanion.insert(
+                id: id,
+                weddingId: weddingId,
+                categoryName: categoryName,
+                estimated: estimated,
+                actual: actual,
+                notes: notes,
+                source: source,
+                templateKey: templateKey,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$BudgetItemsTableReferences(db, table, e)
-                  ))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$BudgetItemsTableReferences(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: ({weddingId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
+              addJoins:
+                  <
+                    T extends TableManagerState<
                       dynamic,
                       dynamic,
                       dynamic,
@@ -9343,52 +11273,60 @@ class $$BudgetItemsTableTableManager extends RootTableManager<
                       dynamic,
                       dynamic,
                       dynamic,
-                      dynamic>>(state) {
-                if (weddingId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.weddingId,
-                    referencedTable:
-                        $$BudgetItemsTableReferences._weddingIdTable(db),
-                    referencedColumn:
-                        $$BudgetItemsTableReferences._weddingIdTable(db).id,
-                  ) as T;
-                }
+                      dynamic
+                    >
+                  >(state) {
+                    if (weddingId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.weddingId,
+                                referencedTable: $$BudgetItemsTableReferences
+                                    ._weddingIdTable(db),
+                                referencedColumn: $$BudgetItemsTableReferences
+                                    ._weddingIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
             );
           },
-        ));
+        ),
+      );
 }
 
-typedef $$BudgetItemsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $BudgetItemsTable,
-    BudgetItem,
-    $$BudgetItemsTableFilterComposer,
-    $$BudgetItemsTableOrderingComposer,
-    $$BudgetItemsTableAnnotationComposer,
-    $$BudgetItemsTableCreateCompanionBuilder,
-    $$BudgetItemsTableUpdateCompanionBuilder,
-    (BudgetItem, $$BudgetItemsTableReferences),
-    BudgetItem,
-    PrefetchHooks Function({bool weddingId})>;
-typedef $$WaitlistInterestsTableCreateCompanionBuilder
-    = WaitlistInterestsCompanion Function({
-  Value<int> id,
-  required String city,
-  Value<DateTime> createdAt,
-});
-typedef $$WaitlistInterestsTableUpdateCompanionBuilder
-    = WaitlistInterestsCompanion Function({
-  Value<int> id,
-  Value<String> city,
-  Value<DateTime> createdAt,
-});
+typedef $$BudgetItemsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $BudgetItemsTable,
+      BudgetItem,
+      $$BudgetItemsTableFilterComposer,
+      $$BudgetItemsTableOrderingComposer,
+      $$BudgetItemsTableAnnotationComposer,
+      $$BudgetItemsTableCreateCompanionBuilder,
+      $$BudgetItemsTableUpdateCompanionBuilder,
+      (BudgetItem, $$BudgetItemsTableReferences),
+      BudgetItem,
+      PrefetchHooks Function({bool weddingId})
+    >;
+typedef $$WaitlistInterestsTableCreateCompanionBuilder =
+    WaitlistInterestsCompanion Function({
+      Value<int> id,
+      required String city,
+      Value<DateTime> createdAt,
+    });
+typedef $$WaitlistInterestsTableUpdateCompanionBuilder =
+    WaitlistInterestsCompanion Function({
+      Value<int> id,
+      Value<String> city,
+      Value<DateTime> createdAt,
+    });
 
 class $$WaitlistInterestsTableFilterComposer
     extends Composer<_$AppDatabase, $WaitlistInterestsTable> {
@@ -9400,13 +11338,19 @@ class $$WaitlistInterestsTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get city => $composableBuilder(
-      column: $table.city, builder: (column) => ColumnFilters(column));
+    column: $table.city,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$WaitlistInterestsTableOrderingComposer
@@ -9419,13 +11363,19 @@ class $$WaitlistInterestsTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get city => $composableBuilder(
-      column: $table.city, builder: (column) => ColumnOrderings(column));
+    column: $table.city,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$WaitlistInterestsTableAnnotationComposer
@@ -9447,24 +11397,33 @@ class $$WaitlistInterestsTableAnnotationComposer
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
 }
 
-class $$WaitlistInterestsTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $WaitlistInterestsTable,
-    WaitlistInterest,
-    $$WaitlistInterestsTableFilterComposer,
-    $$WaitlistInterestsTableOrderingComposer,
-    $$WaitlistInterestsTableAnnotationComposer,
-    $$WaitlistInterestsTableCreateCompanionBuilder,
-    $$WaitlistInterestsTableUpdateCompanionBuilder,
-    (
-      WaitlistInterest,
-      BaseReferences<_$AppDatabase, $WaitlistInterestsTable, WaitlistInterest>
-    ),
-    WaitlistInterest,
-    PrefetchHooks Function()> {
+class $$WaitlistInterestsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $WaitlistInterestsTable,
+          WaitlistInterest,
+          $$WaitlistInterestsTableFilterComposer,
+          $$WaitlistInterestsTableOrderingComposer,
+          $$WaitlistInterestsTableAnnotationComposer,
+          $$WaitlistInterestsTableCreateCompanionBuilder,
+          $$WaitlistInterestsTableUpdateCompanionBuilder,
+          (
+            WaitlistInterest,
+            BaseReferences<
+              _$AppDatabase,
+              $WaitlistInterestsTable,
+              WaitlistInterest
+            >,
+          ),
+          WaitlistInterest,
+          PrefetchHooks Function()
+        > {
   $$WaitlistInterestsTableTableManager(
-      _$AppDatabase db, $WaitlistInterestsTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $WaitlistInterestsTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -9473,49 +11432,58 @@ class $$WaitlistInterestsTableTableManager extends RootTableManager<
               $$WaitlistInterestsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$WaitlistInterestsTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> city = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-          }) =>
-              WaitlistInterestsCompanion(
-            id: id,
-            city: city,
-            createdAt: createdAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required String city,
-            Value<DateTime> createdAt = const Value.absent(),
-          }) =>
-              WaitlistInterestsCompanion.insert(
-            id: id,
-            city: city,
-            createdAt: createdAt,
-          ),
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> city = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+              }) => WaitlistInterestsCompanion(
+                id: id,
+                city: city,
+                createdAt: createdAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String city,
+                Value<DateTime> createdAt = const Value.absent(),
+              }) => WaitlistInterestsCompanion.insert(
+                id: id,
+                city: city,
+                createdAt: createdAt,
+              ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
               .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$WaitlistInterestsTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $WaitlistInterestsTable,
-    WaitlistInterest,
-    $$WaitlistInterestsTableFilterComposer,
-    $$WaitlistInterestsTableOrderingComposer,
-    $$WaitlistInterestsTableAnnotationComposer,
-    $$WaitlistInterestsTableCreateCompanionBuilder,
-    $$WaitlistInterestsTableUpdateCompanionBuilder,
-    (
+typedef $$WaitlistInterestsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $WaitlistInterestsTable,
       WaitlistInterest,
-      BaseReferences<_$AppDatabase, $WaitlistInterestsTable, WaitlistInterest>
-    ),
-    WaitlistInterest,
-    PrefetchHooks Function()>;
+      $$WaitlistInterestsTableFilterComposer,
+      $$WaitlistInterestsTableOrderingComposer,
+      $$WaitlistInterestsTableAnnotationComposer,
+      $$WaitlistInterestsTableCreateCompanionBuilder,
+      $$WaitlistInterestsTableUpdateCompanionBuilder,
+      (
+        WaitlistInterest,
+        BaseReferences<
+          _$AppDatabase,
+          $WaitlistInterestsTable,
+          WaitlistInterest
+        >,
+      ),
+      WaitlistInterest,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;

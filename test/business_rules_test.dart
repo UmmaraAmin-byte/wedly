@@ -41,6 +41,23 @@ void main() {
       expect(countdownDays(DateTime(2026, 10, 29), today: today), 2);
     });
 
+    test('open tasks become overdue by calendar day, not time of day', () {
+      final today = DateTime(2026, 10, 27, 17);
+      expect(
+        isTaskOverdue(DateTime(2026, 10, 27, 8), 'todo', today: today),
+        isFalse,
+      );
+      expect(
+        isTaskOverdue(DateTime(2026, 10, 26, 23), 'in_progress', today: today),
+        isTrue,
+      );
+      expect(
+        isTaskOverdue(DateTime(2026, 10, 26), 'done', today: today),
+        isFalse,
+      );
+      expect(isTaskOverdue(null, 'todo', today: today), isFalse);
+    });
+
     test('guest totals are split by RSVP status', () {
       expect(
         guestTotalsByRsvp([('confirmed', 3), ('pending', 2), ('declined', 1)]),

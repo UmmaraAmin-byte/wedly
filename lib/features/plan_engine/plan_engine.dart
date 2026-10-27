@@ -43,6 +43,18 @@ class GeneratedPlan {
   final List<GeneratedBudgetCategory> budgetCategories;
 }
 
+String customEventTemplateKey(String name) {
+  final normalized = name.trim().toLowerCase();
+  final slug = normalized
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '_')
+      .replaceAll(RegExp(r'^_|_$'), '');
+  var hash = 0x811c9dc5;
+  for (final unit in normalized.codeUnits) {
+    hash = ((hash ^ unit) * 0x01000193) & 0xffffffff;
+  }
+  return 'custom_${slug.isEmpty ? 'event' : slug}_${hash.toRadixString(16)}';
+}
+
 class PlanEngine {
   static const commonTasks = <String>[
     'Finalize guest list',

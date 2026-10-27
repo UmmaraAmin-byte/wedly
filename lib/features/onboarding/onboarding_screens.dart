@@ -8,6 +8,7 @@ import '../../core/db/app_database.dart';
 import '../../core/utils/formatters.dart';
 import '../../core/utils/validators.dart';
 import '../../core/widgets/common.dart';
+import '../plan_engine/plan_engine.dart';
 import '../plan_engine/plan_generator.dart';
 
 const eventOptions = <String, String>{
@@ -49,13 +50,13 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: SafeArea(
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 560),
-          child: Padding(
-            padding: const EdgeInsets.all(24),
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 560),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   width: 250,
@@ -144,6 +145,7 @@ class _WeddingSetupScreenState extends ConsumerState<WeddingSetupScreen> {
   final _guests = TextEditingController();
   final _budget = TextEditingController();
   DateTime? _date;
+  String? _dateError;
   String _city = 'Islamabad';
   Wedding? _wedding;
   bool _loading = true;
@@ -182,18 +184,18 @@ class _WeddingSetupScreenState extends ConsumerState<WeddingSetupScreen> {
     if (!_formKey.currentState!.validate()) return;
     final dateError = validateWeddingDate(_date);
     if (dateError != null) {
-      showMessage(context, dateError);
+      setState(() => _dateError = dateError);
       return;
     }
+    setState(() => _dateError = null);
     if (_city != 'Islamabad' && _city != 'Rawalpindi') {
-      await ref.read(repositoryProvider).addWaitlistInterest(_city);
       if (mounted) {
         await showDialog<void>(
           context: context,
           builder: (context) => AlertDialog(
             title: const Text('Coming soon'),
             content: Text(
-              'Wedly is not available in $_city yet. We’ve saved your interest.',
+              'Wedly currently supports Islamabad and Rawalpindi. No waitlist service is connected, so your details haven’t been submitted or saved. Choose a supported city to continue.',
             ),
             actions: [
               FilledButton(
@@ -256,16 +258,21 @@ class _WeddingSetupScreenState extends ConsumerState<WeddingSetupScreen> {
                   context: context,
                   initialDate:
                       _date ?? DateTime.now().add(const Duration(days: 180)),
-                  firstDate: DateTime.now(),
+                  firstDate: DateTime(1900),
                   lastDate: DateTime.now().add(const Duration(days: 3650)),
                 );
-                if (picked != null) setState(() => _date = picked);
+                if (picked != null) {
+                  setState(() {
+                    _date = picked;
+                    _dateError = null;
+                  });
+                }
               },
               borderRadius: BorderRadius.circular(16),
               child: InputDecorator(
                 decoration: InputDecoration(
                   labelText: 'Wedding date',
-                  errorText: _date == null ? null : null,
+                  errorText: _dateError,
                 ),
                 child: Row(
                   children: [
@@ -399,6 +406,7 @@ class _SelectEventsScreenState extends ConsumerState<SelectEventsScreen> {
       ),
     );
     controller.dispose();
+    if (!mounted) return;
     if (name == null) return;
     final normalized = name.toLowerCase();
     if (name.isEmpty ||
@@ -410,8 +418,7 @@ class _SelectEventsScreenState extends ConsumerState<SelectEventsScreen> {
       );
       return;
     }
-    final key =
-        'custom_${normalized.replaceAll(RegExp(r'[^a-z0-9]+'), '_').replaceAll(RegExp(r'^_|_$'), '')}';
+    final key = customEventTemplateKey(name);
     setState(() {
       _custom[key] = name;
       _selected.add(key);
