@@ -68,9 +68,21 @@ class PlanEngine {
   ];
 
   static const shoppingStarters = <String, List<String>>{
-    'Bride': ['Wedding outfit accessories', 'Jewellery essentials', 'Comfortable footwear'],
-    'Groom': ['Wedding outfit accessories', 'Traditional footwear', 'Grooming essentials'],
-    'Events': ['Decorative favors', 'Guest welcome items', 'Event-day supplies'],
+    'Bride': [
+      'Wedding outfit accessories',
+      'Jewellery essentials',
+      'Comfortable footwear',
+    ],
+    'Groom': [
+      'Wedding outfit accessories',
+      'Traditional footwear',
+      'Grooming essentials',
+    ],
+    'Events': [
+      'Decorative favors',
+      'Guest welcome items',
+      'Event-day supplies',
+    ],
     'Gifts': ['Family gifts', 'Wedding favors', 'Gift wrapping'],
     'Other': ['Document folder', 'Emergency sewing kit', 'Travel essentials'],
   };
@@ -103,15 +115,19 @@ class PlanEngine {
         throw StateError('$name must have 8–12 checklist items.');
       }
       vendorNames.addAll(vendors);
-      templates.add(GeneratedEvent(
-        key: key,
-        name: name,
-        vendorCategories: vendors,
-        checklist: checklist,
-        tasks: eventTasks,
-      ));
+      templates.add(
+        GeneratedEvent(
+          key: key,
+          name: name,
+          vendorCategories: vendors,
+          checklist: checklist,
+          tasks: eventTasks,
+        ),
+      );
       for (var i = 0; i < eventTasks.length; i++) {
-        tasks.add(GeneratedTask('${key}_task_${i + 1}', eventTasks[i], eventKey: key));
+        tasks.add(
+          GeneratedTask('${key}_task_${i + 1}', eventTasks[i], eventKey: key),
+        );
       }
     }
 
@@ -122,14 +138,18 @@ class PlanEngine {
     final split = cityTemplate['budgetSplits'] as Map<String, dynamic>;
     final budgetCategories = <GeneratedBudgetCategory>[];
     for (final entry in split.entries) {
-      budgetCategories.add(GeneratedBudgetCategory(
-        entry.key,
-        (totalBudget * (entry.value as num) / 100).round(),
-      ));
+      budgetCategories.add(
+        GeneratedBudgetCategory(
+          entry.key,
+          (totalBudget * (entry.value as num) / 100).round(),
+        ),
+      );
     }
 
     final uniqueNames = <String>{};
-    final uniqueTasks = tasks.where((task) => uniqueNames.add(task.name)).toList();
+    final uniqueTasks = tasks
+        .where((task) => uniqueNames.add(task.name))
+        .toList();
     return GeneratedPlan(
       events: templates,
       vendorCategories: vendorNames.toList()..sort(),

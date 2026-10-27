@@ -13,5 +13,6 @@ final repositoryProvider = Provider<WedlyRepository>(
   (ref) => DriftWedlyRepository(ref.watch(databaseProvider)),
 );
 
-final weddingStreamProvider = StreamProvider((ref) =>
-    ref.watch(repositoryProvider).watchWedding());
+final weddingStreamProvider = StreamProvider(
+  (ref) => ref.watch(repositoryProvider).watchWedding(),
+);

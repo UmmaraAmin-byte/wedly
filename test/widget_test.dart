@@ -1,30 +1,23 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:workspace/main.dart';
+import 'package:wedly/app/theme.dart';
+import 'package:wedly/features/onboarding/onboarding_screens.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Welcome screen presents the wedding planner entry point', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(theme: buildWedlyTheme(), home: const WelcomeScreen()),
+    );
+    expect(
+      find.text('Your wedding plan, generated in minutes.'),
+      findsOneWidget,
+    );
+    expect(find.text('Create My Wedding'), findsOneWidget);
+    expect(
+      find.text('Private by design · Your plan stays on this device'),
+      findsOneWidget,
+    );
   });
 }

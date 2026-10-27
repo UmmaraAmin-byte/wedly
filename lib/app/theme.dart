@@ -31,10 +31,26 @@ ThemeData buildWedlyTheme() {
     scaffoldBackgroundColor: WedlyColors.cream,
     fontFamily: 'DMSans',
     textTheme: const TextTheme(
-      displaySmall: TextStyle(fontFamily: 'CormorantGaramond', fontWeight: FontWeight.w600, color: WedlyColors.plum),
-      headlineLarge: TextStyle(fontFamily: 'CormorantGaramond', fontWeight: FontWeight.w600, color: WedlyColors.plum),
-      headlineMedium: TextStyle(fontFamily: 'CormorantGaramond', fontWeight: FontWeight.w600, color: WedlyColors.plum),
-      titleLarge: TextStyle(fontFamily: 'CormorantGaramond', fontWeight: FontWeight.w600, color: WedlyColors.plum),
+      displaySmall: TextStyle(
+        fontFamily: 'CormorantGaramond',
+        fontWeight: FontWeight.w600,
+        color: WedlyColors.plum,
+      ),
+      headlineLarge: TextStyle(
+        fontFamily: 'CormorantGaramond',
+        fontWeight: FontWeight.w600,
+        color: WedlyColors.plum,
+      ),
+      headlineMedium: TextStyle(
+        fontFamily: 'CormorantGaramond',
+        fontWeight: FontWeight.w600,
+        color: WedlyColors.plum,
+      ),
+      titleLarge: TextStyle(
+        fontFamily: 'CormorantGaramond',
+        fontWeight: FontWeight.w600,
+        color: WedlyColors.plum,
+      ),
       bodyLarge: TextStyle(color: WedlyColors.ink),
       bodyMedium: TextStyle(color: WedlyColors.ink),
       bodySmall: TextStyle(color: WedlyColors.muted),
@@ -58,10 +74,22 @@ ThemeData buildWedlyTheme() {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: WedlyColors.surface,
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: const BorderSide(color: WedlyColors.border)),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: const BorderSide(color: WedlyColors.border)),
-      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: const BorderSide(color: WedlyColors.rose, width: 1.5)),
-      errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: const BorderSide(color: Colors.redAccent)),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: WedlyColors.border),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: WedlyColors.border),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: WedlyColors.rose, width: 1.5),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: Colors.redAccent),
+      ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
     ),
     navigationBarTheme: const NavigationBarThemeData(
