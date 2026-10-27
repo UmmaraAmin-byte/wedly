@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -68,4 +70,49 @@ void main() {
       throwsA(anything),
     );
   });
+
+  test(
+    'file-backed wedding data survives closing and reopening SQLite',
+    () async {
+      final directory = await Directory.systemTemp.createTemp('wedly_db_test_');
+      final file = File('${directory.path}/wedly.sqlite');
+      AppDatabase? currentDatabase;
+      final warningsWereDisabled =
+          driftRuntimeOptions.dontWarnAboutMultipleDatabases;
+      driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
+
+      try {
+        currentDatabase = AppDatabase.forTesting(NativeDatabase(file));
+        final weddingId = await currentDatabase
+            .into(currentDatabase.weddings)
+            .insert(
+              WeddingsCompanion.insert(
+                name: 'Nadia & Ali',
+                weddingDate: DateTime(2027, 9, 10),
+                city: 'Islamabad',
+                guestCount: 120,
+                totalBudget: 2000000,
+              ),
+            );
+
+        await currentDatabase.close();
+        currentDatabase = AppDatabase.forTesting(NativeDatabase(file));
+        final wedding = await (currentDatabase.select(
+          currentDatabase.weddings,
+        )..where((row) => row.id.equals(weddingId))).getSingle();
+
+        expect(wedding.name, 'Nadia & Ali');
+        expect(wedding.city, 'Islamabad');
+        expect(wedding.guestCount, 120);
+      } finally {
+        try {
+          await currentDatabase?.close();
+          await directory.delete(recursive: true);
+        } finally {
+          driftRuntimeOptions.dontWarnAboutMultipleDatabases =
+              warningsWereDisabled;
+        }
+      }
+    },
+  );
 }

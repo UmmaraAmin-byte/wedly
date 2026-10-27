@@ -440,4 +440,3 @@ class _SectionHeading extends StatelessWidget {
     ],
   );
 }
-

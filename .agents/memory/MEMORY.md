@@ -1,0 +1,1 @@
+- [Drift package alignment](drift-package-alignment.md) — keep Drift packages SDK-compatible and verify native SQLite is available for tests.
